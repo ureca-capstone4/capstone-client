@@ -1,0 +1,24 @@
+.div-wrapper {
+  height: 23px;
+  position: relative;
+  width: 68px;
+  transition: background-color 0.2s ease; /* 부드러운 색 변화 효과 추가 */
+}
+
+.div-wrapper:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* 호버 시 배경색 설정 (투명도 조정 가능) */
+}
+
+.div-wrapper .div {
+  color: #322219;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: right;
+  top: -1px;
+  white-space: nowrap;
+}

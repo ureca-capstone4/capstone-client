@@ -1,0 +1,119 @@
+.login-screen {
+  background-color: #fff5cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.login-screen .div-2 {
+  background-color: #fff5cf;
+  height: 961px;
+  overflow: hidden;
+  position: relative;
+  width: 1675px;
+}
+
+.login-screen .frame {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 83px;
+  left: 79px;
+  position: absolute;
+  top: 491px;
+}
+
+.login-screen .yellow-bear {
+  height: 470px;
+  object-fit: cover;
+  position: relative;
+  width: 727px;
+}
+
+.login-screen .three-animals {
+  height: 466px;
+  object-fit: cover;
+  position: relative;
+  width: 637px;
+}
+
+.login-screen .login-frame {
+  align-items: flex-end;
+  background-color: #f3c623;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 406px;
+  left: 620px;
+  padding: 40px 30px;
+  position: absolute;
+  top: 62px;
+  width: 436px;
+}
+
+.login-screen .login-frame-inside {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 35px;
+  padding: 0px 30px;
+  position: relative;
+  width: 100%;
+}
+
+.login-screen .logo-black {
+  height: 133px;
+  position: relative;
+  width: 288px;
+}
+
+.login-screen .login-component {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 9px;
+  justify-content: center;
+  margin-left: -31.50px;
+  margin-right: -31.50px;
+  position: relative;
+  width: 379px;
+}
+
+.login-screen .email-password-frame {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  width: 259px;
+}
+
+.login-screen .text-input {
+  align-self: stretch;
+  background-color: #f0eee3;
+  border: 0;
+  border-radius: 20px;
+  color: #322219;
+  flex: 0 0 auto;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  height: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 14px 28px 14px 25px;
+  position: relative;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.login-screen .login-button-instance {
+  transition: all 0.2s ease !important;
+}
+
+.login-screen .view {
+  margin-bottom: -24.00px !important;
+}

@@ -1,0 +1,186 @@
+.create-profile {
+  background-color: #fff5cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.create-profile .overlap-wrapper {
+  background-color: #fff5cf;
+  height: 1024px;
+  overflow: hidden;
+  width: 1440px;
+}
+
+.create-profile .overlap {
+  height: 1490px;
+  left: -44px;
+  position: relative;
+  width: 1484px;
+}
+
+.create-profile .overlap-group-4 {
+  height: 1490px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1484px;
+}
+
+.create-profile .polygon {
+  height: 545px;
+  left: 319px;
+  position: absolute;
+  top: 0;
+  width: 629px;
+}
+
+.create-profile .ellipse {
+  background-color: #eb8317;
+  border-radius: 519px / 510px;
+  height: 1020px;
+  left: 0;
+  position: absolute;
+  top: 470px;
+  width: 1038px;
+}
+
+.create-profile .ellipse-2 {
+  background-color: #eb831778;
+  border-radius: 372px / 365.5px;
+  height: 731px;
+  left: 740px;
+  position: absolute;
+  top: 45px;
+  width: 744px;
+}
+
+.create-profile .frame-27 {
+  align-items: flex-end;
+  display: inline-flex;
+  gap: 27px;
+  left: 442px;
+  position: absolute;
+  top: 210px;
+}
+
+.create-profile .frame-28 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  position: relative;
+  width: 643.42px;
+}
+
+.create-profile .logo-white-3 {
+  height: 105px;
+  position: relative;
+  width: 220px;
+}
+
+.create-profile .frame-29 {
+  align-items: center;
+  align-self: stretch;
+  background-color: #f3c623;
+  border-radius: 30px;
+  box-shadow: 8px 8px 8px #00000066;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 51px;
+  padding: 35px 40px;
+  position: relative;
+  width: 100%;
+}
+
+.create-profile .boy-blue {
+  height: 250px;
+  object-fit: cover;
+  position: relative;
+  width: 239.42px;
+}
+
+.create-profile .frame-30 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  position: relative;
+  width: 273px;
+}
+
+.create-profile .div-wrapper-2 {
+  align-items: center;
+  align-self: stretch;
+  background-color: #f0eee3;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  height: 86px;
+  padding: 18px 22px 18px 25px;
+  position: relative;
+  width: 100%;
+}
+
+.create-profile .text-wrapper-12 {
+  color: #322219;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  width: 40px;
+  background-color: transparent;
+  border: 1px solid transparent; /* Makes border invisible */
+  outline: none;
+}
+
+.create-profile .text-wrapper-13 {
+  color: #322219;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  background-color: transparent;
+  border: 1px solid transparent; /* Makes border invisible */
+  outline: none;
+}
+
+.create-profile .gender-field {
+  align-items: center;
+  align-self: stretch;
+  background-color: #f0eee3;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  height: 87px;
+  padding: 18px 22px 18px 25px;
+  position: relative;
+  width: 100%;
+}
+
+.create-profile .save-button {
+  background-color: transparent;
+  border: none; /* 필요에 따라 버튼 테두리 제거 */
+  cursor: pointer; /* 클릭 가능 표시 */
+}
+
+.create-profile .save-icon {
+  height: 46.06px;
+  position: relative;
+  width: 49.18px;
+}
+
+.create-profile .go-back {
+  height: 43px;
+  left: 94px;
+  position: absolute;
+  top: 50px;
+  width: 50px;
+}
