@@ -1,0 +1,157 @@
+.select-profile {
+  background-color: #fff5cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.select-profile .overlap-wrapper {
+  background-color: #fff5cf;
+  height: 1024px;
+  overflow: hidden;
+  width: 1440px;
+}
+
+.select-profile .overlap {
+  height: 1490px;
+  left: -44px;
+  position: relative;
+  width: 1484px;
+}
+
+.select-profile .overlap-group {
+  height: 1490px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1484px;
+}
+
+.select-profile .polygon {
+  height: 545px;
+  left: 319px;
+  position: absolute;
+  top: 0;
+  width: 629px;
+}
+
+.select-profile .ellipse {
+  background-color: #eb8317;
+  border-radius: 519px / 510px;
+  height: 1020px;
+  left: 0;
+  position: absolute;
+  top: 470px;
+  width: 1038px;
+}
+
+.select-profile .div {
+  background-color: #eb831778;
+  border-radius: 372px / 365.5px;
+  height: 731px;
+  left: 740px;
+  position: absolute;
+  top: 45px;
+  width: 744px;
+}
+
+.select-profile .profile-autolayer {
+  align-items: flex-end;
+  display: flex;
+  gap: 50px;
+  height: 314px;
+  justify-content: center;
+  left: 158px;
+  position: absolute;
+  top: 430px;
+  width: 1212px;
+}
+
+.select-profile .profile-button {
+  align-items: center;
+  background-color: #f3c623;
+  border-radius: 30px;
+  box-shadow: 8px 8px 8px #00000066;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: -12.00px;
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+  width: 260px;
+}
+
+.select-profile .boy-blue {
+  height: 250px;
+  object-fit: cover;
+  position: relative;
+  width: 239.42px;
+}
+
+.select-profile .text-wrapper {
+  color: #10375c;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.select-profile .create-profile {
+  align-items: center;
+  background-color: #fff4cd;
+  border-radius: 30px;
+  box-shadow: 8px 8px 8px #00000066;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: -9.00px;
+  padding: 10px;
+  position: relative;
+  width: 260px;
+}
+
+.select-profile .img {
+  align-self: stretch;
+  height: 248px;
+  margin-left: -4.00px;
+  margin-right: -4.00px;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.select-profile .empty-space {
+  color: transparent;
+  font-family: "Inter", Helvetica;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.select-profile .logo-white {
+  height: 105px;
+  left: 668px;
+  position: absolute;
+  top: 210px;
+  width: 220px;
+}
+
+.select-profile .go-back {
+  height: 43px !important;
+  left: 89px !important;
+  position: absolute !important;
+  top: 45px !important;
+  width: 50px !important;
+}
