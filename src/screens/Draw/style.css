@@ -1,0 +1,306 @@
+.draw {
+  background-color: #fff5cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.draw .div-2 {
+  background-color: #fff5cf;
+  height: 832px;
+  position: relative;
+  width: 1280px;
+}
+
+.draw .overlap-group-2 {
+  height: 93px;
+  left: 0;
+  position: absolute;
+  top: -3px;
+  width: 1280px;
+}
+
+.draw .rectangle-3 {
+  background-color: #f3c623;
+  height: 90px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 1280px;
+}
+
+.draw .frame-10 {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 1242px;
+}
+
+.draw .frame-11 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 61px;
+  position: relative;
+}
+
+.draw .logo-white-2 {
+  height: 63px;
+  position: relative;
+  width: 132px;
+}
+
+.draw .frame-12 {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  position: relative;
+}
+
+.draw .yellow-bear-2 {
+  height: 90px;
+  object-fit: cover;
+  position: relative;
+  width: 134px;
+}
+
+.draw .three-animals-2 {
+  height: 74px;
+  object-fit: cover;
+  position: relative;
+  width: 101px;
+}
+
+.draw .frame-13 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 51px;
+  position: relative;
+}
+
+.draw .frame-14 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 35px;
+  position: relative;
+}
+
+.draw .frame-15 {
+  align-items: center;
+  background-color: #f4f6ff;
+  border-radius: 30px;
+  display: flex;
+  gap: 10px;
+  height: 45px;
+  justify-content: center;
+  padding: 5px 2px;
+  position: relative;
+  width: 120px;
+}
+
+.draw .text-wrapper-7 {
+  color: #572e16;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.draw .solid-interface-menu-1-instance {
+  height: 35px !important;
+  position: relative !important;
+  width: 35px !important;
+}
+
+.draw .frame-16 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 29px;
+  left: 425px;
+  position: absolute;
+  top: 318px;
+  width: 436px;
+}
+
+.draw .frame-17 {
+  align-items: flex-end;
+  align-self: stretch;
+  background-color: #f3c623;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 199px;
+  padding: 40px 30px;
+  position: relative;
+  width: 100%;
+}
+
+.draw .login-section-wrapper {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 35px;
+  margin-bottom: -10.00px;
+  padding: 0px 30px;
+  position: relative;
+  width: 100%;
+}
+
+.draw .login-section {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 9px;
+  justify-content: center;
+  margin-left: -31.50px;
+  margin-right: -31.50px;
+  position: relative;
+  width: 379px;
+}
+
+.draw .frame-18 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  position: relative;
+  width: 259px;
+}
+
+.draw .email-field {
+  align-items: center;
+  align-self: stretch;
+  background-color: #f0eee3;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  height: 60px;
+  padding: 18px 22px 18px 25px;
+  position: relative;
+  width: 100%;
+}
+
+.draw .text-wrapper-8 {
+  background-color: transparent; /* 배경색을 투명하게 설정 */
+  border: none; /* 기본 테두리를 없앰 */
+  outline: none; /* 포커스 시 테두리 없음 */
+  color: #322219;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.50px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.draw .password-field {
+  align-items: center;
+  align-self: stretch;
+  background-color: #f0eee3;
+  border-radius: 20px;
+  display: flex;
+  gap: 10px;
+  height: 60px;
+  padding: 14px 28px 14px 25px;
+  position: relative;
+  width: 100%;
+}
+
+.draw .text-wrapper-9 {
+  background-color: transparent; /* 배경색을 투명하게 설정 */
+  border: none; /* 기본 테두리를 없앰 */
+  outline: none; /* 포커스 시 테두리 없음 */
+  color: #322219;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.draw .login-button {
+  align-items: center;
+  background-color: #eb8317;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 129px;
+  justify-content: center;
+  padding: 53px 29px;
+  position: relative;
+  width: 110px;
+}
+
+/* 호버 시 배경색 어둡게 */
+.draw .login-button:hover {
+  background-color: #d67e12; /* 어두운 색상 (원하는 색상으로 설정) */
+}
+
+.draw .text-wrapper-10 {
+  color: #ffffff;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: -8.50px;
+  margin-right: -8.50px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.draw .view-2 {
+  align-items: center;
+  background-color: #f3c623;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  height: 42px;
+  justify-content: center;
+  padding: 9px 5px;
+  position: relative;
+  width: 176px;
+}
+
+
+/* 호버 시 배경색 어둡게 */
+.draw .view-2:hover {
+  background-color: #d9b820; /* 어두운 색상 (원하는 색상으로 설정) */
+}
+
+.draw .text-wrapper-11 {
+  color: #000000;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.50px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
