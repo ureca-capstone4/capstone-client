@@ -1,0 +1,34 @@
+.login-button {
+  align-items: center;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 129px;
+  justify-content: center;
+  padding: 53px 29px;
+  position: relative;
+  width: 111px;
+  transition: background-color 0.2s ease; /* 부드러운 색 변화 효과 추가 */
+}
+
+.login-button .text-wrapper {
+  color: #ffffff;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.login-button.default {
+  background-color: #eb8317; /* 기본 배경색 */
+}
+
+.login-button:hover {
+  background-color: #7e470e; /* 호버 시 배경색 */
+}
