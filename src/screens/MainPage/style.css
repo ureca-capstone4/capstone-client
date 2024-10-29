@@ -1,0 +1,172 @@
+.main-page {
+  background-color: #fff5cf;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-page .div-3 {
+  background-color: #fff5cf;
+  height: 832px;
+  overflow: hidden;
+  position: relative;
+  width: 1280px;
+}
+
+.main-page .overlap-group-3 {
+  height: 93px;
+  left: 0;
+  position: absolute;
+  top: -3px;
+  width: 1280px;
+}
+
+.main-page .rectangle-4 {
+  background-color: #f3c623;
+  height: 90px;
+  left: 0;
+  position: absolute;
+  top: 3px;
+  width: 1280px;
+}
+
+.main-page .frame-19 {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 1242px;
+}
+
+.main-page .frame-20 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 61px;
+  position: relative;
+}
+
+.main-page .logo-white-2 {
+  height: 63px;
+  position: relative;
+  width: 132px;
+}
+
+.main-page .frame-21 {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 2px;
+  position: relative;
+}
+
+.main-page .yellow-bear-3 {
+  height: 90px;
+  object-fit: cover;
+  position: relative;
+  width: 134px;
+}
+
+.main-page .three-animals-3 {
+  height: 74px;
+  object-fit: cover;
+  position: relative;
+  width: 101px;
+}
+
+.main-page .frame-22 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 51px;
+  position: relative;
+}
+
+.main-page .frame-23 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 35px;
+  position: relative;
+}
+
+.main-page .frame-24 {
+  align-items: center;
+  background-color: #f4f6ff;
+  border-radius: 30px;
+  display: flex;
+  gap: 10px;
+  height: 45px;
+  justify-content: center;
+  padding: 5px 2px;
+  position: relative;
+  width: 120px;
+}
+
+.main-page .text-wrapper-10 {
+  color: #572e16;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.main-page .solid-interface-menu-instance {
+  left: unset !important;
+  position: relative !important;
+  top: unset !important;
+}
+
+.main-page .frame-25 {
+  align-items: center;
+  background-color: #fffcf1;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 63px;
+  height: 739px;
+  left: 97px;
+  padding: 54px 50px 40px;
+  position: absolute;
+  top: 135px;
+  width: 1100px;
+}
+
+.main-page .text-wrapper-11 {
+  align-self: stretch;
+  color: #572e16;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  height: 28px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -1.00px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.main-page .frame-26 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 40px;
+  margin-left: -50.00px;
+  margin-right: -50.00px;
+  position: relative;
+  width: 1100px;
+}
+
+.main-page .outline-files-book {
+  height: 171px;
+  position: relative;
+  width: 185px;
+}
