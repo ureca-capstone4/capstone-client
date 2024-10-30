@@ -51,8 +51,12 @@ export const SelectProfile = () => {
   }, []);
 
   // 프로필 선택 핸들러
-  const handleSelectProfile = (id) => {
-    localStorage.setItem("kidId", id); // kid id를 localStorage에 저장
+  const handleSelectProfile = (id, profileImageUrl, name) => {
+    // 선택한 프로필 정보들을 localStorage에 저장
+    localStorage.setItem("kidId", id);
+    localStorage.setItem("kidProfileImageUrl", profileImageUrl);
+    localStorage.setItem("kidName", name);
+
     navigate("/main_page"); // 메인 페이지로 이동
   };
 
@@ -70,7 +74,9 @@ export const SelectProfile = () => {
                 <div
                   className="profile-button"
                   key={profile.id}
-                  onClick={() => handleSelectProfile(profile.id)} // 프로필 클릭 시 선택 핸들러 호출
+                  onClick={() =>
+                    handleSelectProfile(profile.id, profile.profileImageUrl, profile.name)
+                  }
                 >
                   <img
                     className="boy-blue"
