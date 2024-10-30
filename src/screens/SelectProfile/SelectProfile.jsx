@@ -29,12 +29,12 @@ export const SelectProfile = () => {
       console.log("Access Token:", accessToken); // 토큰 출력 로그 추가
 
       try {
-        const response = await axios.get('http://localhost:8080/api/v1/kids', {
+        const response = await axios.get("http://localhost:8080/api/v1/kids", {
           headers: {
             authorization: `Bearer ${accessToken}`,
           },
         });
-        
+
         // 응답이 성공적인지 확인하고, 데이터가 배열인지 체크
         const { kidsProfiles } = response.data; // kidsProfiles 추출
         if (Array.isArray(kidsProfiles)) {
@@ -81,17 +81,19 @@ export const SelectProfile = () => {
                 </div>
               ))}
 
-              {/* 항상 "프로필 생성" 버튼 표시 */}
-              <div className="create-profile">
-                <img
-                  className="img"
-                  alt="Create profile"
-                  src="/img/createprofilebutton.png"
-                  onClick={handleCreateProfile}
-                  style={{ cursor: "pointer" }}
-                />
-                <div className="empty-space">빈카안</div>
-              </div>
+              {/* 자녀가 3명 이하일 경우에만 "프로필 생성" 버튼 표시 */}
+              {profiles.length < 3 && (
+                <div className="create-profile">
+                  <img
+                    className="img"
+                    alt="Create profile"
+                    src="/img/createprofilebutton.png"
+                    onClick={handleCreateProfile}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <div className="empty-space">빈칸</div>
+                </div>
+              )}
             </div>
 
             <img
