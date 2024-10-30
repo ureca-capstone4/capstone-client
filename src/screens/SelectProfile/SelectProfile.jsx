@@ -81,17 +81,19 @@ export const SelectProfile = () => {
                 </div>
               ))}
 
-              {/* 항상 "프로필 생성" 버튼 표시 */}
-              <div className="create-profile">
-                <img
-                  className="img"
-                  alt="Create profile"
-                  src="/img/createprofilebutton.png"
-                  onClick={handleCreateProfile}
-                  style={{ cursor: "pointer" }}
-                />
-                <div className="empty-space">빈카안</div>
-              </div>
+              {/* 프로필이 3명 이하일 때만 "프로필 생성" 버튼 표시 */}
+              {profiles.length <= 3 && (
+                <div className="create-profile">
+                  <img
+                    className="img"
+                    alt="Create profile"
+                    src="/img/createprofilebutton.png"
+                    onClick={handleCreateProfile}
+                    style={{ cursor: "pointer" }}
+                  />
+                  <div className="empty-space">빈칸</div>
+                </div>
+              )}
             </div>
 
             <img
