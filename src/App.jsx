@@ -12,7 +12,7 @@ import { Draw } from "./screens/Draw";
 const router = createBrowserRouter([
   {
     path: "/*",
-    element: <AddBook />,
+    element: <LoginScreen />,
   },
   {
     path: "/add_book",
