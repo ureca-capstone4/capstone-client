@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <AddBook />,
   },
   {
-    path: "/book_detail",
+    path: "/book_detail/:bookId", // URL 파라미터를 사용하여 책 ID를 전달
     element: <BookDetail />,
   },
   {
