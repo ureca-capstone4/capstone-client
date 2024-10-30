@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Link 컴포넌트 추가
-import { Goback1 } from "../../icons/Goback1";
+import { Goback1 } from "../../../static/img/goback-1.svg";
 import "./style.css";
 
 export const SelectProfile = () => {
