@@ -24,4 +24,3 @@ yarn-error.log*
 
 # cache
 /.parcel-cache
-/dist
