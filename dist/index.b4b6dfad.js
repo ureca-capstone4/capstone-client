@@ -27328,7 +27328,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./screens/LoginScreen":"9AJZz","./screens/SignUpScreen":"av48u","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./screens/SelectProfile":"3f9wU","./screens/CreateProfile":"1E5ch","./screens/AddBook":"dQRBE","./screens/BookDetail":"cjvRY","./screens/MainPage":"4UyPg","./screens/Draw":"f5LNq"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./screens/AddBook":"dQRBE","./screens/BookDetail":"cjvRY","./screens/CreateProfile":"1E5ch","./screens/LoginScreen":"9AJZz","./screens/MainPage":"4UyPg","./screens/SelectProfile":"3f9wU","./screens/SignUpScreen":"av48u","./screens/Draw":"f5LNq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.27.0
  *
@@ -34520,7 +34520,1217 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"9AJZz":[function(require,module,exports) {
+},{}],"dQRBE":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AddBook", ()=>(0, _addBook.AddBook));
+var _addBook = require("./AddBook");
+
+},{"./AddBook":"cQQhs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cQQhs":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b983 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b983.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "AddBook", ()=>AddBook);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _solidInterfaceMenu1 = require("../../icons/SolidInterfaceMenu1");
+var _styleCss = require("./style.css");
+const AddBook = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "add-book",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "div",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "overlap-group",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "rectangle"
+                        }, void 0, false, {
+                            fileName: "src/screens/AddBook/AddBook.jsx",
+                            lineNumber: 10,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "logo-white",
+                                            alt: "Logo white",
+                                            src: "/img/logo-white-1-3.svg"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/AddBook/AddBook.jsx",
+                                            lineNumber: 14,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "frame-3",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "yellow-bear",
+                                                    alt: "Yellow bear",
+                                                    src: "/img/yellow-bear.png"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                                    lineNumber: 21,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "three-animals",
+                                                    alt: "Three animals",
+                                                    src: "/img/three-animals.png"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                                    lineNumber: 27,
+                                                    columnNumber: 17
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/AddBook/AddBook.jsx",
+                                            lineNumber: 20,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                    lineNumber: 13,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-4",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "frame-5",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "div-wrapper",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper",
+                                                        children: "\uD504\uB85C\uD544 \uBCC0\uACBD"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 38,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                                    lineNumber: 37,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "div-wrapper",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper",
+                                                        children: "\uC120\uCC29\uC21C \uC751\uBAA8"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 42,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                                    lineNumber: 41,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "div-wrapper",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper",
+                                                        children: "\uC720\uCE90\uD3EC"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 46,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                                    lineNumber: 45,
+                                                    columnNumber: 17
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/AddBook/AddBook.jsx",
+                                            lineNumber: 36,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu1.SolidInterfaceMenu1), {
+                                            className: "solid-interface-menu-1"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/AddBook/AddBook.jsx",
+                                            lineNumber: 50,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                    lineNumber: 35,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/AddBook/AddBook.jsx",
+                            lineNumber: 12,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/AddBook/AddBook.jsx",
+                    lineNumber: 9,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "frame-6",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-7",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "img",
+                                    alt: "Rectangle",
+                                    src: "/img/rectangle-2.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                    lineNumber: 59,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-wrapper",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "frame-8",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "frame-9",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-2",
+                                                        children: "\uC81C\uBAA9"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 64,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "rectangle-2"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 65,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        placeholder: "\uC81C\uBAA9 \uC785\uB825\uB780",
+                                                        className: "text-wrapper-3"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 66,
+                                                        columnNumber: 21
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/screens/AddBook/AddBook.jsx",
+                                                lineNumber: 63,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "frame-9",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-4",
+                                                        children: "\uC800\uC790"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 74,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "rectangle-2"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 76,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        placeholder: "\uC800\uC790 \uC785\uB825\uB780",
+                                                        className: "text-wrapper-3"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 77,
+                                                        columnNumber: 21
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/screens/AddBook/AddBook.jsx",
+                                                lineNumber: 73,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "frame-9",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-4",
+                                                        children: "\uC904\uAC70\uB9AC"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 85,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "rectangle-2"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 87,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        placeholder: "\uC904\uAC70\uB9AC \uC785\uB825\uB780",
+                                                        className: "text-wrapper-3"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 89,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/screens/AddBook/AddBook.jsx",
+                                                lineNumber: 84,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "frame-9",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-4",
+                                                        children: "\uB0B4\uC6A9"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 97,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "rectangle-2"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 99,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        placeholder: "\uB0B4\uC6A9 \uC785\uB825\uB780",
+                                                        className: "text-wrapper-3"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 100,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/screens/AddBook/AddBook.jsx",
+                                                lineNumber: 96,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "frame-9",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-5",
+                                                        children: "MBTI"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 108,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "rectangle-2"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 110,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                        type: "text",
+                                                        placeholder: "MBTI \uC790\uB3D9 \uC785\uB825",
+                                                        className: "text-wrapper-3"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                                        lineNumber: 111,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/screens/AddBook/AddBook.jsx",
+                                                lineNumber: 107,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/screens/AddBook/AddBook.jsx",
+                                        lineNumber: 62,
+                                        columnNumber: 15
+                                    }, undefined)
+                                }, void 0, false, {
+                                    fileName: "src/screens/AddBook/AddBook.jsx",
+                                    lineNumber: 61,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/AddBook/AddBook.jsx",
+                            lineNumber: 56,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "view",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "text-wrapper-6",
+                                children: "\uCC45 \uB4F1\uB85D"
+                            }, void 0, false, {
+                                fileName: "src/screens/AddBook/AddBook.jsx",
+                                lineNumber: 122,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/screens/AddBook/AddBook.jsx",
+                            lineNumber: 121,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/AddBook/AddBook.jsx",
+                    lineNumber: 55,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/screens/AddBook/AddBook.jsx",
+            lineNumber: 8,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/screens/AddBook/AddBook.jsx",
+        lineNumber: 7,
+        columnNumber: 5
+    }, undefined);
+};
+_c = AddBook;
+var _c;
+$RefreshReg$(_c, "AddBook");
+
+  $parcel$ReactRefreshHelpers$b983.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../icons/SolidInterfaceMenu1":"cXUE3","./style.css":"f4hdm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cXUE3":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SolidInterfaceMenu1", ()=>(0, _solidInterfaceMenu1.SolidInterfaceMenu1));
+var _solidInterfaceMenu1 = require("./SolidInterfaceMenu1");
+
+},{"./SolidInterfaceMenu1":"2oqdw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2oqdw":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$f846 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$f846.prelude(module);
+
+try {
+/*
+We're constantly improving the code you see. 
+Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
+*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SolidInterfaceMenu1", ()=>SolidInterfaceMenu1);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const SolidInterfaceMenu1 = ({ className })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        className: `solid-interface-menu-1 ${className}`,
+        fill: "none",
+        height: "35",
+        viewBox: "0 0 35 35",
+        width: "35",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                className: "path",
+                clipRule: "evenodd",
+                d: "M22.6042 17.3854C22.6042 16.7814 22.1145 16.2917 21.5104 16.2917H1.09375C0.489688 16.2917 0 16.7814 0 17.3854C0 17.9895 0.489688 18.4792 1.09375 18.4792H21.5104C22.1145 18.4792 22.6042 17.9895 22.6042 17.3854Z",
+                fill: "#572E16",
+                fillRule: "evenodd"
+            }, void 0, false, {
+                fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
+                lineNumber: 18,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                className: "path",
+                clipRule: "evenodd",
+                d: "M22.6042 10.0938C22.6042 9.48969 22.1145 9 21.5104 9H1.09375C0.489688 9 0 9.48969 0 10.0938C0 10.6978 0.489688 11.1875 1.09375 11.1875H21.5104C22.1145 11.1875 22.6042 10.6978 22.6042 10.0938Z",
+                fill: "#572E16",
+                fillRule: "evenodd"
+            }, void 0, false, {
+                fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
+                lineNumber: 26,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                className: "path",
+                clipRule: "evenodd",
+                d: "M22.6042 24.6771C22.6042 24.073 22.1145 23.5833 21.5104 23.5833H1.09375C0.489688 23.5833 0 24.073 0 24.6771C0 25.2811 0.489688 25.7708 1.09375 25.7708H21.5104C22.1145 25.7708 22.6042 25.2811 22.6042 24.6771Z",
+                fill: "#572E16",
+                fillRule: "evenodd"
+            }, void 0, false, {
+                fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
+                lineNumber: 34,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
+        lineNumber: 10,
+        columnNumber: 5
+    }, undefined);
+};
+_c = SolidInterfaceMenu1;
+var _c;
+$RefreshReg$(_c, "SolidInterfaceMenu1");
+
+  $parcel$ReactRefreshHelpers$f846.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
+"use strict";
+var Refresh = require("7422ead32dcc1e6b");
+function debounce(func, delay) {
+    {
+        let timeout = undefined;
+        let lastTime = 0;
+        return function(args) {
+            // Call immediately if last call was more than the delay ago.
+            // Otherwise, set a timeout. This means the first call is fast
+            // (for the common case of a single update), and subsequent updates
+            // are batched.
+            let now = Date.now();
+            if (now - lastTime > delay) {
+                lastTime = now;
+                func.call(null, args);
+            } else {
+                clearTimeout(timeout);
+                timeout = setTimeout(function() {
+                    timeout = undefined;
+                    lastTime = Date.now();
+                    func.call(null, args);
+                }, delay);
+            }
+        };
+    }
+}
+var enqueueUpdate = debounce(function() {
+    Refresh.performReactRefresh();
+}, 30);
+// Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function(module1) {
+    window.$RefreshReg$ = function(type, id) {
+        Refresh.register(type, module1.id + " " + id);
+    };
+    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function(module1) {
+    if (isReactRefreshBoundary(module1.exports)) {
+        registerExportsForReactRefresh(module1);
+        if (module1.hot) {
+            module1.hot.dispose(function(data) {
+                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
+                data.prevExports = module1.exports;
+            });
+            module1.hot.accept(function(getParents) {
+                var prevExports = module1.hot.data.prevExports;
+                var nextExports = module1.exports;
+                // Since we just executed the code for it, it's possible
+                // that the new exports make it ineligible for being a boundary.
+                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
+                // It can also become ineligible if its exports are incompatible
+                // with the previous exports.
+                // For example, if you add/remove/change exports, we'll want
+                // to re-execute the importing modules, and force those components
+                // to re-render. Similarly, if you convert a class component
+                // to a function, we want to invalidate the boundary.
+                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+                if (isNoLongerABoundary || didInvalidate) {
+                    // We'll be conservative. The only case in which we won't do a full
+                    // reload is if all parent modules are also refresh boundaries.
+                    // In that case we'll add them to the current queue.
+                    var parents = getParents();
+                    if (parents.length === 0) {
+                        // Looks like we bubbled to the root. Can't recover from that.
+                        window.location.reload();
+                        return;
+                    }
+                    return parents;
+                }
+                enqueueUpdate();
+            });
+        }
+    }
+};
+function isReactRefreshBoundary(exports) {
+    if (Refresh.isLikelyComponentType(exports)) return true;
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    return false;
+    var hasExports = false;
+    var areAllExportsComponents = true;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        hasExports = true;
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
+        return false;
+        var exportValue = exports[key];
+        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
+    }
+    return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+    var prevSignature = getRefreshBoundarySignature(prevExports);
+    var nextSignature = getRefreshBoundarySignature(nextExports);
+    if (prevSignature.length !== nextSignature.length) return true;
+    for(var i = 0; i < nextSignature.length; i++){
+        if (prevSignature[i] !== nextSignature[i]) return true;
+    }
+    return false;
+}
+// When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+    var signature = [];
+    signature.push(Refresh.getFamilyByType(exports));
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        if (key === "__esModule") continue;
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        signature.push(key);
+        signature.push(Refresh.getFamilyByType(exportValue));
+    }
+    return signature;
+}
+function registerExportsForReactRefresh(module1) {
+    var exports = module1.exports, id = module1.id;
+    Refresh.register(exports, id + " %exports%");
+    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+    let isESM = "__esModule" in exports;
+    for(var key in exports){
+        var desc = Object.getOwnPropertyDescriptor(exports, key);
+        if (desc && desc.get && !isESM) continue;
+        var exportValue = exports[key];
+        var typeID = id + " %exports% " + key;
+        Refresh.register(exportValue, typeID);
+    }
+}
+
+},{"7422ead32dcc1e6b":"786KC"}],"f4hdm":[function() {},{}],"cjvRY":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "BookDetail", ()=>(0, _bookDetail.BookDetail));
+var _bookDetail = require("./BookDetail");
+
+},{"./BookDetail":"dYdDg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dYdDg":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$5bf3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$5bf3.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "BookDetail", ()=>BookDetail);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _solidInterfaceMenu1 = require("../../icons/SolidInterfaceMenu1");
+var _styleCss = require("./style.css");
+const BookDetail = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "book-detail",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "div-2",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "overlap-group-2",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "rectangle-2"
+                        }, void 0, false, {
+                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                            lineNumber: 10,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-8",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-9",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "img",
+                                            alt: "Logo white",
+                                            src: "/img/logo-white-1.svg"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                            lineNumber: 14,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "frame-10",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "yellow-bear-2",
+                                                    alt: "Yellow bear",
+                                                    src: "/img/yellow-bear.png"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 21,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "three-animals-2",
+                                                    alt: "Three animals",
+                                                    src: "/img/three-animals.png"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 27,
+                                                    columnNumber: 17
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                            lineNumber: 20,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                    lineNumber: 13,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-11",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "frame-12",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-13",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-6",
+                                                        children: "\uD504\uB85C\uD544 \uBCC0\uACBD"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                        lineNumber: 38,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 37,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-13",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-6",
+                                                        children: "\uC120\uCC29\uC21C \uC751\uBAA8"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                        lineNumber: 42,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 41,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-13",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-6",
+                                                        children: "\uC720\uCE90\uD3EC"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                        lineNumber: 46,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 45,
+                                                    columnNumber: 17
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                            lineNumber: 36,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu1.SolidInterfaceMenu1), {
+                                            className: "solid-interface-menu-1-instance"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                            lineNumber: 50,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                    lineNumber: 35,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                            lineNumber: 12,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                    lineNumber: 9,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "frame-14",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "frame-15",
+                            alt: "Frame",
+                            src: "/img/frame-33.svg"
+                        }, void 0, false, {
+                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                            lineNumber: 56,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-16",
+                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "frame-17",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "frame-18",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-wrapper-7",
+                                                children: "\uC81C\uBAA9"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 61,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "rectangle-3"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 63,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-wrapper-8",
+                                                children: "\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 65,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                        lineNumber: 60,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "frame-18",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-wrapper-9",
+                                                children: "\uC800\uC790"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 69,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "rectangle-3"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 71,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-wrapper-8",
+                                                children: "\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 73,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                        lineNumber: 68,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "frame-18",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-wrapper-9",
+                                                children: "\uC904\uAC70\uB9AC"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 79,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "rectangle-3"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 81,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "text-wrapper-8",
+                                                children: "\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 83,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                        lineNumber: 78,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                lineNumber: 59,
+                                columnNumber: 13
+                            }, undefined)
+                        }, void 0, false, {
+                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                            lineNumber: 58,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                    lineNumber: 55,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/screens/BookDetail/BookDetail.jsx",
+            lineNumber: 8,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/screens/BookDetail/BookDetail.jsx",
+        lineNumber: 7,
+        columnNumber: 5
+    }, undefined);
+};
+_c = BookDetail;
+var _c;
+$RefreshReg$(_c, "BookDetail");
+
+  $parcel$ReactRefreshHelpers$5bf3.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../icons/SolidInterfaceMenu1":"cXUE3","./style.css":"3HWdZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HWdZ":[function() {},{}],"1E5ch":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CreateProfile", ()=>(0, _createProfile.CreateProfile));
+var _createProfile = require("./CreateProfile");
+
+},{"./CreateProfile":"1FD3T","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1FD3T":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0120 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0120.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "CreateProfile", ()=>CreateProfile);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _styleCss = require("./style.css");
+var _s = $RefreshSig$();
+const CreateProfile = ()=>{
+    _s();
+    const [name, setName] = (0, _react.useState)("");
+    const [birthdate, setBirthdate] = (0, _react.useState)("");
+    const [gender, setGender] = (0, _react.useState)("");
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const handleGoBack = ()=>{
+        navigate("/select_profile");
+    };
+    const handleSave = async ()=>{
+        const token = localStorage.getItem("accessToken");
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/kids", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify({
+                    name: name,
+                    birthDate: birthdate,
+                    gender: gender
+                })
+            });
+            const data = await response.json();
+            if (response.ok) {
+                alert("\uC790\uB140 \uCD94\uAC00 \uC131\uACF5");
+                navigate("/select_profile");
+            } else alert("\uC790\uB140 \uD504\uB85C\uD544 \uC0DD\uC131 \uC2E4\uD328");
+        } catch (error) {
+            alert("\uB0B4\uBD80 \uBB38\uC81C\uB85C \uC790\uB140 \uD504\uB85C\uD544 \uC0DD\uC131 \uBD88\uAC00");
+        }
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "create-profile",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "overlap-wrapper",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "overlap",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "overlap-group-4",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                className: "polygon",
+                                alt: "Polygon",
+                                src: "/img/polygon-1-2.svg"
+                            }, void 0, false, {
+                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                lineNumber: 52,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "ellipse"
+                            }, void 0, false, {
+                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                lineNumber: 54,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "ellipse-2"
+                            }, void 0, false, {
+                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                lineNumber: 55,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "frame-27",
+                                children: [
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "frame-28",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                className: "logo-white-3",
+                                                alt: "Logo white",
+                                                src: "/img/image.svg"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                lineNumber: 59,
+                                                columnNumber: 17
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "frame-29",
+                                                children: [
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                        className: "boy-blue",
+                                                        alt: "Boy blue",
+                                                        src: "/img/boy-blue.png"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                        lineNumber: 66,
+                                                        columnNumber: 19
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "frame-30",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                className: "div-wrapper-2",
+                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                    type: "text",
+                                                                    placeholder: "\uC774\uB984",
+                                                                    value: name,
+                                                                    onChange: (e)=>setName(e.target.value),
+                                                                    className: "text-wrapper-13"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                                    lineNumber: 74,
+                                                                    columnNumber: 23
+                                                                }, undefined)
+                                                            }, void 0, false, {
+                                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                                lineNumber: 73,
+                                                                columnNumber: 21
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                className: "div-wrapper-2",
+                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                    type: "text",
+                                                                    placeholder: "\uC0DD\uB144\uC6D4\uC77C",
+                                                                    value: birthdate,
+                                                                    onChange: (e)=>setBirthdate(e.target.value),
+                                                                    className: "text-wrapper-13"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                                    lineNumber: 84,
+                                                                    columnNumber: 23
+                                                                }, undefined)
+                                                            }, void 0, false, {
+                                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                                lineNumber: 83,
+                                                                columnNumber: 21
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                className: "gender-field",
+                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                                                                    type: "text",
+                                                                    placeholder: "\uC131\uBCC4",
+                                                                    value: gender,
+                                                                    onChange: (e)=>setGender(e.target.value),
+                                                                    className: "text-wrapper-13"
+                                                                }, void 0, false, {
+                                                                    fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                                    lineNumber: 94,
+                                                                    columnNumber: 23
+                                                                }, undefined)
+                                                            }, void 0, false, {
+                                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                                lineNumber: 93,
+                                                                columnNumber: 21
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                        lineNumber: 72,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                                lineNumber: 65,
+                                                columnNumber: 17
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                        lineNumber: 58,
+                                        columnNumber: 15
+                                    }, undefined),
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: "save-button",
+                                        onClick: handleSave,
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "save-icon",
+                                            alt: "Save icon",
+                                            src: "/img/saveicon.svg"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                            lineNumber: 106,
+                                            columnNumber: 17
+                                        }, undefined)
+                                    }, void 0, false, {
+                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                        lineNumber: 105,
+                                        columnNumber: 15
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                                lineNumber: 57,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                        lineNumber: 51,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                        className: "go-back",
+                        alt: "Go back",
+                        src: "/img/goback-1.svg",
+                        onClick: handleGoBack,
+                        style: {
+                            cursor: "pointer"
+                        }
+                    }, void 0, false, {
+                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                        lineNumber: 115,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+                lineNumber: 50,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+            lineNumber: 49,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
+        lineNumber: 48,
+        columnNumber: 5
+    }, undefined);
+};
+_s(CreateProfile, "6OXPa2+N+RL/vNshSav2+7NYPMA=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
+_c = CreateProfile;
+var _c;
+$RefreshReg$(_c, "CreateProfile");
+
+  $parcel$ReactRefreshHelpers$0120.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./style.css":"e442A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"e442A":[function() {},{}],"9AJZz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LoginScreen", ()=>(0, _loginScreen.LoginScreen));
@@ -34713,7 +35923,7 @@ $RefreshReg$(_c, "LoginScreen");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../components/DivWrapper":"RBSoy","../../components/LoginButton":"1GKHT","./style.css":"hTA9P","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"RBSoy":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../components/DivWrapper":"RBSoy","../../components/LoginButton":"1GKHT","./style.css":"hTA9P","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"RBSoy":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "DivWrapper", ()=>(0, _divWrapper.DivWrapper));
@@ -34775,145 +35985,7 @@ $RefreshReg$(_c, "DivWrapper");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"fuiHb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"fuiHb":[function() {},{}],"km3Ru":[function(require,module,exports) {
-"use strict";
-var Refresh = require("7422ead32dcc1e6b");
-function debounce(func, delay) {
-    {
-        let timeout = undefined;
-        let lastTime = 0;
-        return function(args) {
-            // Call immediately if last call was more than the delay ago.
-            // Otherwise, set a timeout. This means the first call is fast
-            // (for the common case of a single update), and subsequent updates
-            // are batched.
-            let now = Date.now();
-            if (now - lastTime > delay) {
-                lastTime = now;
-                func.call(null, args);
-            } else {
-                clearTimeout(timeout);
-                timeout = setTimeout(function() {
-                    timeout = undefined;
-                    lastTime = Date.now();
-                    func.call(null, args);
-                }, delay);
-            }
-        };
-    }
-}
-var enqueueUpdate = debounce(function() {
-    Refresh.performReactRefresh();
-}, 30);
-// Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function(module1) {
-    window.$RefreshReg$ = function(type, id) {
-        Refresh.register(type, module1.id + " " + id);
-    };
-    window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function(module1) {
-    if (isReactRefreshBoundary(module1.exports)) {
-        registerExportsForReactRefresh(module1);
-        if (module1.hot) {
-            module1.hot.dispose(function(data) {
-                if (Refresh.hasUnrecoverableErrors()) window.location.reload();
-                data.prevExports = module1.exports;
-            });
-            module1.hot.accept(function(getParents) {
-                var prevExports = module1.hot.data.prevExports;
-                var nextExports = module1.exports;
-                // Since we just executed the code for it, it's possible
-                // that the new exports make it ineligible for being a boundary.
-                var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
-                // It can also become ineligible if its exports are incompatible
-                // with the previous exports.
-                // For example, if you add/remove/change exports, we'll want
-                // to re-execute the importing modules, and force those components
-                // to re-render. Similarly, if you convert a class component
-                // to a function, we want to invalidate the boundary.
-                var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-                if (isNoLongerABoundary || didInvalidate) {
-                    // We'll be conservative. The only case in which we won't do a full
-                    // reload is if all parent modules are also refresh boundaries.
-                    // In that case we'll add them to the current queue.
-                    var parents = getParents();
-                    if (parents.length === 0) {
-                        // Looks like we bubbled to the root. Can't recover from that.
-                        window.location.reload();
-                        return;
-                    }
-                    return parents;
-                }
-                enqueueUpdate();
-            });
-        }
-    }
-};
-function isReactRefreshBoundary(exports) {
-    if (Refresh.isLikelyComponentType(exports)) return true;
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    return false;
-    var hasExports = false;
-    var areAllExportsComponents = true;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        hasExports = true;
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) // Don't invoke getters for CJS as they may have side effects.
-        return false;
-        var exportValue = exports[key];
-        if (!Refresh.isLikelyComponentType(exportValue)) areAllExportsComponents = false;
-    }
-    return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-    var prevSignature = getRefreshBoundarySignature(prevExports);
-    var nextSignature = getRefreshBoundarySignature(nextExports);
-    if (prevSignature.length !== nextSignature.length) return true;
-    for(var i = 0; i < nextSignature.length; i++){
-        if (prevSignature[i] !== nextSignature[i]) return true;
-    }
-    return false;
-}
-// When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-    var signature = [];
-    signature.push(Refresh.getFamilyByType(exports));
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        if (key === "__esModule") continue;
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        signature.push(key);
-        signature.push(Refresh.getFamilyByType(exportValue));
-    }
-    return signature;
-}
-function registerExportsForReactRefresh(module1) {
-    var exports = module1.exports, id = module1.id;
-    Refresh.register(exports, id + " %exports%");
-    if (exports == null || typeof exports !== "object") // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-    let isESM = "__esModule" in exports;
-    for(var key in exports){
-        var desc = Object.getOwnPropertyDescriptor(exports, key);
-        if (desc && desc.get && !isESM) continue;
-        var exportValue = exports[key];
-        var typeID = id + " %exports% " + key;
-        Refresh.register(exportValue, typeID);
-    }
-}
-
-},{"7422ead32dcc1e6b":"786KC"}],"1GKHT":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./style.css":"fuiHb","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"fuiHb":[function() {},{}],"1GKHT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "LoginButton", ()=>(0, _loginButton.LoginButton));
@@ -35716,7 +36788,596 @@ printWarning = function(text) {
 };
 module.exports = checkPropTypes;
 
-},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"aaA0o":[function() {},{}],"hTA9P":[function() {},{}],"av48u":[function(require,module,exports) {
+},{"24ba1e58d167a82c":"jZTZJ","898bc82f39d83f7c":"fqKuf"}],"aaA0o":[function() {},{}],"hTA9P":[function() {},{}],"4UyPg":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainPage", ()=>(0, _mainPage.MainPage));
+var _mainPage = require("./MainPage");
+
+},{"./MainPage":"gG74V","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gG74V":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$cddb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$cddb.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MainPage", ()=>MainPage);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _solidInterfaceMenu = require("../../components/SolidInterfaceMenu");
+var _styleCss = require("./style.css");
+const MainPage = ()=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "main-page",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "div-3",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "overlap-group-3",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "rectangle-4"
+                        }, void 0, false, {
+                            fileName: "src/screens/MainPage/MainPage.jsx",
+                            lineNumber: 10,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-19",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-20",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "logo-white-2",
+                                            alt: "Logo white",
+                                            src: "/img/logo-white-1-3.svg"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/MainPage/MainPage.jsx",
+                                            lineNumber: 14,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "frame-21",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "yellow-bear-3",
+                                                    alt: "Yellow bear",
+                                                    src: "/img/yellow-bear.png"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                                    lineNumber: 21,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "three-animals-3",
+                                                    alt: "Three animals",
+                                                    src: "/img/three-animals.png"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                                    lineNumber: 27,
+                                                    columnNumber: 17
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/MainPage/MainPage.jsx",
+                                            lineNumber: 20,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 13,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-22",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "frame-23",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-24",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-10",
+                                                        children: "\uD30C\uD2B8\uD30C\uD2B81"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/MainPage/MainPage.jsx",
+                                                        lineNumber: 38,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                                    lineNumber: 37,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-24",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-10",
+                                                        children: "\uD30C\uD2B8\uD30C\uD2B82"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/MainPage/MainPage.jsx",
+                                                        lineNumber: 42,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                                    lineNumber: 41,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-24",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "text-wrapper-10",
+                                                        children: "\uD30C\uD2B8\uD30C\uD2B83"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/MainPage/MainPage.jsx",
+                                                        lineNumber: 46,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                                    lineNumber: 45,
+                                                    columnNumber: 17
+                                                }, undefined)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/MainPage/MainPage.jsx",
+                                            lineNumber: 36,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu.SolidInterfaceMenu), {
+                                            className: "solid-interface-menu-instance"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/MainPage/MainPage.jsx",
+                                            lineNumber: 50,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 35,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/MainPage/MainPage.jsx",
+                            lineNumber: 12,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/MainPage/MainPage.jsx",
+                    lineNumber: 9,
+                    columnNumber: 9
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "frame-25",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "text-wrapper-11",
+                            children: "\uC624\uB298\uC740 \uC5B4\uB5A4 \uCC45\uC744 \uC77D\uC5B4\uBCFC\uAE4C?"
+                        }, void 0, false, {
+                            fileName: "src/screens/MainPage/MainPage.jsx",
+                            lineNumber: 56,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-26",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark.png"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 59,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-1.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 65,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-2.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 71,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-3.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 77,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-4.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 83,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/MainPage/MainPage.jsx",
+                            lineNumber: 58,
+                            columnNumber: 11
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-26",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-5.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 91,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-6.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 97,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-7.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 103,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-8.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 109,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "outline-files-book",
+                                    alt: "Outline files book",
+                                    src: "/img/outline-files-book-mark-9.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/MainPage/MainPage.jsx",
+                                    lineNumber: 115,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/MainPage/MainPage.jsx",
+                            lineNumber: 90,
+                            columnNumber: 11
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/MainPage/MainPage.jsx",
+                    lineNumber: 55,
+                    columnNumber: 9
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/screens/MainPage/MainPage.jsx",
+            lineNumber: 8,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/screens/MainPage/MainPage.jsx",
+        lineNumber: 7,
+        columnNumber: 5
+    }, undefined);
+};
+_c = MainPage;
+var _c;
+$RefreshReg$(_c, "MainPage");
+
+  $parcel$ReactRefreshHelpers$cddb.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../components/SolidInterfaceMenu":"lsDde","./style.css":"l3TS4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lsDde":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SolidInterfaceMenu", ()=>(0, _solidInterfaceMenu.SolidInterfaceMenu));
+var _solidInterfaceMenu = require("./SolidInterfaceMenu");
+
+},{"./SolidInterfaceMenu":"8UCLv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8UCLv":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$7d9d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$7d9d.prelude(module);
+
+try {
+/*
+We're constantly improving the code you see. 
+Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
+*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SolidInterfaceMenu", ()=>SolidInterfaceMenu);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _styleCss = require("./style.css");
+const SolidInterfaceMenu = ({ className })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+        className: `solid-interface-menu ${className}`,
+        alt: "Solid interface menu",
+        src: "/img/solid-interface-menu.png"
+    }, void 0, false, {
+        fileName: "src/components/SolidInterfaceMenu/SolidInterfaceMenu.jsx",
+        lineNumber: 11,
+        columnNumber: 5
+    }, undefined);
+};
+_c = SolidInterfaceMenu;
+var _c;
+$RefreshReg$(_c, "SolidInterfaceMenu");
+
+  $parcel$ReactRefreshHelpers$7d9d.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"43gkV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"43gkV":[function() {},{}],"l3TS4":[function() {},{}],"3f9wU":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SelectProfile", ()=>(0, _selectProfile.SelectProfile));
+var _selectProfile = require("./SelectProfile");
+
+},{"./SelectProfile":"1pjpr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1pjpr":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$007f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$007f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "SelectProfile", ()=>SelectProfile);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom"); // Link 컴포넌트 추가
+var _goback1Svg = require("../../../static/img/goback-1.svg");
+var _styleCss = require("./style.css");
+var _s = $RefreshSig$();
+const SelectProfile = ()=>{
+    _s();
+    const [profiles, setProfiles] = (0, _react.useState)([]);
+    // 백엔드에서 프로필 데이터 가져오기 (예시)
+    (0, _react.useEffect)(()=>{
+        setProfiles([
+            {
+                id: 1,
+                name: "\uD30C\uB791\uC774",
+                image: "/img/boy-blue.png"
+            },
+            {
+                id: 2,
+                name: "\uB178\uB791\uC774",
+                image: "/img/yellow-boy.png"
+            },
+            {
+                id: 3,
+                name: "\uBE68\uAC15\uC774",
+                image: "/img/red-boy.png"
+            }
+        ]);
+    }, []);
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "select-profile",
+        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "overlap-wrapper",
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "overlap",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                        className: "overlap-group",
+                        children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                className: "polygon",
+                                alt: "Polygon",
+                                src: "/img/polygon-1.svg"
+                            }, void 0, false, {
+                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                lineNumber: 23,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "ellipse"
+                            }, void 0, false, {
+                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                lineNumber: 24,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "div"
+                            }, void 0, false, {
+                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                lineNumber: 25,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "profile-autolayer",
+                                children: [
+                                    profiles.map((profile)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "profile-button",
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                    className: "boy-blue",
+                                                    alt: profile.name,
+                                                    src: profile.image
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                                    lineNumber: 30,
+                                                    columnNumber: 19
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "text-wrapper",
+                                                    children: profile.name
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                                    lineNumber: 35,
+                                                    columnNumber: 19
+                                                }, undefined)
+                                            ]
+                                        }, profile.id, true, {
+                                            fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                            lineNumber: 29,
+                                            columnNumber: 17
+                                        }, undefined)),
+                                    profiles.length <= 3 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                        className: "create-profile",
+                                        children: [
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                className: "img",
+                                                alt: "Create profile",
+                                                src: "/img/createprofilebutton.png"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                                lineNumber: 42,
+                                                columnNumber: 19
+                                            }, undefined),
+                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "empty-space",
+                                                children: "\uBCF4\uB77C\uC544"
+                                            }, void 0, false, {
+                                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                                lineNumber: 47,
+                                                columnNumber: 19
+                                            }, undefined)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                        lineNumber: 41,
+                                        columnNumber: 17
+                                    }, undefined)
+                                ]
+                            }, void 0, true, {
+                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                lineNumber: 27,
+                                columnNumber: 13
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                className: "logo-white",
+                                alt: "Logo white",
+                                src: "/img/logowhite.svg"
+                            }, void 0, false, {
+                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                                lineNumber: 52,
+                                columnNumber: 13
+                            }, undefined)
+                        ]
+                    }, void 0, true, {
+                        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                        lineNumber: 22,
+                        columnNumber: 11
+                    }, undefined),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/login_screen",
+                        className: "go-back",
+                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _goback1Svg.Goback1), {}, void 0, false, {
+                            fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                            lineNumber: 61,
+                            columnNumber: 13
+                        }, undefined)
+                    }, void 0, false, {
+                        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                        lineNumber: 60,
+                        columnNumber: 11
+                    }, undefined)
+                ]
+            }, void 0, true, {
+                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+                lineNumber: 21,
+                columnNumber: 9
+            }, undefined)
+        }, void 0, false, {
+            fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+            lineNumber: 20,
+            columnNumber: 7
+        }, undefined)
+    }, void 0, false, {
+        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
+        lineNumber: 19,
+        columnNumber: 5
+    }, undefined);
+};
+_s(SelectProfile, "U6ddyJEDNWmntgnrXHeW1rXvb3s=");
+_c = SelectProfile;
+var _c;
+$RefreshReg$(_c, "SelectProfile");
+
+  $parcel$ReactRefreshHelpers$007f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./style.css":"fPWmY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../../static/img/goback-1.svg":"c6iC0"}],"fPWmY":[function() {},{}],"c6iC0":[function(require,module,exports) {
+module.exports = require("94a81c13ee2879e2").getBundleURL("byUka") + "goback-1.eb665d21.svg" + "?" + Date.now();
+
+},{"94a81c13ee2879e2":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"av48u":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SignUpScreen", ()=>(0, _signUpScreen.SignUpScreen));
@@ -35961,7 +37622,7 @@ $RefreshReg$(_c, "SignUpScreen");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"4TVFp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","axios":"jo6P5"}],"4TVFp":[function() {},{}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./style.css":"4TVFp","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"4TVFp":[function() {},{}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
@@ -40763,1684 +42424,7 @@ Object.entries(HttpStatusCode).forEach(([key, value])=>{
 });
 exports.default = HttpStatusCode;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3f9wU":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SelectProfile", ()=>(0, _selectProfile.SelectProfile));
-var _selectProfile = require("./SelectProfile");
-
-},{"./SelectProfile":"1pjpr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1pjpr":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$007f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$007f.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SelectProfile", ()=>SelectProfile);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom"); // Link 컴포넌트 추가
-var _goback1 = require("../../icons/Goback1");
-var _styleCss = require("./style.css");
-var _s = $RefreshSig$();
-const SelectProfile = ()=>{
-    _s();
-    const [profiles, setProfiles] = (0, _react.useState)([]);
-    // 백엔드에서 프로필 데이터 가져오기 (예시)
-    (0, _react.useEffect)(()=>{
-        setProfiles([
-            {
-                id: 1,
-                name: "\uD30C\uB791\uC774",
-                image: "/img/boy-blue.png"
-            },
-            {
-                id: 2,
-                name: "\uB178\uB791\uC774",
-                image: "/img/yellow-boy.png"
-            },
-            {
-                id: 3,
-                name: "\uBE68\uAC15\uC774",
-                image: "/img/red-boy.png"
-            }
-        ]);
-    }, []);
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "select-profile",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "overlap-wrapper",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "overlap",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "overlap-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "polygon",
-                                alt: "Polygon",
-                                src: "/img/polygon-1.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 23,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse"
-                            }, void 0, false, {
-                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 24,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "div"
-                            }, void 0, false, {
-                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 25,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "profile-autolayer",
-                                children: [
-                                    profiles.map((profile)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "profile-button",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "boy-blue",
-                                                    alt: profile.name,
-                                                    src: profile.image
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                    lineNumber: 30,
-                                                    columnNumber: 19
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "text-wrapper",
-                                                    children: profile.name
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                    lineNumber: 35,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            ]
-                                        }, profile.id, true, {
-                                            fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                            lineNumber: 29,
-                                            columnNumber: 17
-                                        }, undefined)),
-                                    profiles.length <= 3 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "create-profile",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                className: "img",
-                                                alt: "Create profile",
-                                                src: "/img/createprofilebutton.png"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                lineNumber: 42,
-                                                columnNumber: 19
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "empty-space",
-                                                children: "\uBCF4\uB77C\uC544"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                lineNumber: 47,
-                                                columnNumber: 19
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                        lineNumber: 41,
-                                        columnNumber: 17
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 27,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "logo-white",
-                                alt: "Logo white",
-                                src: "/img/logowhite.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 52,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                        lineNumber: 22,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
-                        to: "/login_screen",
-                        className: "go-back",
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _goback1.Goback1), {}, void 0, false, {
-                            fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                            lineNumber: 61,
-                            columnNumber: 13
-                        }, undefined)
-                    }, void 0, false, {
-                        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                        lineNumber: 60,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                lineNumber: 21,
-                columnNumber: 9
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-            lineNumber: 20,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-        lineNumber: 19,
-        columnNumber: 5
-    }, undefined);
-};
-_s(SelectProfile, "U6ddyJEDNWmntgnrXHeW1rXvb3s=");
-_c = SelectProfile;
-var _c;
-$RefreshReg$(_c, "SelectProfile");
-
-  $parcel$ReactRefreshHelpers$007f.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"fPWmY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../../icons/Goback1":"gnrDk","react-router-dom":"9xmpe"}],"fPWmY":[function() {},{}],"gnrDk":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Goback1", ()=>(0, _goback1.Goback1));
-var _goback1 = require("./Goback1");
-
-},{"./Goback1":"40Wnk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"40Wnk":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$7857 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$7857.prelude(module);
-
-try {
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Goback1", ()=>Goback1);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const Goback1 = ({ className })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-        className: `goback-1 ${className}`,
-        fill: "none",
-        height: "43",
-        viewBox: "0 0 50 43",
-        width: "50",
-        xmlns: "http://www.w3.org/2000/svg",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-            className: "path",
-            d: "M42.596 28.7756C42.7963 29.1157 42.7243 29.5276 42.4165 29.8021C42.1087 30.0766 41.6327 30.1534 41.2302 29.9936L36.0232 27.9269C31.647 26.1899 26.8712 25.3952 22.1038 25.5821C22.0471 26.8988 21.9631 28.2147 21.8517 29.5294L21.7091 31.2117C21.6226 32.2323 20.2993 32.8029 19.2966 32.2519C14.9445 29.8603 11.1611 26.7787 8.14791 23.1714L7.18919 22.0236C6.92831 21.7113 6.92831 21.2906 7.18919 20.9783L8.14791 19.8306C11.1611 16.2232 14.9445 13.1416 19.2966 10.7501C20.2993 10.1991 21.6226 10.7696 21.7091 11.7902L21.8517 13.4725C21.9473 14.601 22.0228 15.7305 22.0781 16.8604H23.4178C30.8782 16.8604 37.7047 20.4682 41.0749 26.1922L42.596 28.7756Z",
-            fill: "#B66232"
-        }, void 0, false, {
-            fileName: "src/icons/Goback1/Goback1.jsx",
-            lineNumber: 18,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/icons/Goback1/Goback1.jsx",
-        lineNumber: 10,
-        columnNumber: 5
-    }, undefined);
-};
-_c = Goback1;
-var _c;
-$RefreshReg$(_c, "Goback1");
-
-  $parcel$ReactRefreshHelpers$7857.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1E5ch":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "CreateProfile", ()=>(0, _createProfile.CreateProfile));
-var _createProfile = require("./CreateProfile");
-
-},{"./CreateProfile":"1FD3T","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1FD3T":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$0120 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$0120.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "CreateProfile", ()=>CreateProfile);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _styleCss = require("./style.css");
-var _s = $RefreshSig$();
-const CreateProfile = ()=>{
-    _s();
-    const [name, setName] = (0, _react.useState)("");
-    const [birthdate, setBirthdate] = (0, _react.useState)("");
-    const [gender, setGender] = (0, _react.useState)("");
-    const navigate = (0, _reactRouterDom.useNavigate)();
-    const handleGoBack = ()=>{
-        navigate("/select_profile");
-    };
-    const handleSave = async ()=>{
-        const token = localStorage.getItem("accessToken");
-        try {
-            const response = await fetch("http://localhost:8080/api/v1/kids", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    name: name,
-                    birthDate: birthdate,
-                    gender: gender
-                })
-            });
-            const data = await response.json();
-            if (response.ok) {
-                alert("\uC790\uB140 \uCD94\uAC00 \uC131\uACF5");
-                navigate("/select_profile");
-            } else alert("\uC790\uB140 \uD504\uB85C\uD544 \uC0DD\uC131 \uC2E4\uD328");
-        } catch (error) {
-            alert("\uB0B4\uBD80 \uBB38\uC81C\uB85C \uC790\uB140 \uD504\uB85C\uD544 \uC0DD\uC131 \uBD88\uAC00");
-        }
-    };
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "create-profile",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "overlap-wrapper",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "overlap",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "overlap-group-4",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "polygon",
-                                alt: "Polygon",
-                                src: "/img/polygon-1-2.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                lineNumber: 52,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse"
-                            }, void 0, false, {
-                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                lineNumber: 54,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse-2"
-                            }, void 0, false, {
-                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                lineNumber: 55,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "frame-27",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "frame-28",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                className: "logo-white-3",
-                                                alt: "Logo white",
-                                                src: "/img/image.svg"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                lineNumber: 59,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-29",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                        className: "boy-blue",
-                                                        alt: "Boy blue",
-                                                        src: "/img/boy-blue.png"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                        lineNumber: 66,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "frame-30",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "div-wrapper-2",
-                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                                    type: "text",
-                                                                    placeholder: "\uC774\uB984",
-                                                                    value: name,
-                                                                    onChange: (e)=>setName(e.target.value),
-                                                                    className: "text-wrapper-13"
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                                    lineNumber: 74,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                                lineNumber: 73,
-                                                                columnNumber: 21
-                                                            }, undefined),
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "div-wrapper-2",
-                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                                    type: "text",
-                                                                    placeholder: "\uC0DD\uB144\uC6D4\uC77C",
-                                                                    value: birthdate,
-                                                                    onChange: (e)=>setBirthdate(e.target.value),
-                                                                    className: "text-wrapper-13"
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                                    lineNumber: 84,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                                lineNumber: 83,
-                                                                columnNumber: 21
-                                                            }, undefined),
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "gender-field",
-                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                                    type: "text",
-                                                                    placeholder: "\uC131\uBCC4",
-                                                                    value: gender,
-                                                                    onChange: (e)=>setGender(e.target.value),
-                                                                    className: "text-wrapper-13"
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                                    lineNumber: 94,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                                lineNumber: 93,
-                                                                columnNumber: 21
-                                                            }, undefined)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                        lineNumber: 72,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                                lineNumber: 65,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                        lineNumber: 58,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        className: "save-button",
-                                        onClick: handleSave,
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "save-icon",
-                                            alt: "Save icon",
-                                            src: "/img/saveicon.svg"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                            lineNumber: 106,
-                                            columnNumber: 17
-                                        }, undefined)
-                                    }, void 0, false, {
-                                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                        lineNumber: 105,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                                lineNumber: 57,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                        lineNumber: 51,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                        className: "go-back",
-                        alt: "Go back",
-                        src: "/img/goback-1.svg",
-                        onClick: handleGoBack,
-                        style: {
-                            cursor: "pointer"
-                        }
-                    }, void 0, false, {
-                        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                        lineNumber: 115,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
-                fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-                lineNumber: 50,
-                columnNumber: 9
-            }, undefined)
-        }, void 0, false, {
-            fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-            lineNumber: 49,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/screens/CreateProfile/CreateProfile.jsx",
-        lineNumber: 48,
-        columnNumber: 5
-    }, undefined);
-};
-_s(CreateProfile, "6OXPa2+N+RL/vNshSav2+7NYPMA=", false, function() {
-    return [
-        (0, _reactRouterDom.useNavigate)
-    ];
-});
-_c = CreateProfile;
-var _c;
-$RefreshReg$(_c, "CreateProfile");
-
-  $parcel$ReactRefreshHelpers$0120.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"e442A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"e442A":[function() {},{}],"dQRBE":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "AddBook", ()=>(0, _addBook.AddBook));
-var _addBook = require("./AddBook");
-
-},{"./AddBook":"cQQhs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cQQhs":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$b983 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$b983.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "AddBook", ()=>AddBook);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _solidInterfaceMenu1 = require("../../icons/SolidInterfaceMenu1");
-var _styleCss = require("./style.css");
-const AddBook = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "add-book",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "div",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "overlap-group",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "rectangle"
-                        }, void 0, false, {
-                            fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 10,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "logo-white",
-                                            alt: "Logo white",
-                                            src: "/img/logo-white-1-3.svg"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 14,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-3",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "yellow-bear",
-                                                    alt: "Yellow bear",
-                                                    src: "/img/yellow-bear.png"
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 21,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "three-animals",
-                                                    alt: "Three animals",
-                                                    src: "/img/three-animals.png"
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 27,
-                                                    columnNumber: 17
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 20,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 13,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-4",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-5",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "div-wrapper",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper",
-                                                        children: "\uD504\uB85C\uD544 \uBCC0\uACBD"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 38,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 37,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "div-wrapper",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper",
-                                                        children: "\uC120\uCC29\uC21C \uC751\uBAA8"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 42,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 41,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "div-wrapper",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper",
-                                                        children: "\uC720\uCE90\uD3EC"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 46,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 45,
-                                                    columnNumber: 17
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 36,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu1.SolidInterfaceMenu1), {
-                                            className: "solid-interface-menu-1"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 50,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 35,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 12,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/screens/AddBook/AddBook.jsx",
-                    lineNumber: 9,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "frame-6",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame-7",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "img",
-                                    alt: "Rectangle",
-                                    src: "/img/rectangle-2.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 59,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-wrapper",
-                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "frame-8",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-2",
-                                                        children: "\uC81C\uBAA9"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 64,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 65,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uC81C\uBAA9 \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 66,
-                                                        columnNumber: 21
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 63,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-4",
-                                                        children: "\uC800\uC790"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 74,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 76,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uC800\uC790 \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 77,
-                                                        columnNumber: 21
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 73,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-4",
-                                                        children: "\uC904\uAC70\uB9AC"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 85,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 87,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uC904\uAC70\uB9AC \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 89,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 84,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-4",
-                                                        children: "\uB0B4\uC6A9"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 97,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 99,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uB0B4\uC6A9 \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 100,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 96,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-5",
-                                                        children: "MBTI"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 108,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 110,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "MBTI \uC790\uB3D9 \uC785\uB825",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 111,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 107,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                        lineNumber: 62,
-                                        columnNumber: 15
-                                    }, undefined)
-                                }, void 0, false, {
-                                    fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 61,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 56,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "view",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "text-wrapper-6",
-                                children: "\uCC45 \uB4F1\uB85D"
-                            }, void 0, false, {
-                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                lineNumber: 122,
-                                columnNumber: 13
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 121,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/screens/AddBook/AddBook.jsx",
-                    lineNumber: 55,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/screens/AddBook/AddBook.jsx",
-            lineNumber: 8,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/screens/AddBook/AddBook.jsx",
-        lineNumber: 7,
-        columnNumber: 5
-    }, undefined);
-};
-_c = AddBook;
-var _c;
-$RefreshReg$(_c, "AddBook");
-
-  $parcel$ReactRefreshHelpers$b983.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../icons/SolidInterfaceMenu1":"cXUE3","./style.css":"f4hdm","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"cXUE3":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SolidInterfaceMenu1", ()=>(0, _solidInterfaceMenu1.SolidInterfaceMenu1));
-var _solidInterfaceMenu1 = require("./SolidInterfaceMenu1");
-
-},{"./SolidInterfaceMenu1":"2oqdw","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"2oqdw":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$f846 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$f846.prelude(module);
-
-try {
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SolidInterfaceMenu1", ()=>SolidInterfaceMenu1);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const SolidInterfaceMenu1 = ({ className })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-        className: `solid-interface-menu-1 ${className}`,
-        fill: "none",
-        height: "35",
-        viewBox: "0 0 35 35",
-        width: "35",
-        xmlns: "http://www.w3.org/2000/svg",
-        children: [
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                className: "path",
-                clipRule: "evenodd",
-                d: "M22.6042 17.3854C22.6042 16.7814 22.1145 16.2917 21.5104 16.2917H1.09375C0.489688 16.2917 0 16.7814 0 17.3854C0 17.9895 0.489688 18.4792 1.09375 18.4792H21.5104C22.1145 18.4792 22.6042 17.9895 22.6042 17.3854Z",
-                fill: "#572E16",
-                fillRule: "evenodd"
-            }, void 0, false, {
-                fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
-                lineNumber: 18,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                className: "path",
-                clipRule: "evenodd",
-                d: "M22.6042 10.0938C22.6042 9.48969 22.1145 9 21.5104 9H1.09375C0.489688 9 0 9.48969 0 10.0938C0 10.6978 0.489688 11.1875 1.09375 11.1875H21.5104C22.1145 11.1875 22.6042 10.6978 22.6042 10.0938Z",
-                fill: "#572E16",
-                fillRule: "evenodd"
-            }, void 0, false, {
-                fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
-                lineNumber: 26,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-                className: "path",
-                clipRule: "evenodd",
-                d: "M22.6042 24.6771C22.6042 24.073 22.1145 23.5833 21.5104 23.5833H1.09375C0.489688 23.5833 0 24.073 0 24.6771C0 25.2811 0.489688 25.7708 1.09375 25.7708H21.5104C22.1145 25.7708 22.6042 25.2811 22.6042 24.6771Z",
-                fill: "#572E16",
-                fillRule: "evenodd"
-            }, void 0, false, {
-                fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
-                lineNumber: 34,
-                columnNumber: 7
-            }, undefined)
-        ]
-    }, void 0, true, {
-        fileName: "src/icons/SolidInterfaceMenu1/SolidInterfaceMenu1.jsx",
-        lineNumber: 10,
-        columnNumber: 5
-    }, undefined);
-};
-_c = SolidInterfaceMenu1;
-var _c;
-$RefreshReg$(_c, "SolidInterfaceMenu1");
-
-  $parcel$ReactRefreshHelpers$f846.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"f4hdm":[function() {},{}],"cjvRY":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "BookDetail", ()=>(0, _bookDetail.BookDetail));
-var _bookDetail = require("./BookDetail");
-
-},{"./BookDetail":"dYdDg","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dYdDg":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$5bf3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$5bf3.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "BookDetail", ()=>BookDetail);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _solidInterfaceMenu1 = require("../../icons/SolidInterfaceMenu1");
-var _styleCss = require("./style.css");
-const BookDetail = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "book-detail",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "div-2",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "overlap-group-2",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "rectangle-2"
-                        }, void 0, false, {
-                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 10,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame-8",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-9",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "img",
-                                            alt: "Logo white",
-                                            src: "/img/logo-white-1.svg"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 14,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-10",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "yellow-bear-2",
-                                                    alt: "Yellow bear",
-                                                    src: "/img/yellow-bear.png"
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 21,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "three-animals-2",
-                                                    alt: "Three animals",
-                                                    src: "/img/three-animals.png"
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 27,
-                                                    columnNumber: 17
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 20,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                    lineNumber: 13,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-11",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-12",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-13",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-6",
-                                                        children: "\uD504\uB85C\uD544 \uBCC0\uACBD"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                        lineNumber: 38,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 37,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-13",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-6",
-                                                        children: "\uC120\uCC29\uC21C \uC751\uBAA8"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                        lineNumber: 42,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 41,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-13",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-6",
-                                                        children: "\uC720\uCE90\uD3EC"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                        lineNumber: 46,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 45,
-                                                    columnNumber: 17
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 36,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu1.SolidInterfaceMenu1), {
-                                            className: "solid-interface-menu-1-instance"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 50,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                    lineNumber: 35,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 12,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                    lineNumber: 9,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "frame-14",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            className: "frame-15",
-                            alt: "Frame",
-                            src: "/img/frame-33.svg"
-                        }, void 0, false, {
-                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 56,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame-16",
-                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "frame-17",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "frame-18",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "text-wrapper-7",
-                                                children: "\uC81C\uBAA9"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 61,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "rectangle-3"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 63,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "text-wrapper-8",
-                                                children: "\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 65,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                        lineNumber: 60,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "frame-18",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "text-wrapper-9",
-                                                children: "\uC800\uC790"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 69,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "rectangle-3"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 71,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "text-wrapper-8",
-                                                children: "\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 73,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                        lineNumber: 68,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "frame-18",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "text-wrapper-9",
-                                                children: "\uC904\uAC70\uB9AC"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 79,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "rectangle-3"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 81,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "text-wrapper-8",
-                                                children: "\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 83,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                        lineNumber: 78,
-                                        columnNumber: 15
-                                    }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                lineNumber: 59,
-                                columnNumber: 13
-                            }, undefined)
-                        }, void 0, false, {
-                            fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 58,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                    lineNumber: 55,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/screens/BookDetail/BookDetail.jsx",
-            lineNumber: 8,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/screens/BookDetail/BookDetail.jsx",
-        lineNumber: 7,
-        columnNumber: 5
-    }, undefined);
-};
-_c = BookDetail;
-var _c;
-$RefreshReg$(_c, "BookDetail");
-
-  $parcel$ReactRefreshHelpers$5bf3.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../icons/SolidInterfaceMenu1":"cXUE3","./style.css":"3HWdZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HWdZ":[function() {},{}],"4UyPg":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MainPage", ()=>(0, _mainPage.MainPage));
-var _mainPage = require("./MainPage");
-
-},{"./MainPage":"gG74V","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gG74V":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$cddb = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$cddb.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MainPage", ()=>MainPage);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _solidInterfaceMenu = require("../../components/SolidInterfaceMenu");
-var _styleCss = require("./style.css");
-const MainPage = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "main-page",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "div-3",
-            children: [
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "overlap-group-3",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "rectangle-4"
-                        }, void 0, false, {
-                            fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 10,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame-19",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-20",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "logo-white-2",
-                                            alt: "Logo white",
-                                            src: "/img/logo-white-1-3.svg"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 14,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-21",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "yellow-bear-3",
-                                                    alt: "Yellow bear",
-                                                    src: "/img/yellow-bear.png"
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 21,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                    className: "three-animals-3",
-                                                    alt: "Three animals",
-                                                    src: "/img/three-animals.png"
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 27,
-                                                    columnNumber: 17
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 20,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 13,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-22",
-                                    children: [
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-23",
-                                            children: [
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-24",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-10",
-                                                        children: "\uD30C\uD2B8\uD30C\uD2B81"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/MainPage/MainPage.jsx",
-                                                        lineNumber: 38,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 37,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-24",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-10",
-                                                        children: "\uD30C\uD2B8\uD30C\uD2B82"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/MainPage/MainPage.jsx",
-                                                        lineNumber: 42,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 41,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-24",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-10",
-                                                        children: "\uD30C\uD2B8\uD30C\uD2B83"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/MainPage/MainPage.jsx",
-                                                        lineNumber: 46,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 45,
-                                                    columnNumber: 17
-                                                }, undefined)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 36,
-                                            columnNumber: 15
-                                        }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu.SolidInterfaceMenu), {
-                                            className: "solid-interface-menu-instance"
-                                        }, void 0, false, {
-                                            fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 50,
-                                            columnNumber: 15
-                                        }, undefined)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 35,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 12,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/screens/MainPage/MainPage.jsx",
-                    lineNumber: 9,
-                    columnNumber: 9
-                }, undefined),
-                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "frame-25",
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "text-wrapper-11",
-                            children: "\uC624\uB298\uC740 \uC5B4\uB5A4 \uCC45\uC744 \uC77D\uC5B4\uBCFC\uAE4C?"
-                        }, void 0, false, {
-                            fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 56,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame-26",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark.png"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 59,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-1.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 65,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-2.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 71,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-3.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 77,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-4.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 83,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 58,
-                            columnNumber: 11
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                            className: "frame-26",
-                            children: [
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-5.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 91,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-6.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 97,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-7.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 103,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-8.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 109,
-                                    columnNumber: 13
-                                }, undefined),
-                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                    className: "outline-files-book",
-                                    alt: "Outline files book",
-                                    src: "/img/outline-files-book-mark-9.svg"
-                                }, void 0, false, {
-                                    fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 115,
-                                    columnNumber: 13
-                                }, undefined)
-                            ]
-                        }, void 0, true, {
-                            fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 90,
-                            columnNumber: 11
-                        }, undefined)
-                    ]
-                }, void 0, true, {
-                    fileName: "src/screens/MainPage/MainPage.jsx",
-                    lineNumber: 55,
-                    columnNumber: 9
-                }, undefined)
-            ]
-        }, void 0, true, {
-            fileName: "src/screens/MainPage/MainPage.jsx",
-            lineNumber: 8,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/screens/MainPage/MainPage.jsx",
-        lineNumber: 7,
-        columnNumber: 5
-    }, undefined);
-};
-_c = MainPage;
-var _c;
-$RefreshReg$(_c, "MainPage");
-
-  $parcel$ReactRefreshHelpers$cddb.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../components/SolidInterfaceMenu":"lsDde","./style.css":"l3TS4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lsDde":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SolidInterfaceMenu", ()=>(0, _solidInterfaceMenu.SolidInterfaceMenu));
-var _solidInterfaceMenu = require("./SolidInterfaceMenu");
-
-},{"./SolidInterfaceMenu":"8UCLv","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"8UCLv":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$7d9d = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$7d9d.prelude(module);
-
-try {
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "SolidInterfaceMenu", ()=>SolidInterfaceMenu);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _styleCss = require("./style.css");
-const SolidInterfaceMenu = ({ className })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-        className: `solid-interface-menu ${className}`,
-        alt: "Solid interface menu",
-        src: "/img/solid-interface-menu.png"
-    }, void 0, false, {
-        fileName: "src/components/SolidInterfaceMenu/SolidInterfaceMenu.jsx",
-        lineNumber: 11,
-        columnNumber: 5
-    }, undefined);
-};
-_c = SolidInterfaceMenu;
-var _c;
-$RefreshReg$(_c, "SolidInterfaceMenu");
-
-  $parcel$ReactRefreshHelpers$7d9d.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"43gkV","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"43gkV":[function() {},{}],"l3TS4":[function() {},{}],"f5LNq":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"f5LNq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Draw", ()=>(0, _draw.Draw));
