@@ -87,8 +87,9 @@ export const SelectProfile = () => {
                 </div>
               ))}
 
-              {/* 자녀가 3명 이하일 경우에만 "프로필 생성" 버튼 표시 */}
-              {profiles.length < 3 && (
+              {/* 프로필이 3명 이하일 때만 "프로필 생성" 버튼 표시 */}
+              {profiles.length <= 3 && (
+
                 <div className="create-profile">
                   <img
                     className="img"

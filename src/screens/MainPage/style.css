@@ -106,6 +106,10 @@
   width: 120px;
 }
 
+.main-page .frame-24:hover {
+  background-color: #CCCCCC
+}
+
 .main-page .text-wrapper-10 {
   color: #572e16;
   font-family: "LaundryGothic-Regular", Helvetica;
@@ -116,12 +120,28 @@
   position: relative;
   white-space: nowrap;
   width: fit-content;
+  background-color: transparent; /* 배경색 투명 */
+  border: none; /* 경계선 제거 */
 }
 
-.main-page .solid-interface-menu-instance {
-  left: unset !important;
-  position: relative !important;
-  top: unset !important;
+.profile-picture-container {
+  background-color: #f4f6ff; /* 배경색 설정 */
+  border-radius: 15px; /* 모서리 둥글기 */
+  display: flex; /* Flexbox로 정렬 */
+  justify-content: center; /* 중앙 정렬 */
+  align-items: center; /* 중앙 정렬 */
+  width: 45px; /* 원하는 너비 */
+  height: 45px; /* 원하는 높이 */
+}
+
+.kid-profile {
+  max-height: 100%; /* 부모 컨테이너에 맞게 조정 */
+  max-width: 100%; /* 비율 유지 */
+  padding: 3px 3px 0; /* 상단 3픽셀, 좌우 3픽셀, 하단 0픽셀 */
+}
+
+.main-page .profile-picture-container:hover {
+  background-color: #CCCCCC
 }
 
 .main-page .frame-25 {
@@ -169,4 +189,24 @@
   height: 171px;
   position: relative;
   width: 185px;
+}
+
+.main-page .frame-4 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 185px;
+}
+
+.main-page .text-wrapper-2 {
+  align-self: stretch;
+  color: #572e16;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: center;
 }
