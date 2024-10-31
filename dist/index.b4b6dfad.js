@@ -27238,10 +27238,18 @@ var _signUpScreen = require("./screens/SignUpScreen");
 var _draw = require("./screens/Draw");
 const router = (0, _reactRouterDom.createBrowserRouter)([
     {
-        path: "/*",
-        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addBook.AddBook), {}, void 0, false, {
+        path: "",
+        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginScreen.LoginScreen), {}, void 0, false, {
             fileName: "src/App.jsx",
             lineNumber: 15,
+            columnNumber: 14
+        }, undefined)
+    },
+    {
+        path: "/*",
+        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginScreen.LoginScreen), {}, void 0, false, {
+            fileName: "src/App.jsx",
+            lineNumber: 19,
             columnNumber: 14
         }, undefined)
     },
@@ -27249,15 +27257,15 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/add_book",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _addBook.AddBook), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 19,
+            lineNumber: 23,
             columnNumber: 14
         }, undefined)
     },
     {
-        path: "/book_detail/:bookId",
+        path: "/book_detail",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _bookDetail.BookDetail), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 23,
+            lineNumber: 27,
             columnNumber: 14
         }, undefined)
     },
@@ -27265,7 +27273,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/main_page",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainPage.MainPage), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 27,
+            lineNumber: 31,
             columnNumber: 14
         }, undefined)
     },
@@ -27273,7 +27281,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/draw",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _draw.Draw), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 31,
+            lineNumber: 35,
             columnNumber: 14
         }, undefined)
     },
@@ -27281,7 +27289,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/create_profile",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _createProfile.CreateProfile), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 35,
+            lineNumber: 39,
             columnNumber: 14
         }, undefined)
     },
@@ -27289,7 +27297,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/select_profile",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _selectProfile.SelectProfile), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 39,
+            lineNumber: 43,
             columnNumber: 14
         }, undefined)
     },
@@ -27297,7 +27305,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/login_screen",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginScreen.LoginScreen), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 43,
+            lineNumber: 47,
             columnNumber: 14
         }, undefined)
     },
@@ -27305,7 +27313,7 @@ const router = (0, _reactRouterDom.createBrowserRouter)([
         path: "/signup_screen",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _signUpScreen.SignUpScreen), {}, void 0, false, {
             fileName: "src/App.jsx",
-            lineNumber: 47,
+            lineNumber: 51,
             columnNumber: 14
         }, undefined)
     }
@@ -27315,7 +27323,7 @@ const App = ()=>{
         router: router
     }, void 0, false, {
         fileName: "src/App.jsx",
-        lineNumber: 52,
+        lineNumber: 56,
         columnNumber: 10
     }, undefined);
 };
@@ -35168,9 +35176,96 @@ parcelHelpers.export(exports, "BookDetail", ()=>BookDetail);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _solidInterfaceMenu1 = require("../../icons/SolidInterfaceMenu1");
+var _reactRouterDom = require("react-router-dom");
+var _frame28 = require("../../icons/Frame28");
+var _frame29 = require("../../icons/Frame29");
 var _styleCss = require("./style.css");
+var _s = $RefreshSig$();
 const BookDetail = ()=>{
+    _s();
+    const navigate = (0, _reactRouterDom.useNavigate)();
+    const [kidProfileImageUrl, setKidProfileUrl] = (0, _react.useState)("");
+    const [kidId, setKidId] = (0, _react.useState)("");
+    const [bookId, setBookId] = (0, _react.useState)("");
+    const [title, setTitle] = (0, _react.useState)("");
+    const [story, setStory] = (0, _react.useState)("");
+    const [author, setAuthor] = (0, _react.useState)("");
+    // kidProfileImageUrl을 localStorage에서 불러옴
+    (0, _react.useEffect)(()=>{
+        const profileImage = localStorage.getItem("kidProfileImageUrl");
+        if (profileImage) setKidProfileUrl(profileImage);
+    }, []);
+    // kidId를 localStorage에서 불러옴
+    (0, _react.useEffect)(()=>{
+        const kidId = localStorage.getItem("kidId");
+        if (kidId) setKidId(kidId);
+    }, []);
+    // bookId를 localStorage에서 불러옴
+    (0, _react.useEffect)(()=>{
+        const bookId = localStorage.getItem("bookId");
+        if (bookId) setBookId(bookId);
+    }, []);
+    // 책 상세정보를 백엔드에서 불러옴
+    (0, _react.useEffect)(()=>{
+        const fetchBookDetail = async ()=>{
+            try {
+                const response = await fetch(`http://localhost:8080/api/v1/books?bookId=${bookId}&kidId=${kidId}`);
+                if (!response.ok) throw new Error("\uCC45 \uC0C1\uC138\uC815\uBCF4\uB97C \uAC00\uC838\uC624\uB294 \uB370 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4.");
+                const data = await response.json();
+                setTitle(data.title);
+                setStory(data.story);
+                setAuthor(data.author);
+            // 다른 상태 변수도 필요에 따라 설정
+            } catch (error) {
+                console.error("\uCC45 \uC0C1\uC138\uC815\uBCF4\uB97C \uAC00\uC838\uC624\uB294 \uC911 \uC624\uB958 \uBC1C\uC0DD:", error);
+            }
+        };
+        if (bookId && kidId) fetchBookDetail();
+    }, [
+        bookId,
+        kidId
+    ]);
+    // 좋아요 버튼 클릭 시 처리 함수
+    const handleLikeBook = async ()=>{
+        try {
+            const reqBody = {
+                kidId: Number(kidId)
+            }; // 요청 본문 생성
+            const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}/like`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(reqBody)
+            });
+            if (!response.ok) throw new Error("\uCC45 \uC88B\uC544\uC694 \uC694\uCCAD\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4.");
+            console.log("\uCC45\uC744 \uC88B\uC544\uC694\uD588\uC2B5\uB2C8\uB2E4.");
+        } catch (error) {
+            console.error("\uCC45 \uC88B\uC544\uC694 \uCC98\uB9AC \uC911 \uC624\uB958 \uBC1C\uC0DD:", error);
+        }
+    };
+    // 싫어요 버튼 클릭 시 처리 함수
+    const handleDislikeBook = async ()=>{
+        try {
+            const reqBody = {
+                kidId: Number(kidId)
+            }; // 요청 본문 생성
+            const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}/dislike`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(reqBody)
+            });
+            if (!response.ok) throw new Error("\uCC45 \uC2EB\uC5B4\uC694 \uC694\uCCAD\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4.");
+            console.log("\uCC45\uC744 \uC2EB\uC5B4\uC694\uD588\uC2B5\uB2C8\uB2E4.");
+        } catch (error) {
+            console.error("\uCC45 \uC2EB\uC5B4\uC694 \uCC98\uB9AC \uC911 \uC624\uB958 \uBC1C\uC0DD:", error);
+        }
+    };
+    const handleDrawButtonClick = ()=>{
+        navigate("/draw");
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "book-detail",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35183,7 +35278,7 @@ const BookDetail = ()=>{
                             className: "rectangle-2"
                         }, void 0, false, {
                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 10,
+                            lineNumber: 109,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35194,11 +35289,11 @@ const BookDetail = ()=>{
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                             className: "img",
-                                            alt: "Logo white",
+                                            alt: "\uB85C\uACE0",
                                             src: "/img/logo-white-1.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 14,
+                                            lineNumber: 112,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35206,126 +35301,204 @@ const BookDetail = ()=>{
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                     className: "yellow-bear-2",
-                                                    alt: "Yellow bear",
+                                                    alt: "\uB178\uB780 \uACF0",
                                                     src: "/img/yellow-bear.png"
                                                 }, void 0, false, {
                                                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 21,
+                                                    lineNumber: 114,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                     className: "three-animals-2",
-                                                    alt: "Three animals",
+                                                    alt: "\uC138 \uB9C8\uB9AC \uB3D9\uBB3C",
                                                     src: "/img/three-animals.png"
                                                 }, void 0, false, {
                                                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 27,
+                                                    lineNumber: 115,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 20,
+                                            lineNumber: 113,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                    lineNumber: 13,
+                                    lineNumber: 111,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                    className: "frame-11",
+                                    className: "frame-22",
                                     children: [
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                            className: "frame-12",
+                                            className: "frame-23",
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-13",
+                                                    className: "frame-24",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-6",
-                                                        children: "\uD504\uB85C\uD544 \uBCC0\uACBD"
+                                                        className: "text-wrapper-10",
+                                                        children: "\uC720\uB808\uCE74"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                        lineNumber: 38,
+                                                        lineNumber: 122,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 37,
+                                                    lineNumber: 121,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-13",
+                                                    className: "frame-24",
                                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-6",
-                                                        children: "\uC120\uCC29\uC21C \uC751\uBAA8"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                        lineNumber: 42,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                }, void 0, false, {
-                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 41,
-                                                    columnNumber: 17
-                                                }, undefined),
-                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-13",
-                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-6",
+                                                        className: "text-wrapper-10",
                                                         children: "\uC720\uCE90\uD3EC"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                        lineNumber: 46,
+                                                        lineNumber: 125,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                    lineNumber: 45,
+                                                    lineNumber: 124,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "frame-24",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                        className: "text-wrapper-10",
+                                                        onClick: handleDrawButtonClick,
+                                                        children: "\uC120\uCC29\uC21C \uC751\uBAA8"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                        lineNumber: 128,
+                                                        columnNumber: 19
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 127,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 36,
+                                            lineNumber: 120,
                                             columnNumber: 15
                                         }, undefined),
-                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu1.SolidInterfaceMenu1), {
-                                            className: "solid-interface-menu-1-instance"
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            className: "profile-picture-container",
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                                className: "kid-profile",
+                                                alt: "\uC544\uC774 \uD504\uB85C\uD544",
+                                                src: kidProfileImageUrl,
+                                                style: {
+                                                    width: "100px",
+                                                    height: "100px"
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                lineNumber: 134,
+                                                columnNumber: 17
+                                            }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                            lineNumber: 50,
+                                            lineNumber: 133,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                    lineNumber: 35,
+                                    lineNumber: 119,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 12,
+                            lineNumber: 110,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                    lineNumber: 9,
+                    lineNumber: 108,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                     className: "frame-14",
                     children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                            className: "frame-15",
-                            alt: "Frame",
-                            src: "/img/frame-33.svg"
-                        }, void 0, false, {
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame-77",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                    className: "yellow-box",
+                                    alt: "\uD504\uB808\uC784",
+                                    src: "/img/rectangle-2.svg"
+                                }, void 0, false, {
+                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                    lineNumber: 142,
+                                    columnNumber: 13
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-88",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            className: "icon-button",
+                                            onClick: handleLikeBook,
+                                            style: {
+                                                background: "none",
+                                                border: "none",
+                                                padding: 0
+                                            },
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _frame28.Frame28), {
+                                                    className: "icon-instance-node"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 145,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                " "
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                            lineNumber: 144,
+                                            columnNumber: 15
+                                        }, undefined),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                            className: "icon-button",
+                                            onClick: handleDislikeBook,
+                                            style: {
+                                                background: "none",
+                                                border: "none",
+                                                padding: 0
+                                            },
+                                            children: [
+                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _frame29.Frame29), {
+                                                    className: "icon-instance-node"
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                                    lineNumber: 148,
+                                                    columnNumber: 17
+                                                }, undefined),
+                                                " "
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                            lineNumber: 147,
+                                            columnNumber: 15
+                                        }, undefined)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/BookDetail/BookDetail.jsx",
+                                    lineNumber: 143,
+                                    columnNumber: 13
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 56,
+                            lineNumber: 141,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35341,28 +35514,28 @@ const BookDetail = ()=>{
                                                 children: "\uC81C\uBAA9"
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 61,
+                                                lineNumber: 156,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "rectangle-3"
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 63,
+                                                lineNumber: 157,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "text-wrapper-8",
-                                                children: "\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9\uC81C\uBAA9"
+                                                children: title
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 65,
+                                                lineNumber: 158,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                        lineNumber: 60,
+                                        lineNumber: 155,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35373,28 +35546,28 @@ const BookDetail = ()=>{
                                                 children: "\uC800\uC790"
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 69,
+                                                lineNumber: 162,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "rectangle-3"
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 71,
+                                                lineNumber: 163,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "text-wrapper-8",
-                                                children: "\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790\uC800\uC790"
+                                                children: author
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 73,
+                                                lineNumber: 164,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                        lineNumber: 68,
+                                        lineNumber: 161,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35405,59 +35578,64 @@ const BookDetail = ()=>{
                                                 children: "\uC904\uAC70\uB9AC"
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 79,
+                                                lineNumber: 168,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "rectangle-3"
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 81,
+                                                lineNumber: 169,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "text-wrapper-8",
-                                                children: "\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70\uB9AC\uC904\uAC70"
+                                                children: story
                                             }, void 0, false, {
                                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                                lineNumber: 83,
+                                                lineNumber: 170,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                        lineNumber: 78,
+                                        lineNumber: 167,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/BookDetail/BookDetail.jsx",
-                                lineNumber: 59,
+                                lineNumber: 154,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/screens/BookDetail/BookDetail.jsx",
-                            lineNumber: 58,
+                            lineNumber: 153,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/BookDetail/BookDetail.jsx",
-                    lineNumber: 55,
+                    lineNumber: 140,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/screens/BookDetail/BookDetail.jsx",
-            lineNumber: 8,
+            lineNumber: 107,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/BookDetail/BookDetail.jsx",
-        lineNumber: 7,
+        lineNumber: 106,
         columnNumber: 5
     }, undefined);
 };
+_s(BookDetail, "GSIaUcmKdBMDpc01JLOUtuKr0OY=", false, function() {
+    return [
+        (0, _reactRouterDom.useNavigate)
+    ];
+});
 _c = BookDetail;
 var _c;
 $RefreshReg$(_c, "BookDetail");
@@ -35467,7 +35645,173 @@ $RefreshReg$(_c, "BookDetail");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../icons/SolidInterfaceMenu1":"cXUE3","./style.css":"3HWdZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HWdZ":[function() {},{}],"1E5ch":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"3HWdZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","../../icons/Frame28":"edehT","../../icons/Frame29":"bqaTC"}],"3HWdZ":[function() {},{}],"edehT":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Frame28", ()=>(0, _frame28.Frame28));
+var _frame28 = require("./Frame28");
+
+},{"./Frame28":"e3IpB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"e3IpB":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$9db6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$9db6.prelude(module);
+
+try {
+/*
+We're constantly improving the code you see. 
+Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
+*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Frame28", ()=>Frame28);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const Frame28 = ({ className })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        className: `frame-28 ${className}`,
+        fill: "none",
+        height: "70",
+        viewBox: "0 0 70 70",
+        width: "70",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("rect", {
+                className: "rect",
+                fill: "#FFFCF2",
+                height: "66",
+                rx: "33",
+                width: "66",
+                x: "2",
+                y: "2"
+            }, void 0, false, {
+                fileName: "src/icons/Frame28/Frame28.jsx",
+                lineNumber: 18,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("rect", {
+                className: "rect",
+                height: "66",
+                rx: "33",
+                stroke: "#F3C623",
+                strokeWidth: "4",
+                width: "66",
+                x: "2",
+                y: "2"
+            }, void 0, false, {
+                fileName: "src/icons/Frame28/Frame28.jsx",
+                lineNumber: 28,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                className: "path",
+                d: "M33.6465 15.3042C32.5397 15.3042 31.5028 15.8456 30.8703 16.7539L20.6433 31.4403C18.7228 34.1981 17.8668 37.5585 18.2339 40.899L19.0204 48.0557C19.3564 51.114 21.7573 53.5365 24.8125 53.8999L29.9287 54.5085C33.8356 54.9733 37.797 54.5704 41.5303 53.3287C44.1435 52.4595 46.2367 50.4761 47.2451 47.9134L51.3742 37.42C51.574 36.9125 51.712 36.3827 51.7854 35.8423C52.4241 31.1366 48.1722 27.2382 43.5395 28.2821L34.1195 30.4047L36.9225 19.5318C37.4745 17.3906 35.8577 15.3041 33.6465 15.3042Z",
+                fill: "#2A23F3"
+            }, void 0, false, {
+                fileName: "src/icons/Frame28/Frame28.jsx",
+                lineNumber: 39,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/icons/Frame28/Frame28.jsx",
+        lineNumber: 10,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Frame28;
+var _c;
+$RefreshReg$(_c, "Frame28");
+
+  $parcel$ReactRefreshHelpers$9db6.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bqaTC":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Frame29", ()=>(0, _frame29.Frame29));
+var _frame29 = require("./Frame29");
+
+},{"./Frame29":"h9lm2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h9lm2":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$65fd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$65fd.prelude(module);
+
+try {
+/*
+We're constantly improving the code you see. 
+Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
+*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Frame29", ()=>Frame29);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const Frame29 = ({ className })=>{
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        className: `frame-29 ${className}`,
+        fill: "none",
+        height: "70",
+        viewBox: "0 0 70 70",
+        width: "70",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("rect", {
+                className: "rect",
+                fill: "#FFFCF2",
+                height: "66",
+                rx: "33",
+                width: "66",
+                x: "2",
+                y: "2"
+            }, void 0, false, {
+                fileName: "src/icons/Frame29/Frame29.jsx",
+                lineNumber: 18,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("rect", {
+                className: "rect",
+                height: "66",
+                rx: "33",
+                stroke: "#F3C623",
+                strokeWidth: "4",
+                width: "66",
+                x: "2",
+                y: "2"
+            }, void 0, false, {
+                fileName: "src/icons/Frame29/Frame29.jsx",
+                lineNumber: 28,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                className: "path",
+                d: "M36.3535 54.6958C37.4603 54.6958 38.4972 54.1543 39.1297 53.246L49.3567 38.5597C51.2772 35.8019 52.1332 32.4415 51.7661 29.101L50.9796 21.9443C50.6436 18.886 48.2427 16.4635 45.1875 16.1L40.0713 15.4914C36.1644 15.0267 32.203 15.4295 28.4697 16.6713C25.8565 17.5405 23.7633 19.5239 22.7549 22.0866L18.6258 32.58C18.426 33.0875 18.288 33.6172 18.2146 34.1577C17.5759 38.8634 21.8279 42.7618 26.4605 41.7179L35.5726 39.6647C35.6199 39.654 35.6494 39.6588 35.6706 39.6655C35.6964 39.6737 35.7263 39.6907 35.7534 39.7186C35.7804 39.7465 35.7965 39.7769 35.8039 39.803C35.8099 39.8243 35.8138 39.8539 35.8017 39.901L33.0775 50.4682C32.5255 52.6094 34.1423 54.6959 36.3535 54.6958Z",
+                fill: "#CA2F2F"
+            }, void 0, false, {
+                fileName: "src/icons/Frame29/Frame29.jsx",
+                lineNumber: 39,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/icons/Frame29/Frame29.jsx",
+        lineNumber: 10,
+        columnNumber: 5
+    }, undefined);
+};
+_c = Frame29;
+var _c;
+$RefreshReg$(_c, "Frame29");
+
+  $parcel$ReactRefreshHelpers$65fd.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1E5ch":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateProfile", ()=>(0, _createProfile.CreateProfile));
@@ -36815,6 +37159,7 @@ const MainPage = ()=>{
     const [recommendedBooks, setRecommendedBooks] = (0, _react.useState)([]);
     const [kidProfileImageUrl, setKidProfileUrl] = (0, _react.useState)("");
     const [kidId, setKidId] = (0, _react.useState)(localStorage.getItem("kidId") || null); // 초기값 설정
+    const [bookId, setBookId] = (0, _react.useState)("");
     const navigate = (0, _reactRouterDom.useNavigate)();
     // kidProfileImageUrl를 로컬에서 가져오기
     (0, _react.useEffect)(()=>{
@@ -36843,7 +37188,8 @@ const MainPage = ()=>{
         navigate("/draw");
     };
     const handleBookClick = (bookId)=>{
-        navigate(`/book_detail/${bookId}`);
+        localStorage.setItem("bookId", bookId);
+        navigate(`/book_detail`);
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "main-page",
@@ -36857,7 +37203,7 @@ const MainPage = ()=>{
                             className: "rectangle-4"
                         }, void 0, false, {
                             fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 53,
+                            lineNumber: 55,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36872,7 +37218,7 @@ const MainPage = ()=>{
                                             src: "/img/logo-white-1-3.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 56,
+                                            lineNumber: 58,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36884,7 +37230,7 @@ const MainPage = ()=>{
                                                     src: "/img/yellow-bear.png"
                                                 }, void 0, false, {
                                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 58,
+                                                    lineNumber: 60,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -36893,19 +37239,19 @@ const MainPage = ()=>{
                                                     src: "/img/three-animals.png"
                                                 }, void 0, false, {
                                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 59,
+                                                    lineNumber: 61,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 57,
+                                            lineNumber: 59,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 55,
+                                    lineNumber: 57,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36921,12 +37267,12 @@ const MainPage = ()=>{
                                                         children: "\uC720\uB808\uCE74"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/MainPage/MainPage.jsx",
-                                                        lineNumber: 65,
+                                                        lineNumber: 67,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 64,
+                                                    lineNumber: 66,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36936,12 +37282,12 @@ const MainPage = ()=>{
                                                         children: "\uC720\uCE90\uD3EC"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/MainPage/MainPage.jsx",
-                                                        lineNumber: 68,
+                                                        lineNumber: 70,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 67,
+                                                    lineNumber: 69,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36952,18 +37298,18 @@ const MainPage = ()=>{
                                                         children: "\uC120\uCC29\uC21C \uC751\uBAA8"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/MainPage/MainPage.jsx",
-                                                        lineNumber: 71,
+                                                        lineNumber: 73,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                                    lineNumber: 70,
+                                                    lineNumber: 72,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 63,
+                                            lineNumber: 65,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -36978,30 +37324,30 @@ const MainPage = ()=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "src/screens/MainPage/MainPage.jsx",
-                                                lineNumber: 77,
+                                                lineNumber: 79,
                                                 columnNumber: 17
                                             }, undefined)
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 76,
+                                            lineNumber: 78,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 62,
+                                    lineNumber: 64,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 54,
+                            lineNumber: 56,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/MainPage/MainPage.jsx",
-                    lineNumber: 52,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37012,7 +37358,7 @@ const MainPage = ()=>{
                             children: "\uC624\uB298\uC740 \uC5B4\uB5A4 \uCC45\uC744 \uC77D\uC5B4\uBCFC\uAE4C?"
                         }, void 0, false, {
                             fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 88,
+                            lineNumber: 90,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37027,7 +37373,7 @@ const MainPage = ()=>{
                                             src: "/img/outline-files-book-mark-1.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 92,
+                                            lineNumber: 94,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -37043,7 +37389,7 @@ const MainPage = ()=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 93,
+                                            lineNumber: 95,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37051,18 +37397,18 @@ const MainPage = ()=>{
                                             children: book.title || "\uCC45 \uC81C\uBAA9"
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 99,
+                                            lineNumber: 101,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, index, true, {
                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 91,
+                                    lineNumber: 93,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 89,
+                            lineNumber: 91,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37077,7 +37423,7 @@ const MainPage = ()=>{
                                             src: "/img/outline-files-book-mark-1.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 106,
+                                            lineNumber: 108,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -37093,7 +37439,7 @@ const MainPage = ()=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 107,
+                                            lineNumber: 109,
                                             columnNumber: 17
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37101,39 +37447,39 @@ const MainPage = ()=>{
                                             children: book.title || "\uCC45 \uC81C\uBAA9"
                                         }, void 0, false, {
                                             fileName: "src/screens/MainPage/MainPage.jsx",
-                                            lineNumber: 113,
+                                            lineNumber: 115,
                                             columnNumber: 17
                                         }, undefined)
                                     ]
                                 }, index, true, {
                                     fileName: "src/screens/MainPage/MainPage.jsx",
-                                    lineNumber: 105,
+                                    lineNumber: 107,
                                     columnNumber: 15
                                 }, undefined))
                         }, void 0, false, {
                             fileName: "src/screens/MainPage/MainPage.jsx",
-                            lineNumber: 103,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/MainPage/MainPage.jsx",
-                    lineNumber: 87,
+                    lineNumber: 89,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/screens/MainPage/MainPage.jsx",
-            lineNumber: 51,
+            lineNumber: 53,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/MainPage/MainPage.jsx",
-        lineNumber: 50,
+        lineNumber: 52,
         columnNumber: 5
     }, undefined);
 };
-_s(MainPage, "9mIMzdX3UARwT7cHJp35Jk+v5lw=", false, function() {
+_s(MainPage, "Q5n/d+47PqgOF+v6hq9ENGrT8Zs=", false, function() {
     return [
         (0, _reactRouterDom.useNavigate)
     ];
@@ -37147,7 +37493,7 @@ $RefreshReg$(_c, "MainPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"l3TS4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"l3TS4":[function() {},{}],"3f9wU":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./style.css":"l3TS4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"l3TS4":[function() {},{}],"3f9wU":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SelectProfile", ()=>(0, _selectProfile.SelectProfile));
@@ -37209,8 +37555,11 @@ const SelectProfile = ()=>{
         fetchProfiles();
     }, []);
     // 프로필 선택 핸들러
-    const handleSelectProfile = (id)=>{
-        localStorage.setItem("kidId", id); // kid id를 localStorage에 저장
+    const handleSelectProfile = (id, profileImageUrl, name)=>{
+        // 선택한 프로필 정보들을 localStorage에 저장
+        localStorage.setItem("kidId", id);
+        localStorage.setItem("kidProfileImageUrl", profileImageUrl);
+        localStorage.setItem("kidName", name);
         navigate("/main_page"); // 메인 페이지로 이동
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37229,21 +37578,21 @@ const SelectProfile = ()=>{
                                 src: "/img/polygon-1.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 64,
+                                lineNumber: 68,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "ellipse"
                             }, void 0, false, {
                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 65,
+                                lineNumber: 69,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "div"
                             }, void 0, false, {
                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 66,
+                                lineNumber: 70,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37251,7 +37600,7 @@ const SelectProfile = ()=>{
                                 children: [
                                     profiles.map((profile)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                             className: "profile-button",
-                                            onClick: ()=>handleSelectProfile(profile.id),
+                                            onClick: ()=>handleSelectProfile(profile.id, profile.profileImageUrl, profile.name),
                                             children: [
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                                     className: "boy-blue",
@@ -37259,7 +37608,7 @@ const SelectProfile = ()=>{
                                                     src: profile.profileImageUrl
                                                 }, void 0, false, {
                                                     fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                    lineNumber: 75,
+                                                    lineNumber: 81,
                                                     columnNumber: 19
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37267,13 +37616,13 @@ const SelectProfile = ()=>{
                                                     children: profile.name
                                                 }, void 0, false, {
                                                     fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                    lineNumber: 80,
+                                                    lineNumber: 86,
                                                     columnNumber: 19
                                                 }, undefined)
                                             ]
                                         }, profile.id, true, {
                                             fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                            lineNumber: 70,
+                                            lineNumber: 74,
                                             columnNumber: 17
                                         }, undefined)),
                                     profiles.length <= 3 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37289,7 +37638,7 @@ const SelectProfile = ()=>{
                                                 }
                                             }, void 0, false, {
                                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                lineNumber: 87,
+                                                lineNumber: 94,
                                                 columnNumber: 19
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -37297,19 +37646,19 @@ const SelectProfile = ()=>{
                                                 children: "\uBE48\uCE78"
                                             }, void 0, false, {
                                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                                lineNumber: 94,
+                                                lineNumber: 101,
                                                 columnNumber: 19
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                        lineNumber: 86,
+                                        lineNumber: 93,
                                         columnNumber: 17
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 68,
+                                lineNumber: 72,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -37318,13 +37667,13 @@ const SelectProfile = ()=>{
                                 src: "/img/logowhite.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                                lineNumber: 99,
+                                lineNumber: 106,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                        lineNumber: 63,
+                        lineNumber: 67,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -37337,23 +37686,23 @@ const SelectProfile = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                        lineNumber: 105,
+                        lineNumber: 112,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-                lineNumber: 62,
+                lineNumber: 66,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-            lineNumber: 61,
+            lineNumber: 65,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/SelectProfile/SelectProfile.jsx",
-        lineNumber: 60,
+        lineNumber: 64,
         columnNumber: 5
     }, undefined);
 };
@@ -37371,7 +37720,7 @@ $RefreshReg$(_c, "SelectProfile");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./style.css":"fPWmY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","axios":"jo6P5"}],"fPWmY":[function() {},{}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","axios":"jo6P5","./style.css":"fPWmY","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jo6P5":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "default", ()=>(0, _axiosJsDefault.default));
@@ -42173,7 +42522,7 @@ Object.entries(HttpStatusCode).forEach(([key, value])=>{
 });
 exports.default = HttpStatusCode;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"av48u":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"fPWmY":[function() {},{}],"av48u":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SignUpScreen", ()=>(0, _signUpScreen.SignUpScreen));

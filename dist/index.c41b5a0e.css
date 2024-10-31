@@ -499,6 +499,122 @@
   position: relative;
 }
 
+.book-detail .frame-22 {
+  flex: none;
+  align-items: center;
+  gap: 51px;
+  display: inline-flex;
+  position: relative;
+}
+
+.book-detail .frame-23 {
+  flex: none;
+  align-items: center;
+  gap: 35px;
+  display: inline-flex;
+  position: relative;
+}
+
+.book-detail .frame-24 {
+  background-color: #f4f6ff;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 120px;
+  height: 45px;
+  padding: 5px 2px;
+  display: flex;
+  position: relative;
+}
+
+.book-detail .frame-24:hover {
+  background-color: #ccc;
+}
+
+.book-detail .text-wrapper-10 {
+  color: #572e16;
+  letter-spacing: 0;
+  white-space: nowrap;
+  background-color: #0000;
+  border: none;
+  width: fit-content;
+  font-family: LaundryGothic-Regular, Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+}
+
+.book-detail .profile-picture-container:hover {
+  background-color: #ccc;
+}
+
+.book-detail .frame {
+  justify-content: space-between;
+  align-items: center;
+  width: 1242px;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 22px;
+}
+
+.book-detail .frame-7 {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  width: 348px;
+  height: 489px;
+  display: flex;
+  position: relative;
+}
+
+.book-detail .frame-88 {
+  flex: none;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px;
+  display: inline-flex;
+  position: relative;
+}
+
+.book-detail .icon-instance-node {
+  width: 70px !important;
+  height: 70px !important;
+  position: relative !important;
+}
+
+.book-detail .frame-77 {
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  width: 348px;
+  height: 489px;
+  display: flex;
+  position: relative;
+}
+
+.book-detail .yellow-box {
+  flex: none;
+  align-self: stretch;
+  width: 100%;
+  position: relative;
+}
+
+.icon-instance-node {
+  pointer-events: auto;
+  width: 70px;
+  height: 70px;
+  transition: transform .2s;
+}
+
+.icon-instance-node:hover {
+  transform: scale(1.1);
+}
+
 .create-profile {
   background-color: #fff5cf;
   flex-direction: row;
