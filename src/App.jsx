@@ -11,6 +11,10 @@ import { Draw } from "./screens/Draw";
 
 const router = createBrowserRouter([
   {
+    path: "",
+    element: <LoginScreen />,
+  },
+  {
     path: "/*",
     element: <LoginScreen />,
   },
@@ -19,7 +23,7 @@ const router = createBrowserRouter([
     element: <AddBook />,
   },
   {
-    path: "/book_detail/:bookId", // URL 파라미터를 사용하여 책 ID를 전달
+    path: "/book_detail",
     element: <BookDetail />,
   },
   {

@@ -221,3 +221,139 @@
   text-align: center;
   width: 66px;
 }
+
+/* 헤더 아이콘 설정 */
+.book-detail .frame-22 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 51px;
+  position: relative;
+}
+
+.book-detail .frame-23 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 35px;
+  position: relative;
+}
+
+.book-detail .frame-24 {
+  align-items: center;
+  background-color: #f4f6ff;
+  border-radius: 30px;
+  display: flex;
+  gap: 10px;
+  height: 45px;
+  justify-content: center;
+  padding: 5px 2px;
+  position: relative;
+  width: 120px;
+}
+
+.book-detail .frame-24:hover {
+  background-color: #CCCCCC
+}
+
+.book-detail .text-wrapper-10 {
+  color: #572e16;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  background-color: transparent; /* 배경색 투명 */
+  border: none; /* 경계선 제거 */
+}
+
+/* 헤더 프로필 영역 */
+.profile-picture-container {
+  background-color: #f4f6ff; /* 배경색 설정 */
+  border-radius: 15px; /* 모서리 둥글기 */
+  display: flex; /* Flexbox로 정렬 */
+  justify-content: center; /* 중앙 정렬 */
+  align-items: center; /* 중앙 정렬 */
+  width: 45px; /* 원하는 너비 */
+  height: 45px; /* 원하는 높이 */
+}
+
+.kid-profile {
+  max-height: 100%; /* 부모 컨테이너에 맞게 조정 */
+  max-width: 100%; /* 비율 유지 */
+  padding: 3px 3px 0; /* 상단 3픽셀, 좌우 3픽셀, 하단 0픽셀 */
+}
+
+.book-detail .profile-picture-container:hover {
+  background-color: #CCCCCC
+}
+
+.book-detail .frame {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 1242px;
+}
+
+.book-detail .frame-7 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 489px;
+  justify-content: flex-end;
+  position: relative;
+  width: 348px;
+}
+
+.book-detail .frame-88 {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 40px;
+  justify-content: center;
+  position: relative;
+}
+
+.book-detail .icon-instance-node {
+  height: 70px !important;
+  position: relative !important;
+  width: 70px !important;
+}
+
+.book-detail .frame-77 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 489px;
+  justify-content: flex-end;
+  position: relative;
+  width: 348px;
+  
+}
+
+.book-detail .yellow-box {
+  align-self: stretch;
+  flex: 0 0 auto;
+  position: relative;
+  width: 100%;
+}
+
+.icon-instance-node {
+  pointer-events: auto;
+  width: 70px; /* 기본 크기 */
+  height: 70px; /* 기본 크기 */
+  transition: transform 0.2s; /* 부드러운 전환 효과 */
+}
+
+/* hover 효과 */
+.icon-instance-node:hover {
+  transform: scale(1.1); /* 아이콘 크기를 10% 키움 */
+}
