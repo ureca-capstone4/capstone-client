@@ -6,6 +6,7 @@ export const MainPage = () => {
   const [recommendedBooks, setRecommendedBooks] = useState([]);
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
   const [kidId, setKidId] = useState(localStorage.getItem("kidId") || null); // 초기값 설정
+  const [bookId, setBookId] = useState("");
   
   const navigate = useNavigate();
 
@@ -43,7 +44,8 @@ export const MainPage = () => {
   };
 
   const handleBookClick = (bookId) => {
-    navigate(`/book_detail/${bookId}`);
+    localStorage.setItem("bookId", bookId);
+    navigate(`/book_detail`);
   };
   
   return (
