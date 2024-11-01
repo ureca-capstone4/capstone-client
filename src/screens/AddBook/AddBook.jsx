@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import { SolidInterfaceMenu1 } from "../../icons/SolidInterfaceMenu1";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 export const AddBook = () => {
+  const navigate = useNavigate();
+  
+  const handleDrawButtonClick = () => {
+    navigate("/draw");
+  };
+
+  const handleTextClick = () => {
+    navigate("/main_page"); // 메인 페이지로 리다이렉트
+  };
+
+  // "유캐포" 버튼 클릭 핸들러 추가
+  const handleYukaepoClick = () => {
+    navigate("/add_book"); // add_book 페이지로 리다이렉트
+  };
+
   const [bookData, setBookData] = useState({
     title: "",
     author: "",
@@ -83,14 +99,20 @@ export const AddBook = () => {
             </div>
             <div className="frame-4">
               <div className="frame-5">
-                <div className="div-wrapper">
-                  <div className="text-wrapper">프로필 변경</div>
+                <div className="frame-24">
+                  <div className="text-wrapper-10" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                    책 고를까?
+                  </div>
                 </div>
-                <div className="div-wrapper">
-                  <div className="text-wrapper">선착순 응모</div>
+                <div className="frame-24">
+                  <div className="text-wrapper-10" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                    유캐포~
+                  </div>
                 </div>
-                <div className="div-wrapper">
-                  <div className="text-wrapper">유캐포</div>
+                <div className="frame-24">
+                  <button className="text-wrapper-10" onClick={handleDrawButtonClick}>
+                    선물 응모해!
+                  </button>
                 </div>
               </div>
               <SolidInterfaceMenu1 className="solid-interface-menu-1" />
@@ -100,7 +122,7 @@ export const AddBook = () => {
 
         <div className="frame-6">
           <div className="frame-7">
-            <img className="img" alt="Rectangle" src="/img/rectangle-2.svg" /> 
+             
             <div className="frame-wrapper">
               <div className="frame-8">
                 {[
@@ -126,10 +148,12 @@ export const AddBook = () => {
                 ))}
               </div>
             </div>
+              <div className="view" onClick={handleSubmit}>
+                <div className="text-wrapper-6">책 등록</div>
+              </div>
+            {/* <img className="img" alt="Rectangle" src="/img/rectangle-2.svg" /> */}
           </div>
-          <div className="view" onClick={handleSubmit}>
-            <div className="text-wrapper-6">책 등록</div>
-          </div>
+          
         </div>
       </div>
     </div>

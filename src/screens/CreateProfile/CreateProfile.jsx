@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import kidPic from '../../../static/img/indecisive-kid-1.png'; // 경로 수정
 import "./style.css";
 
 export const CreateProfile = () => {
@@ -66,7 +67,7 @@ export const CreateProfile = () => {
                   <img
                     className="boy-blue"
                     alt="Boy blue"
-                    src="/img/boy-blue.png"
+                    src={kidPic}
                   />
 
                   <div className="frame-30">
