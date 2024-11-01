@@ -1,18 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import girlPic1 from '../../../static/img/girl-pink.png'; // 경로 수정
+import girlPic2 from '../../../static/img/girl-purple.png'; // 경로 수정
+import boyPic1 from '../../../static/img/boy-green.png'; // 경로 수정
+import boyPic2 from '../../../static/img/boy-blue.png'; // 경로 수정
 import "./style.css";
 
 export const SelectProfile = () => {
   const navigate = useNavigate();
   const [profiles, setProfiles] = useState([]);
 
-  // login_screen으로 이동하는 함수
+  // 사용할 프로필 이미지 배열
+  const profileImages = [
+    girlPic1,
+    girlPic2,
+    boyPic1,
+    boyPic2
+  ];
+
+  // 랜덤으로 프로필 이미지를 선택하는 함수
+  const getRandomProfileImage = () => {
+    return profileImages[Math.floor(Math.random() * profileImages.length)];
+  };
+
+  // 로그인 화면으로 이동하는 함수
   const handleGoBack = () => {
     navigate("/login_screen");
   };
 
-  // create_profile
+  // 프로필 생성 화면으로 이동하는 함수
   const handleCreateProfile = () => {
     navigate("/create_profile");
   };
@@ -51,7 +68,10 @@ export const SelectProfile = () => {
   }, []);
 
   // 프로필 선택 핸들러
-  const handleSelectProfile = (id, profileImageUrl, name) => {
+  const handleSelectProfile = (id, name) => {
+    // 랜덤 프로필 이미지 선택
+    const profileImageUrl = getRandomProfileImage();
+
     // 선택한 프로필 정보들을 localStorage에 저장
     localStorage.setItem("kidId", id);
     localStorage.setItem("kidProfileImageUrl", profileImageUrl);
@@ -74,14 +94,12 @@ export const SelectProfile = () => {
                 <div
                   className="profile-button"
                   key={profile.id}
-                  onClick={() =>
-                    handleSelectProfile(profile.id, profile.profileImageUrl, profile.name)
-                  }
+                  onClick={() => handleSelectProfile(profile.id, profile.name)}
                 >
                   <img
                     className="boy-blue"
                     alt={profile.name}
-                    src={profile.profileImageUrl}
+                    src={getRandomProfileImage()} // 랜덤 이미지 사용
                   />
                   <div className="text-wrapper">{profile.name}</div>
                 </div>
@@ -89,7 +107,6 @@ export const SelectProfile = () => {
 
               {/* 프로필이 3명 이하일 때만 "프로필 생성" 버튼 표시 */}
               {profiles.length <= 3 && (
-
                 <div className="create-profile">
                   <img
                     className="img"
