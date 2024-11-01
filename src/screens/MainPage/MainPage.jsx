@@ -5,12 +5,10 @@ import "./style.css";
 export const MainPage = () => {
   const [recommendedBooks, setRecommendedBooks] = useState([]);
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
-  const [kidId, setKidId] = useState(localStorage.getItem("kidId") || null); // 초기값 설정
-  const [bookId, setBookId] = useState("");
+  const [kidId, setKidId] = useState(localStorage.getItem("kidId") || null);
   
   const navigate = useNavigate();
 
-  // kidProfileImageUrl를 로컬에서 가져오기
   useEffect(() => {
     const profileImage = localStorage.getItem("kidProfileImageUrl");
     if (profileImage) {
@@ -18,7 +16,6 @@ export const MainPage = () => {
     }
   }, []);
 
-  // kidId가 있을 때만 책 정보를 불러오는 함수
   useEffect(() => {
     const fetchRecommendedBooks = async () => {
       try {
@@ -37,7 +34,7 @@ export const MainPage = () => {
     if (kidId) {
       fetchRecommendedBooks();
     }
-  }, [kidId]); // kidId가 변경될 때마다 호출
+  }, [kidId]);
 
   const handleDrawButtonClick = () => {
     navigate("/draw");
@@ -47,7 +44,16 @@ export const MainPage = () => {
     localStorage.setItem("bookId", bookId);
     navigate(`/book_detail`);
   };
-  
+
+  const handleTextClick = () => {
+    navigate("/main_page"); // 메인 페이지로 리다이렉트
+  };
+
+  // "유캐포" 버튼 클릭 핸들러 추가
+  const handleYukaepoClick = () => {
+    navigate("/add_book"); // add_book 페이지로 리다이렉트
+  };
+
   return (
     <div className="main-page">
       <div className="div-3">
@@ -64,14 +70,18 @@ export const MainPage = () => {
             <div className="frame-22">
               <div className="frame-23">
                 <div className="frame-24">
-                  <div className="text-wrapper-10">유레카</div>
+                  <div className="text-wrapper-10" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                    책 고를까?
+                  </div>
                 </div>
                 <div className="frame-24">
-                  <div className="text-wrapper-10">유캐포</div>
+                  <div className="text-wrapper-10" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                    유캐포~
+                  </div>
                 </div>
                 <div className="frame-24">
                   <button className="text-wrapper-10" onClick={handleDrawButtonClick}>
-                    선착순 응모
+                    선물 응모해!
                   </button>
                 </div>
               </div>
@@ -92,12 +102,13 @@ export const MainPage = () => {
             {recommendedBooks.slice(0, 5).map((book, index) => (
               <div className="frame-4" key={index} onClick={() => handleBookClick(book.bookId)}>
                 <img className="outline-files-book" alt="Outline files book" src="/img/outline-files-book-mark-1.svg" />
-                <img
+                {/* 책 커버 이미지만 주석 처리 */}
+                {/* <img
                   className="overlay-book-image"
                   alt="Overlay book"
                   src={book.bookImageUrl}
                   style={{ position: "absolute", top: "10px", left: "10px", width: "60px", height: "90px" }}
-                />
+                /> */}
                 <div className="text-wrapper-2">{book.title || "책 제목"}</div>
               </div>
             ))}
@@ -106,18 +117,17 @@ export const MainPage = () => {
             {recommendedBooks.slice(5, 10).map((book, index) => (
               <div className="frame-4" key={index} onClick={() => handleBookClick(book.bookId)}>
                 <img className="outline-files-book" alt="Outline files book" src="/img/outline-files-book-mark-1.svg" />
-                <img
+                {/* 책 커버 이미지만 주석 처리 */}
+                {/* <img
                   className="overlay-book-image"
                   alt="Overlay book"
                   src={book.bookImageUrl}
                   style={{ position: "absolute", top: "10px", left: "10px", width: "60px", height: "90px" }}
-                />
+                /> */}
                 <div className="text-wrapper-2">{book.title || "책 제목"}</div>
               </div>
             ))}
           </div>
-          
-
         </div>
       </div>
     </div>
