@@ -34549,7 +34549,59 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _solidInterfaceMenu1 = require("../../icons/SolidInterfaceMenu1");
 var _styleCss = require("./style.css");
+var _s = $RefreshSig$();
 const AddBook = ()=>{
+    _s();
+    const [bookData, setBookData] = (0, _react.useState)({
+        title: "",
+        author: "",
+        publisher: "",
+        story: "",
+        summary: "",
+        recommendedAge: "",
+        bookImageUrl: "https://www.nlcy.go.kr/multiLanguageStory/2010/Nlcy_016_001/Nlcy_016_001.png" // 기본 링크 설정
+    });
+    const handleChange = (e)=>{
+        const { name, value } = e.target;
+        setBookData({
+            ...bookData,
+            [name]: value
+        });
+    };
+    const handleSubmit = async ()=>{
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/books/admin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: bookData.title,
+                    story: bookData.story,
+                    summary: bookData.summary,
+                    author: bookData.author,
+                    publisher: bookData.publisher,
+                    recommendedAge: parseInt(bookData.recommendedAge, 10),
+                    bookImageUrl: bookData.bookImageUrl
+                })
+            });
+            if (response.ok) {
+                alert("\uCC45\uC774 \uC131\uACF5\uC801\uC73C\uB85C \uB4F1\uB85D\uB418\uC5C8\uC2B5\uB2C8\uB2E4!");
+                setBookData({
+                    title: "",
+                    author: "",
+                    publisher: "",
+                    story: "",
+                    summary: "",
+                    recommendedAge: "",
+                    bookImageUrl: "https://www.nlcy.go.kr/multiLanguageStory/2010/Nlcy_016_001/Nlcy_016_001.png" // 기본 링크 재설정
+                });
+            } else alert("\uCC45 \uB4F1\uB85D\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4.");
+        } catch (error) {
+            console.error("Error:", error);
+            alert("\uC11C\uBC84 \uC694\uCCAD\uC5D0 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4.");
+        }
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "add-book",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34562,7 +34614,7 @@ const AddBook = ()=>{
                             className: "rectangle"
                         }, void 0, false, {
                             fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 10,
+                            lineNumber: 63,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34577,7 +34629,7 @@ const AddBook = ()=>{
                                             src: "/img/logo-white-1-3.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 14,
+                                            lineNumber: 66,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34589,7 +34641,7 @@ const AddBook = ()=>{
                                                     src: "/img/yellow-bear.png"
                                                 }, void 0, false, {
                                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 21,
+                                                    lineNumber: 72,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -34598,19 +34650,19 @@ const AddBook = ()=>{
                                                     src: "/img/three-animals.png"
                                                 }, void 0, false, {
                                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 27,
+                                                    lineNumber: 77,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 20,
+                                            lineNumber: 71,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 13,
+                                    lineNumber: 65,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34626,12 +34678,12 @@ const AddBook = ()=>{
                                                         children: "\uD504\uB85C\uD544 \uBCC0\uACBD"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 38,
+                                                        lineNumber: 87,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 37,
+                                                    lineNumber: 86,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34641,12 +34693,12 @@ const AddBook = ()=>{
                                                         children: "\uC120\uCC29\uC21C \uC751\uBAA8"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 42,
+                                                        lineNumber: 90,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 41,
+                                                    lineNumber: 89,
                                                     columnNumber: 17
                                                 }, undefined),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34656,43 +34708,43 @@ const AddBook = ()=>{
                                                         children: "\uC720\uCE90\uD3EC"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 46,
+                                                        lineNumber: 93,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                                    lineNumber: 45,
+                                                    lineNumber: 92,
                                                     columnNumber: 17
                                                 }, undefined)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 36,
+                                            lineNumber: 85,
                                             columnNumber: 15
                                         }, undefined),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _solidInterfaceMenu1.SolidInterfaceMenu1), {
                                             className: "solid-interface-menu-1"
                                         }, void 0, false, {
                                             fileName: "src/screens/AddBook/AddBook.jsx",
-                                            lineNumber: 50,
+                                            lineNumber: 96,
                                             columnNumber: 15
                                         }, undefined)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 35,
+                                    lineNumber: 84,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 12,
+                            lineNumber: 64,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/AddBook/AddBook.jsx",
-                    lineNumber: 9,
+                    lineNumber: 62,
                     columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34707,7 +34759,7 @@ const AddBook = ()=>{
                                     src: "/img/rectangle-2.svg"
                                 }, void 0, false, {
                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 59,
+                                    lineNumber: 103,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -34715,221 +34767,123 @@ const AddBook = ()=>{
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                         className: "frame-8",
                                         children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                            {
+                                                label: "\uC81C\uBAA9",
+                                                name: "title",
+                                                placeholder: "\uC81C\uBAA9 \uC785\uB825\uB780"
+                                            },
+                                            {
+                                                label: "\uC800\uC790",
+                                                name: "author",
+                                                placeholder: "\uC800\uC790 \uC785\uB825\uB780"
+                                            },
+                                            {
+                                                label: "\uCD9C\uD310\uC0AC",
+                                                name: "publisher",
+                                                placeholder: "\uCD9C\uD310\uC0AC \uC785\uB825\uB780"
+                                            },
+                                            {
+                                                label: "\uC904\uAC70\uB9AC",
+                                                name: "story",
+                                                placeholder: "\uC904\uAC70\uB9AC \uC785\uB825\uB780"
+                                            },
+                                            {
+                                                label: "\uB0B4\uC6A9",
+                                                name: "summary",
+                                                placeholder: "\uB0B4\uC6A9 \uC785\uB825\uB780"
+                                            },
+                                            {
+                                                label: "\uC5F0\uB839\uB300",
+                                                name: "recommendedAge",
+                                                placeholder: "\uC5F0\uB839\uB300 \uC785\uB825\uB780"
+                                            }
+                                        ].map(({ label, name, placeholder })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                 className: "frame-9",
                                                 children: [
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                         className: "text-wrapper-2",
-                                                        children: "\uC81C\uBAA9"
+                                                        children: label
                                                     }, void 0, false, {
                                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 64,
-                                                        columnNumber: 19
+                                                        lineNumber: 115,
+                                                        columnNumber: 21
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                         className: "rectangle-2"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 65,
-                                                        columnNumber: 19
+                                                        lineNumber: 116,
+                                                        columnNumber: 21
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
                                                         type: "text",
-                                                        placeholder: "\uC81C\uBAA9 \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
+                                                        name: name,
+                                                        placeholder: placeholder,
+                                                        className: "text-wrapper-3",
+                                                        value: bookData[name],
+                                                        onChange: handleChange
                                                     }, void 0, false, {
                                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 66,
+                                                        lineNumber: 117,
                                                         columnNumber: 21
                                                     }, undefined)
                                                 ]
-                                            }, void 0, true, {
+                                            }, name, true, {
                                                 fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 63,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-4",
-                                                        children: "\uC800\uC790"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 74,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 76,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uC800\uC790 \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 77,
-                                                        columnNumber: 21
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 73,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-4",
-                                                        children: "\uC904\uAC70\uB9AC"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 85,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 87,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uC904\uAC70\uB9AC \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 89,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 84,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-4",
-                                                        children: "\uB0B4\uC6A9"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 97,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 99,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "\uB0B4\uC6A9 \uC785\uB825\uB780",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 100,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 96,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "frame-9",
-                                                children: [
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "text-wrapper-5",
-                                                        children: "MBTI"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 108,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                        className: "rectangle-2"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 110,
-                                                        columnNumber: 19
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
-                                                        type: "text",
-                                                        placeholder: "MBTI \uC790\uB3D9 \uC785\uB825",
-                                                        className: "text-wrapper-3"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/AddBook/AddBook.jsx",
-                                                        lineNumber: 111,
-                                                        columnNumber: 19
-                                                    }, undefined)
-                                                ]
-                                            }, void 0, true, {
-                                                fileName: "src/screens/AddBook/AddBook.jsx",
-                                                lineNumber: 107,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
+                                                lineNumber: 114,
+                                                columnNumber: 19
+                                            }, undefined))
+                                    }, void 0, false, {
                                         fileName: "src/screens/AddBook/AddBook.jsx",
-                                        lineNumber: 62,
+                                        lineNumber: 105,
                                         columnNumber: 15
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/screens/AddBook/AddBook.jsx",
-                                    lineNumber: 61,
+                                    lineNumber: 104,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 56,
+                            lineNumber: 102,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "view",
+                            onClick: handleSubmit,
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "text-wrapper-6",
                                 children: "\uCC45 \uB4F1\uB85D"
                             }, void 0, false, {
                                 fileName: "src/screens/AddBook/AddBook.jsx",
-                                lineNumber: 122,
+                                lineNumber: 131,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/screens/AddBook/AddBook.jsx",
-                            lineNumber: 121,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/AddBook/AddBook.jsx",
-                    lineNumber: 55,
+                    lineNumber: 101,
                     columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/screens/AddBook/AddBook.jsx",
-            lineNumber: 8,
+            lineNumber: 61,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/AddBook/AddBook.jsx",
-        lineNumber: 7,
+        lineNumber: 60,
         columnNumber: 5
     }, undefined);
 };
+_s(AddBook, "HOvUTtW/ZipwXoNsSXuGlrx5Tpc=");
 _c = AddBook;
 var _c;
 $RefreshReg$(_c, "AddBook");
