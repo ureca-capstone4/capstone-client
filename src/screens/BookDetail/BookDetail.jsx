@@ -6,6 +6,20 @@ import "./style.css";
 
 export const BookDetail = () => {
   const navigate = useNavigate();
+  
+  const handleDrawButtonClick = () => {
+    navigate("/draw");
+  };
+
+  const handleTextClick = () => {
+    navigate("/main_page"); // 메인 페이지로 리다이렉트
+  };
+
+  // "유캐포" 버튼 클릭 핸들러 추가
+  const handleYukaepoClick = () => {
+    navigate("/add_book"); // add_book 페이지로 리다이렉트
+  };
+
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
   const [kidId, setKidId] = useState("");
   const [bookId, setBookId] = useState("");
@@ -98,10 +112,6 @@ export const BookDetail = () => {
     }
   };
 
-  const handleDrawButtonClick = () => {
-    navigate("/draw");
-  };
-
   return (
     <div className="book-detail">
       <div className="div-2">
@@ -119,14 +129,18 @@ export const BookDetail = () => {
             <div className="frame-22">
               <div className="frame-23">
                 <div className="frame-24">
-                  <div className="text-wrapper-10">유레카</div>
+                  <div className="text-wrapper-10" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                    책 고를까?
+                  </div>
                 </div>
                 <div className="frame-24">
-                  <div className="text-wrapper-10">유캐포</div>
+                  <div className="text-wrapper-10" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                    유캐포~
+                  </div>
                 </div>
                 <div className="frame-24">
                   <button className="text-wrapper-10" onClick={handleDrawButtonClick}>
-                    선착순 응모
+                    선물 응모해!
                   </button>
                 </div>
               </div>
@@ -140,7 +154,7 @@ export const BookDetail = () => {
         <div className="frame-14">
           <div className="frame-77">
             <img className="yellow-box" alt="프레임" src="/img/rectangle-2.svg" />
-            <div className="frame-88">
+            <div className="frame-88"> 
               <button className="icon-button" onClick={handleLikeBook} style={{ background: 'none', border: 'none', padding: 0 }}>
                 <Frame28 className="icon-instance-node" /> {/* 클릭 시 좋아요 처리 */}
               </button>
