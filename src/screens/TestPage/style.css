@@ -213,7 +213,7 @@
 
 .test-page .birthdate-field {
   align-items: center;
-  background-color: #f0eee3;
+  /* background-color: #f0eee3; */
   border-radius: 20px;
   display: flex;
   flex: 1;
@@ -239,8 +239,9 @@
 }
 
 .test-page .gender-field {
+  margin-left: -21px;
   align-items: center;
-  background-color: #f0eee3;
+  /* background-color: #f0eee3; */
   border-radius: 20px;
   display: flex;
   flex: 1;
@@ -301,16 +302,26 @@
 }
 
 button {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  border: none;
-  background-color: #f0f0f0;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
+    background-color: #f0f0f0;
+    border: none;
+    /* width: 100%; */
+    /* height: 100%; */
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
+/* 버튼 호버 스타일 */
 button:hover {
-  background-color: #e0e0e0;
+  background-color: #f0f5b8;
+}
+
+
+button.selected {
+  background-color: #4CAF50; 
+  color: white; 
+  border-color: #45a049;
+  transform: scale(1.05); 
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }

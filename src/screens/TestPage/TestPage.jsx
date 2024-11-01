@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import "./style.css";
 
 const TOTAL_QUESTIONS = 12;
+
 export const TestPage = () => {
   const [questionList, setQuestionList] = useState([]);
-  
-
-  const [mbtiScores, setMbtiScores] = useState({
-    EI: 0,
-    SN: 0,
-    TF: 0,
-    JP: 0,
-  });
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [mbtiResult,  setMbtiResult] = useState([]);
+  const [personalityResult,  setPersonalityResult] = useState([]);
   
   useEffect(() => {
     const loadQuestionList = async () => {
@@ -39,41 +35,49 @@ export const TestPage = () => {
     loadQuestionList();
   }, []);
 
-  const loadQuestion = () => {
-    const questionData = questionList[currentQuestionId - 1];
-    if (questionData) {
-      setQuestion(questionData);
-      setTitle(questionData.question);
-      setAnswerOptions([
-        {
-          text: questionData.answer1,
-          value: questionData.value,
-        },
-        {
-          text: questionData.answer2,
-          value: questionData.value,
-        },
-      ]);
-    }
+  const handleAnswer = (questionId, answer, mbtiType, value) => {
+    setSelectedAnswers(prev => ({
+      ...prev,
+      [questionId]: { answer, mbtiType, value }
+    }));
   };
 
-  // return(
-  //   <div className="question-list">
-  //     {questionList.map((question) => (
-  //       <div key={question.id} className="question-item">
-  //         <h3>{question.question}</h3>
-  //         <div className="answer-buttons">
-  //           <button onClick={() => handleAnswer(question.id, question.answer1)}>
-  //             {question.answer1}
-  //           </button>
-  //           <button onClick={() => handleAnswer(question.id, question.answer2)}>
-  //             {question.answer2}
-  //           </button>
-  //         </div>
-  //       </div>
-  //     ))}
-  // </div>
-  // );
+  const handleSave = () => {
+    // 모든 질문에 답변했는지 확인하고 결과 계산
+    if (Object.keys(selectedAnswers).length === questionList.length) {
+      calculateMBTIResult(selectedAnswers);
+    } else {
+      alert("모든 질문에 답해주세요.");
+    }
+  };
+  
+  const calculateMBTIResult = (answers) => {
+    const mbtiScores = {"EI": 50, "SN": 50, "TF": 50, "JP": 50};
+  
+    Object.values(answers).forEach(({answer, mbtiType, value}) => {
+      if (answer === "네") {
+        mbtiScores[mbtiType] += value; // "네"일 경우 value를 더함
+      } else {
+        mbtiScores[mbtiType] -= value; // "아니오"일 경우 value를 뺌
+      }
+    });
+  
+    const result = Object.entries(mbtiScores).map(([type, score]) => {
+      return score >= 50 ? type[0] : type[1]; // 점수에 따라 MBTI 유형 결정
+    }).join('');mbtiScores
+  
+    setMbtiResult(result);
+    setPersonalityResult(mbtiScores);
+
+    console.log("MBTI 결과:", result); // mbtiResult 대신 result를 출력
+
+    // 여기에서 바로 POST로 API 
+
+
+
+
+  };
+  
 
   return (
     <div className="test-page">
@@ -132,12 +136,15 @@ export const TestPage = () => {
                         </div>
                         <div className="frame-4">
                           <div className="birthdate-field">
-                            <button onClick={() => handleAnswer(question.id, question.answer1)}>
+                            {/* <button onClick={() => handleAnswer(question.id, question.answer1)}> */}
+                            <button onClick={() => {handleAnswer(question.id, question.answer1, question.mbti, question.value);     console.log("클릭된 값:", question.id, question.answer1, question.mbti, question.value);
+;}} className={selectedAnswers[question.id]?.answer === question.answer1 ? 'selected' : '' }>
                               <div className="text-wrapper-2">{question.answer1}</div>
                             </button> 
                           </div>
                           <div className="gender-field">
-                          <button onClick={() => handleAnswer(question.id, question.answer2)}>
+                            {/* <button onClick={() => handleAnswer(question.id, question.answer2)}> */}
+                            <button onClick={() => handleAnswer(question.id, question.answer2, question.mbti, question.value)} className={selectedAnswers[question.id]?.answer === question.answer2 ? 'selected' : ''}>
                               <div className="text-wrapper-2">{question.answer2}</div>
                             </button> 
                           </div>
@@ -148,7 +155,7 @@ export const TestPage = () => {
                 ))}
               </div>
 
-              <button className='save-button'>
+              <button className='save-button' onClick={handleSave}>
                 <img
                   className="save-icon"
                   alt="Save icon"

@@ -43090,12 +43090,9 @@ const TOTAL_QUESTIONS = 12;
 const TestPage = ()=>{
     _s();
     const [questionList, setQuestionList] = (0, _react.useState)([]);
-    const [mbtiScores, setMbtiScores] = (0, _react.useState)({
-        EI: 0,
-        SN: 0,
-        TF: 0,
-        JP: 0
-    });
+    const [selectedAnswers, setSelectedAnswers] = (0, _react.useState)({});
+    const [mbtiResult, setMbtiResult] = (0, _react.useState)([]);
+    const [personalityResult, setPersonalityResult] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         const loadQuestionList = async ()=>{
             const token = localStorage.getItem("accessToken");
@@ -43117,40 +43114,41 @@ const TestPage = ()=>{
         };
         loadQuestionList();
     }, []);
-    const loadQuestion = ()=>{
-        const questionData = questionList[currentQuestionId - 1];
-        if (questionData) {
-            setQuestion(questionData);
-            setTitle(questionData.question);
-            setAnswerOptions([
-                {
-                    text: questionData.answer1,
-                    value: questionData.value
-                },
-                {
-                    text: questionData.answer2,
-                    value: questionData.value
+    const handleAnswer = (questionId, answer, mbtiType, value)=>{
+        setSelectedAnswers((prev)=>({
+                ...prev,
+                [questionId]: {
+                    answer,
+                    mbtiType,
+                    value
                 }
-            ]);
-        }
+            }));
     };
-    // return(
-    //   <div className="question-list">
-    //     {questionList.map((question) => (
-    //       <div key={question.id} className="question-item">
-    //         <h3>{question.question}</h3>
-    //         <div className="answer-buttons">
-    //           <button onClick={() => handleAnswer(question.id, question.answer1)}>
-    //             {question.answer1}
-    //           </button>
-    //           <button onClick={() => handleAnswer(question.id, question.answer2)}>
-    //             {question.answer2}
-    //           </button>
-    //         </div>
-    //       </div>
-    //     ))}
-    // </div>
-    // );
+    const handleSave = ()=>{
+        // 모든 질문에 답변했는지 확인하고 결과 계산
+        if (Object.keys(selectedAnswers).length === questionList.length) calculateMBTIResult(selectedAnswers);
+        else alert("\uBAA8\uB4E0 \uC9C8\uBB38\uC5D0 \uB2F5\uD574\uC8FC\uC138\uC694.");
+    };
+    const calculateMBTIResult = (answers)=>{
+        const mbtiScores = {
+            "EI": 50,
+            "SN": 50,
+            "TF": 50,
+            "JP": 50
+        };
+        Object.values(answers).forEach(({ answer, mbtiType, value })=>{
+            if (answer === "\uB124") mbtiScores[mbtiType] += value; // "네"일 경우 value를 더함
+            else mbtiScores[mbtiType] -= value; // "아니오"일 경우 value를 뺌
+        });
+        const result = Object.entries(mbtiScores).map(([type, score])=>{
+            return score >= 50 ? type[0] : type[1]; // 점수에 따라 MBTI 유형 결정
+        }).join("");
+        mbtiScores;
+        setMbtiResult(result);
+        setPersonalityResult(mbtiScores);
+        console.log("MBTI \uACB0\uACFC:", result); // mbtiResult 대신 result를 출력
+    // 여기에서 바로 POST로 API 
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "test-page",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43166,21 +43164,21 @@ const TestPage = ()=>{
                             src: "/img/polygon-3-4.svg"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 83,
+                            lineNumber: 87,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "ellipse"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 85,
+                            lineNumber: 89,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "div"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 87,
+                            lineNumber: 91,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43189,7 +43187,7 @@ const TestPage = ()=>{
                             src: "/img/polygon-3-1.svg"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 89,
+                            lineNumber: 93,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43198,21 +43196,21 @@ const TestPage = ()=>{
                             src: "/img/polygon-2-3.svg"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 91,
+                            lineNumber: 95,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "ellipse-2"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 97,
+                            lineNumber: 101,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "ellipse-3"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 99,
+                            lineNumber: 103,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43221,21 +43219,21 @@ const TestPage = ()=>{
                             src: "/img/polygon-1-4.svg"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 101,
+                            lineNumber: 105,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "ellipse-4"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 107,
+                            lineNumber: 111,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                             className: "ellipse-5"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 109,
+                            lineNumber: 113,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43244,7 +43242,7 @@ const TestPage = ()=>{
                             src: "/img/polygon-1-2.svg"
                         }, void 0, false, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 111,
+                            lineNumber: 115,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43259,7 +43257,7 @@ const TestPage = ()=>{
                                             src: "/img/logo-white-1-2.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                            lineNumber: 119,
+                                            lineNumber: 123,
                                             columnNumber: 17
                                         }, undefined),
                                         questionList.map((question)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43276,12 +43274,12 @@ const TestPage = ()=>{
                                                                     children: question.question
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 129,
+                                                                    lineNumber: 133,
                                                                     columnNumber: 27
                                                                 }, undefined)
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 128,
+                                                                lineNumber: 132,
                                                                 columnNumber: 25
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43290,120 +43288,126 @@ const TestPage = ()=>{
                                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                         className: "birthdate-field",
                                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                            onClick: ()=>handleAnswer(question.id, question.answer1),
+                                                                            onClick: ()=>{
+                                                                                handleAnswer(question.id, question.answer1, question.mbti, question.value);
+                                                                                console.log("\uD074\uB9AD\uB41C \uAC12:", question.id, question.answer1, question.mbti, question.value);
+                                                                            },
+                                                                            className: selectedAnswers[question.id]?.answer === question.answer1 ? "selected" : "",
                                                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                                                                 className: "text-wrapper-2",
                                                                                 children: question.answer1
                                                                             }, void 0, false, {
                                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                                lineNumber: 136,
-                                                                                columnNumber: 31
-                                                                            }, undefined)
-                                                                        }, void 0, false, {
-                                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                            lineNumber: 135,
-                                                                            columnNumber: 29
-                                                                        }, undefined)
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 134,
-                                                                        columnNumber: 27
-                                                                    }, undefined),
-                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "gender-field",
-                                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                            onClick: ()=>handleAnswer(question.id, question.answer2),
-                                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                                className: "text-wrapper-2",
-                                                                                children: question.answer2
-                                                                            }, void 0, false, {
-                                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                                lineNumber: 141,
+                                                                                lineNumber: 142,
                                                                                 columnNumber: 31
                                                                             }, undefined)
                                                                         }, void 0, false, {
                                                                             fileName: "src/screens/TestPage/TestPage.jsx",
                                                                             lineNumber: 140,
-                                                                            columnNumber: 27
+                                                                            columnNumber: 29
                                                                         }, undefined)
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 139,
+                                                                        lineNumber: 138,
+                                                                        columnNumber: 27
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "gender-field",
+                                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                            onClick: ()=>handleAnswer(question.id, question.answer2, question.mbti, question.value),
+                                                                            className: selectedAnswers[question.id]?.answer === question.answer2 ? "selected" : "",
+                                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                                className: "text-wrapper-2",
+                                                                                children: question.answer2
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                                lineNumber: 148,
+                                                                                columnNumber: 31
+                                                                            }, undefined)
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                            lineNumber: 147,
+                                                                            columnNumber: 29
+                                                                        }, undefined)
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                        lineNumber: 145,
                                                                         columnNumber: 27
                                                                     }, undefined)
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 133,
+                                                                lineNumber: 137,
                                                                 columnNumber: 25
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                        lineNumber: 127,
+                                                        lineNumber: 131,
                                                         columnNumber: 23
                                                     }, undefined)
                                                 }, void 0, false, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 126,
+                                                    lineNumber: 130,
                                                     columnNumber: 21
                                                 }, undefined)
                                             }, question.id, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 125,
+                                                lineNumber: 129,
                                                 columnNumber: 19
                                             }, undefined))
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                    lineNumber: 118,
+                                    lineNumber: 122,
                                     columnNumber: 15
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                                     className: "save-button",
+                                    onClick: handleSave,
                                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                                         className: "save-icon",
                                         alt: "Save icon",
                                         src: "/img/saveicon.svg"
                                     }, void 0, false, {
                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                        lineNumber: 152,
+                                        lineNumber: 159,
                                         columnNumber: 17
                                     }, undefined)
                                 }, void 0, false, {
                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                    lineNumber: 151,
+                                    lineNumber: 158,
                                     columnNumber: 15
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/TestPage/TestPage.jsx",
-                            lineNumber: 117,
+                            lineNumber: 121,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/TestPage/TestPage.jsx",
-                    lineNumber: 82,
+                    lineNumber: 86,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/screens/TestPage/TestPage.jsx",
-                lineNumber: 81,
+                lineNumber: 85,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/screens/TestPage/TestPage.jsx",
-            lineNumber: 80,
+            lineNumber: 84,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/TestPage/TestPage.jsx",
-        lineNumber: 79,
+        lineNumber: 83,
         columnNumber: 5
     }, undefined);
 };
-_s(TestPage, "yqhH6JDHOVB6djuMSlIdCeiHsEE=");
+_s(TestPage, "7TTBnE/e7itjR2LHJz6RnMzilEc=");
 _c = TestPage;
 var _c;
 $RefreshReg$(_c, "TestPage");
