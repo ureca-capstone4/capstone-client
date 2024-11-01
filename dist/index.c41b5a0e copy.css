@@ -162,7 +162,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  width: 800px;
+  width: 672px;
   height: 450px;
   padding: 52px 39px;
   display: flex;
@@ -177,25 +177,6 @@
   height: 295px;
   display: flex;
   position: relative;
-}
-
-.add-book .view {
-  background-color: #f3c623;
-  border-radius: 20px;
-  flex-wrap: wrap;
-  flex: none;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 220px;
-  height: 100%;
-  padding: 9px 5px;
-  display: flex;
-  position: relative;
-}
-
-.add-book .view:hover {
-  background-color: #d1a512;
 }
 
 .add-book .frame-9 {
@@ -264,43 +245,30 @@
   position: relative;
 }
 
+.add-book .view {
+  background-color: #f3c623;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  flex: none;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 148px;
+  padding: 9px 5px;
+  display: flex;
+  position: relative;
+}
+
+.add-book .view:hover {
+  background-color: #d1a512;
+}
+
 .add-book .text-wrapper-6 {
   color: #000;
   letter-spacing: 0;
   white-space: nowrap;
   width: fit-content;
   margin-top: -1px;
-  font-family: LaundryGothic-Regular, Helvetica;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: normal;
-  position: relative;
-}
-
-.add-book .frame-24 {
-  background-color: #f4f6ff;
-  border-radius: 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 120px;
-  height: 45px;
-  padding: 5px 2px;
-  display: flex;
-  position: relative;
-}
-
-.add-book .frame-24:hover {
-  background-color: #ccc;
-}
-
-.add-book .text-wrapper-10 {
-  color: #572e16;
-  letter-spacing: 0;
-  white-space: nowrap;
-  background-color: #0000;
-  border: none;
-  width: fit-content;
   font-family: LaundryGothic-Regular, Helvetica;
   font-size: 20px;
   font-weight: 400;
@@ -1668,7 +1636,7 @@
   position: relative;
 }
 
-.draw .frame-24 {
+.draw .frame-15 {
   background-color: #f4f6ff;
   border-radius: 30px;
   justify-content: center;
@@ -1681,16 +1649,10 @@
   position: relative;
 }
 
-.draw .frame-24:hover {
-  background-color: #ccc;
-}
-
-.draw .text-wrapper-100 {
+.draw .text-wrapper-7 {
   color: #572e16;
   letter-spacing: 0;
   white-space: nowrap;
-  background-color: #0000;
-  border: none;
   width: fit-content;
   font-family: LaundryGothic-Regular, Helvetica;
   font-size: 20px;
