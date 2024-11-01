@@ -27345,7 +27345,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./screens/AddBook":"dQRBE","./screens/BookDetail":"cjvRY","./screens/CreateProfile":"1E5ch","./screens/LoginScreen":"9AJZz","./screens/MainPage":"4UyPg","./screens/SelectProfile":"3f9wU","./screens/SignUpScreen":"av48u","./screens/Draw":"f5LNq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./screens/TestPage":"jeguK"}],"9xmpe":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","./screens/AddBook":"dQRBE","./screens/BookDetail":"cjvRY","./screens/CreateProfile":"1E5ch","./screens/LoginScreen":"9AJZz","./screens/MainPage":"4UyPg","./screens/SelectProfile":"3f9wU","./screens/SignUpScreen":"av48u","./screens/Draw":"f5LNq","./screens/TestPage":"jeguK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9xmpe":[function(require,module,exports) {
 /**
  * React Router DOM v6.27.0
  *
@@ -35654,7 +35654,7 @@ $RefreshReg$(_c, "BookDetail");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"3HWdZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","../../icons/Frame28":"edehT","../../icons/Frame29":"bqaTC"}],"3HWdZ":[function() {},{}],"edehT":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-router-dom":"9xmpe","../../icons/Frame28":"edehT","../../icons/Frame29":"bqaTC","./style.css":"3HWdZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"edehT":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Frame28", ()=>(0, _frame28.Frame28));
@@ -35820,7 +35820,7 @@ $RefreshReg$(_c, "Frame29");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1E5ch":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"3HWdZ":[function() {},{}],"1E5ch":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "CreateProfile", ()=>(0, _createProfile.CreateProfile));
@@ -43084,10 +43084,171 @@ parcelHelpers.export(exports, "TestPage", ()=>TestPage);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _goback1 = require("../../icons/Goback1");
 var _styleCss = require("./style.css");
+var _s = $RefreshSig$();
+const TOTAL_QUESTIONS = 12;
+const TOTAL_TIME = 60;
 const TestPage = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    _s();
+    const [questionList, setQuestionList] = (0, _react.useState)([]);
+    const [currentQuestionId, setCurrentQuestionId] = (0, _react.useState)(1);
+    const [question, setQuestion] = (0, _react.useState)({});
+    const [answerOptions, setAnswerOptions] = (0, _react.useState)([]);
+    const [mbti, setMbti] = (0, _react.useState)([]);
+    const [progress, setProgress] = (0, _react.useState)(0);
+    const [timeLeft, setTimeLeft] = (0, _react.useState)("");
+    const [answerList, setAnswerList] = (0, _react.useState)([]);
+    // const navigate = useNavigate();
+    const getQuestions = async ()=>{
+        const token = localStorage.getItem("accessToken");
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/personality/questions", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            if (response.ok) alert("\uC9C8\uBB38 \uAC00\uC838\uC624\uAE30 \uC131\uACF5");
+            else alert("\uC9C8\uBB38 \uAC00\uC838\uC624\uAE30 \uC2E4\uD328");
+        } catch (error) {
+            console.error("\uC9C8\uBB38 \uAC00\uC838\uC624\uB294 \uACFC\uC815\uC5D0\uC11C \uC2E4\uD328", error);
+        }
+    };
+    // / 질문 목록을 받아오는 함수
+    (0, _react.useEffect)(()=>{
+        const loadQuestionList = async ()=>{
+            const token = localStorage.getItem("accessToken");
+            try {
+                const response = await fetch(`http://localhost:8080/api/v1/personality/questions`, {
+                    method: "GET",
+                    headers: {
+                        authorization: `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log("questionsList", data); // 데이터 확인용 콘솔 출력
+                    setQuestionList(data);
+                } else console.error("\uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC624\uB294 \uB370 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4:", response.status);
+            } catch (error) {
+                console.error("\uB0B4\uBD80 \uBB38\uC81C\uB85C \uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4:", error);
+            }
+        };
+        if (currentQuestionId <= TOTAL_QUESTIONS) loadQuestionList();
+    }, [
+        currentQuestionId
+    ]);
+    const loadQuestionList = async ()=>{
+        const token = localStorage.getItem("accessToken");
+        try {
+            const response = await fetch("http://localhost:8080/api/v1/personality/questions", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                console.log("questionsList", data); // 데이터 확인용 콘솔 출력
+                setQuestionList(data);
+            } else console.error("\uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC624\uB294 \uB370 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4:", response.status);
+        } catch (error) {
+            console.error("\uB0B4\uBD80 \uBB38\uC81C\uB85C \uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4:", error);
+        }
+    };
+    // questionList가 업데이트된 후 질문을 로드
+    (0, _react.useEffect)(()=>{
+        if (questionList.length > 0 && currentQuestionId <= TOTAL_QUESTIONS) loadQuestion();
+    }, [
+        questionList,
+        currentQuestionId
+    ]);
+    const loadQuestion = ()=>{
+        const questionData = questionList[currentQuestionId - 1];
+        if (questionData) {
+            setQuestion(questionData);
+            setAnswerOptions([
+                {
+                    text: questionData.answer1,
+                    value: questionData.value
+                },
+                {
+                    text: questionData.answer2,
+                    value: questionData.value
+                }
+            ]);
+        }
+    };
+    // 진행률 및 남은 시간 업데이트
+    (0, _react.useEffect)(()=>{
+        const newProgress = (currentQuestionId - 1) / TOTAL_QUESTIONS * 100;
+        setProgress(newProgress);
+        const elapsedTime = (currentQuestionId - 1) / TOTAL_QUESTIONS * TOTAL_TIME;
+        const remainingTime = TOTAL_TIME - elapsedTime;
+        if (remainingTime <= 5) setTimeLeft(`\u{C644}\u{B8CC}\u{AE4C}\u{C9C0} ${Math.max(remainingTime, 0)}\u{CD08} \u{B0A8}\u{C558}\u{C5B4}\u{C694}!`);
+        else setTimeLeft(`\u{C644}\u{B8CC}\u{AE4C}\u{C9C0} ${Math.round(remainingTime)}\u{CD08} \u{B0A8}\u{C558}\u{C5B4}\u{C694}!`);
+    }, [
+        currentQuestionId
+    ]);
+    // 답변 선택 시 처리 함수
+    const handleAnswerSelect = async (value)=>{
+        setMbti((prevMbti)=>{
+            const updatedMbti = [
+                ...prevMbti,
+                value
+            ];
+            if (currentQuestionId === TOTAL_QUESTIONS) {
+                const calculateMBTI = ()=>{
+                    const countOccurrences = (arr, target)=>arr.filter((item)=>item === target).length;
+                    const E_count = countOccurrences(updatedMbti, "E");
+                    const I_count = countOccurrences(updatedMbti, "I");
+                    const dominantEI = E_count > I_count ? "E" : "I";
+                    const T_count = countOccurrences(updatedMbti, "T");
+                    const F_count = countOccurrences(updatedMbti, "F");
+                    const dominantTF = T_count > F_count ? "T" : "F";
+                    const P_count = countOccurrences(updatedMbti, "P");
+                    const J_count = countOccurrences(updatedMbti, "J");
+                    const dominantPJ = P_count > J_count ? "P" : "J";
+                    const dominantSN = updatedMbti.includes("S") ? "S" : "N";
+                    return `${dominantEI}${dominantSN}${dominantTF}${dominantPJ}`;
+                };
+                const mbtiResult = calculateMBTI();
+                setTimeout(()=>{
+                    updateUser({
+                        ...userData,
+                        mbti: mbtiResult
+                    });
+                    navigate(`/result/${mbtiResult.toLowerCase()}`);
+                }, 0);
+                return updatedMbti;
+            }
+            return updatedMbti;
+        });
+        setAnswerList((prevAnswers)=>[
+                ...prevAnswers,
+                {
+                    questionId: currentQuestionId,
+                    selectedAnswer: value
+                }
+            ]);
+        setCurrentQuestionId((prevId)=>prevId + 1);
+    };
+    return(// <div>
+    //   <h2>{question.question}</h2>
+    //   {answerOptions.map((option, index) => (
+    //     <button key={index} onClick={() => handleAnswerSelect(option.value)}>
+    //       {option.text}
+    //     </button>
+    //   ))}
+    //   <p>진행률: {progress}%</p>
+    //   <p>{timeLeft}</p>
+    // </div>
+    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "test-page",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "overlap-wrapper",
@@ -43103,21 +43264,21 @@ const TestPage = ()=>{
                                 src: "/img/polygon-3-4.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 11,
+                                lineNumber: 197,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "ellipse"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 13,
+                                lineNumber: 199,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "div"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 15,
+                                lineNumber: 201,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43126,7 +43287,7 @@ const TestPage = ()=>{
                                 src: "/img/polygon-3-1.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 17,
+                                lineNumber: 203,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43135,21 +43296,21 @@ const TestPage = ()=>{
                                 src: "/img/polygon-2-3.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 19,
+                                lineNumber: 205,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "ellipse-2"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 25,
+                                lineNumber: 211,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "ellipse-3"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 27,
+                                lineNumber: 213,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43158,21 +43319,21 @@ const TestPage = ()=>{
                                 src: "/img/polygon-1-4.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 29,
+                                lineNumber: 215,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "ellipse-4"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 35,
+                                lineNumber: 221,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "ellipse-5"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 37,
+                                lineNumber: 223,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
@@ -43181,7 +43342,7 @@ const TestPage = ()=>{
                                 src: "/img/polygon-1-2.svg"
                             }, void 0, false, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 39,
+                                lineNumber: 225,
                                 columnNumber: 13
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43196,7 +43357,7 @@ const TestPage = ()=>{
                                                 src: "/img/logo-white-1-2.svg"
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 47,
+                                                lineNumber: 233,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43211,12 +43372,12 @@ const TestPage = ()=>{
                                                                 children: "1\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 56,
+                                                                lineNumber: 242,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 55,
+                                                            lineNumber: 241,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43229,12 +43390,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 63,
+                                                                        lineNumber: 249,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 62,
+                                                                    lineNumber: 248,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43244,29 +43405,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 67,
+                                                                        lineNumber: 253,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 66,
+                                                                    lineNumber: 252,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 61,
+                                                            lineNumber: 247,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 54,
+                                                    lineNumber: 240,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 53,
+                                                lineNumber: 239,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43281,12 +43442,12 @@ const TestPage = ()=>{
                                                                 children: "2\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 76,
+                                                                lineNumber: 262,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 75,
+                                                            lineNumber: 261,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43299,12 +43460,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 83,
+                                                                        lineNumber: 269,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 82,
+                                                                    lineNumber: 268,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43314,29 +43475,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 87,
+                                                                        lineNumber: 273,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 86,
+                                                                    lineNumber: 272,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 81,
+                                                            lineNumber: 267,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 74,
+                                                    lineNumber: 260,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 73,
+                                                lineNumber: 259,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43351,12 +43512,12 @@ const TestPage = ()=>{
                                                                 children: "3\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 96,
+                                                                lineNumber: 282,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 95,
+                                                            lineNumber: 281,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43369,12 +43530,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 103,
+                                                                        lineNumber: 289,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 102,
+                                                                    lineNumber: 288,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43384,29 +43545,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 107,
+                                                                        lineNumber: 293,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 106,
+                                                                    lineNumber: 292,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 101,
+                                                            lineNumber: 287,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 94,
+                                                    lineNumber: 280,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 93,
+                                                lineNumber: 279,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43421,12 +43582,12 @@ const TestPage = ()=>{
                                                                 children: "4\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 116,
+                                                                lineNumber: 302,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 115,
+                                                            lineNumber: 301,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43439,12 +43600,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 123,
+                                                                        lineNumber: 309,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 122,
+                                                                    lineNumber: 308,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43454,29 +43615,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 127,
+                                                                        lineNumber: 313,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 126,
+                                                                    lineNumber: 312,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 121,
+                                                            lineNumber: 307,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 114,
+                                                    lineNumber: 300,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 113,
+                                                lineNumber: 299,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43491,12 +43652,12 @@ const TestPage = ()=>{
                                                                 children: "5\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 136,
+                                                                lineNumber: 322,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 135,
+                                                            lineNumber: 321,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43509,12 +43670,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 143,
+                                                                        lineNumber: 329,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 142,
+                                                                    lineNumber: 328,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43524,29 +43685,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 147,
+                                                                        lineNumber: 333,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 146,
+                                                                    lineNumber: 332,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 141,
+                                                            lineNumber: 327,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 134,
+                                                    lineNumber: 320,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 133,
+                                                lineNumber: 319,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43561,12 +43722,12 @@ const TestPage = ()=>{
                                                                 children: "6\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 156,
+                                                                lineNumber: 342,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 155,
+                                                            lineNumber: 341,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43579,12 +43740,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 163,
+                                                                        lineNumber: 349,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 162,
+                                                                    lineNumber: 348,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43594,29 +43755,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 167,
+                                                                        lineNumber: 353,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 166,
+                                                                    lineNumber: 352,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 161,
+                                                            lineNumber: 347,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 154,
+                                                    lineNumber: 340,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 153,
+                                                lineNumber: 339,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43631,12 +43792,12 @@ const TestPage = ()=>{
                                                                 children: "7\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 176,
+                                                                lineNumber: 362,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 175,
+                                                            lineNumber: 361,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43649,12 +43810,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 183,
+                                                                        lineNumber: 369,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 182,
+                                                                    lineNumber: 368,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43664,29 +43825,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 187,
+                                                                        lineNumber: 373,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 186,
+                                                                    lineNumber: 372,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 181,
+                                                            lineNumber: 367,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 174,
+                                                    lineNumber: 360,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 173,
+                                                lineNumber: 359,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43701,12 +43862,12 @@ const TestPage = ()=>{
                                                                 children: "8\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 196,
+                                                                lineNumber: 382,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 195,
+                                                            lineNumber: 381,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43719,12 +43880,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 203,
+                                                                        lineNumber: 389,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 202,
+                                                                    lineNumber: 388,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43734,29 +43895,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 207,
+                                                                        lineNumber: 393,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 206,
+                                                                    lineNumber: 392,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 201,
+                                                            lineNumber: 387,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 194,
+                                                    lineNumber: 380,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 193,
+                                                lineNumber: 379,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43771,12 +43932,12 @@ const TestPage = ()=>{
                                                                 children: "9\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 216,
+                                                                lineNumber: 402,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 215,
+                                                            lineNumber: 401,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43789,12 +43950,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 223,
+                                                                        lineNumber: 409,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 222,
+                                                                    lineNumber: 408,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43804,29 +43965,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 227,
+                                                                        lineNumber: 413,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 226,
+                                                                    lineNumber: 412,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 221,
+                                                            lineNumber: 407,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 214,
+                                                    lineNumber: 400,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 213,
+                                                lineNumber: 399,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43841,12 +44002,12 @@ const TestPage = ()=>{
                                                                 children: "10\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 236,
+                                                                lineNumber: 422,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 235,
+                                                            lineNumber: 421,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43859,12 +44020,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 243,
+                                                                        lineNumber: 429,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 242,
+                                                                    lineNumber: 428,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43874,29 +44035,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 247,
+                                                                        lineNumber: 433,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 246,
+                                                                    lineNumber: 432,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 241,
+                                                            lineNumber: 427,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 234,
+                                                    lineNumber: 420,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 233,
+                                                lineNumber: 419,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43911,12 +44072,12 @@ const TestPage = ()=>{
                                                                 children: "11\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 256,
+                                                                lineNumber: 442,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 255,
+                                                            lineNumber: 441,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43929,12 +44090,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 263,
+                                                                        lineNumber: 449,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 262,
+                                                                    lineNumber: 448,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43944,29 +44105,29 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 267,
+                                                                        lineNumber: 453,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 266,
+                                                                    lineNumber: 452,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 261,
+                                                            lineNumber: 447,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 254,
+                                                    lineNumber: 440,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 253,
+                                                lineNumber: 439,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43981,12 +44142,12 @@ const TestPage = ()=>{
                                                                 children: "12\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 276,
+                                                                lineNumber: 462,
                                                                 columnNumber: 23
                                                             }, undefined)
                                                         }, void 0, false, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 275,
+                                                            lineNumber: 461,
                                                             columnNumber: 21
                                                         }, undefined),
                                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -43999,12 +44160,12 @@ const TestPage = ()=>{
                                                                         children: "\uC751"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 283,
+                                                                        lineNumber: 469,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 282,
+                                                                    lineNumber: 468,
                                                                     columnNumber: 23
                                                                 }, undefined),
                                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -44014,82 +44175,91 @@ const TestPage = ()=>{
                                                                         children: "\uC544\uB2C8"
                                                                     }, void 0, false, {
                                                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 287,
+                                                                        lineNumber: 473,
                                                                         columnNumber: 25
                                                                     }, undefined)
                                                                 }, void 0, false, {
                                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 286,
+                                                                    lineNumber: 472,
                                                                     columnNumber: 23
                                                                 }, undefined)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 281,
+                                                            lineNumber: 467,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 274,
+                                                    lineNumber: 460,
                                                     columnNumber: 19
                                                 }, undefined)
                                             }, void 0, false, {
                                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 273,
+                                                lineNumber: 459,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                        lineNumber: 46,
+                                        lineNumber: 232,
                                         columnNumber: 15
                                     }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                        className: "save-icon",
-                                        alt: "Save icon",
-                                        src: "/img/saveicon.svg"
+                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                        className: "save-button",
+                                        onClick: getQuestions,
+                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "save-icon",
+                                            alt: "Save icon",
+                                            src: "/img/saveicon.svg"
+                                        }, void 0, false, {
+                                            fileName: "src/screens/TestPage/TestPage.jsx",
+                                            lineNumber: 481,
+                                            columnNumber: 17
+                                        }, undefined)
                                     }, void 0, false, {
                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                        lineNumber: 294,
+                                        lineNumber: 480,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 45,
+                                lineNumber: 231,
                                 columnNumber: 13
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/TestPage/TestPage.jsx",
-                        lineNumber: 10,
+                        lineNumber: 196,
                         columnNumber: 11
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _goback1.Goback1), {
                         className: "goback-1"
                     }, void 0, false, {
                         fileName: "src/screens/TestPage/TestPage.jsx",
-                        lineNumber: 302,
+                        lineNumber: 489,
                         columnNumber: 11
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/TestPage/TestPage.jsx",
-                lineNumber: 9,
+                lineNumber: 195,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/screens/TestPage/TestPage.jsx",
-            lineNumber: 8,
+            lineNumber: 194,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/TestPage/TestPage.jsx",
-        lineNumber: 7,
+        lineNumber: 193,
         columnNumber: 5
-    }, undefined);
+    }, undefined));
 };
+_s(TestPage, "BCNklCSZXdCH0y90HELWjL9u38g=");
 _c = TestPage;
 var _c;
 $RefreshReg$(_c, "TestPage");
@@ -44099,7 +44269,7 @@ $RefreshReg$(_c, "TestPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../../icons/Goback1":"gnrDk","./style.css":"bOGdM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gnrDk":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","../../icons/Goback1":"gnrDk","./style.css":"bOGdM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gnrDk":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Goback1", ()=>(0, _goback1.Goback1));

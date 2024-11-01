@@ -285,6 +285,13 @@
   width: 49.18px;
 }
 
+.test-page .save-icon:hover {
+  background-color: #d4a017; /* 호버 시 변경할 색상 */
+  cursor: pointer;
+  transform: scale(1.1); /* 약간 확대 */
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
 .test-page .goback-1 {
   height: 43px !important;
   left: 94px !important;
