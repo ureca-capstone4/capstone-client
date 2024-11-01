@@ -167,7 +167,7 @@
   height: 450px;
   padding: 52px 39px;
   position: relative;
-  width: 672px;
+  width: 800px;
 }
 
 .add-book .frame-8 {
@@ -178,6 +178,26 @@
   height: 295px;
   position: relative;
   width: 588px;
+}
+
+.add-book .view {
+  align-items: center;
+  background-color: #f3c623;
+  border-radius: 20px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  justify-content: center;
+  padding: 9px 5px;
+  position: relative;
+  width: 220px;
+  height: 100%;
+}
+
+/* 호버 시 색상 변경 */
+.add-book .view:hover {
+  background-color: #d1a512; /* 호버 시 진한 색상 */
 }
 
 .add-book .frame-9 {
@@ -246,25 +266,6 @@
   width: 66px;
 }
 
-.add-book .view {
-  align-items: center;
-  background-color: #f3c623;
-  border-radius: 10px;
-  display: flex;
-  flex: 0 0 auto;
-  flex-wrap: wrap;
-  gap: 10px 10px;
-  justify-content: center;
-  padding: 9px 5px;
-  position: relative;
-  width: 148px;
-}
-
-/* 호버 시 색상 변경 */
-.add-book .view:hover {
-  background-color: #d1a512; /* 호버 시 진한 색상 */
-}
-
 .add-book .text-wrapper-6 {
   color: #000000;
   font-family: "LaundryGothic-Regular", Helvetica;
@@ -276,4 +277,35 @@
   position: relative;
   white-space: nowrap;
   width: fit-content;
+}
+
+.add-book .frame-24 {
+  align-items: center;
+  background-color: #f4f6ff;
+  border-radius: 30px;
+  display: flex;
+  gap: 10px;
+  height: 45px;
+  justify-content: center;
+  padding: 5px 2px;
+  position: relative;
+  width: 120px;
+}
+
+.add-book .frame-24:hover {
+  background-color: #CCCCCC
+}
+
+.add-book .text-wrapper-10 {
+  color: #572e16;
+  font-family: "LaundryGothic-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+  background-color: transparent; /* 배경색 투명 */
+  border: none; /* 경계선 제거 */
 }
