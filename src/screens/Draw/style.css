@@ -92,7 +92,7 @@
   position: relative;
 }
 
-.draw .frame-15 {
+.draw .frame-24 {
   align-items: center;
   background-color: #f4f6ff;
   border-radius: 30px;
@@ -105,7 +105,11 @@
   width: 120px;
 }
 
-.draw .text-wrapper-7 {
+.draw .frame-24:hover {
+  background-color: #CCCCCC
+}
+
+.draw .text-wrapper-100 {
   color: #572e16;
   font-family: "LaundryGothic-Regular", Helvetica;
   font-size: 20px;
@@ -115,7 +119,10 @@
   position: relative;
   white-space: nowrap;
   width: fit-content;
+  background-color: transparent; /* 배경색 투명 */
+  border: none; /* 경계선 제거 */
 }
+
 
 .draw .solid-interface-menu-1-instance {
   height: 35px !important;
