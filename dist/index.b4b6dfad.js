@@ -43084,42 +43084,18 @@ parcelHelpers.export(exports, "TestPage", ()=>TestPage);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _axios = require("axios");
-var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _goback1 = require("../../icons/Goback1");
 var _styleCss = require("./style.css");
 var _s = $RefreshSig$();
 const TOTAL_QUESTIONS = 12;
-const TOTAL_TIME = 60;
 const TestPage = ()=>{
     _s();
     const [questionList, setQuestionList] = (0, _react.useState)([]);
-    const [currentQuestionId, setCurrentQuestionId] = (0, _react.useState)(1);
-    const [question, setQuestion] = (0, _react.useState)({});
-    const [answerOptions, setAnswerOptions] = (0, _react.useState)([]);
-    const [mbti, setMbti] = (0, _react.useState)([]);
-    const [progress, setProgress] = (0, _react.useState)(0);
-    const [timeLeft, setTimeLeft] = (0, _react.useState)("");
-    const [answerList, setAnswerList] = (0, _react.useState)([]);
-    // const navigate = useNavigate();
-    const getQuestions = async ()=>{
-        const token = localStorage.getItem("accessToken");
-        try {
-            const response = await fetch("http://localhost:8080/api/v1/personality/questions", {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            const data = await response.json();
-            if (response.ok) alert("\uC9C8\uBB38 \uAC00\uC838\uC624\uAE30 \uC131\uACF5");
-            else alert("\uC9C8\uBB38 \uAC00\uC838\uC624\uAE30 \uC2E4\uD328");
-        } catch (error) {
-            console.error("\uC9C8\uBB38 \uAC00\uC838\uC624\uB294 \uACFC\uC815\uC5D0\uC11C \uC2E4\uD328", error);
-        }
-    };
-    // / 질문 목록을 받아오는 함수
+    const [mbtiScores, setMbtiScores] = (0, _react.useState)({
+        EI: 0,
+        SN: 0,
+        TF: 0,
+        JP: 0
+    });
     (0, _react.useEffect)(()=>{
         const loadQuestionList = async ()=>{
             const token = localStorage.getItem("accessToken");
@@ -43133,45 +43109,19 @@ const TestPage = ()=>{
                 if (response.ok) {
                     const data = await response.json();
                     console.log("questionsList", data); // 데이터 확인용 콘솔 출력
-                    setQuestionList(data);
+                    setQuestionList(data.questions);
                 } else console.error("\uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC624\uB294 \uB370 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4:", response.status);
             } catch (error) {
                 console.error("\uB0B4\uBD80 \uBB38\uC81C\uB85C \uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4:", error);
             }
         };
-        if (currentQuestionId <= TOTAL_QUESTIONS) loadQuestionList();
-    }, [
-        currentQuestionId
-    ]);
-    const loadQuestionList = async ()=>{
-        const token = localStorage.getItem("accessToken");
-        try {
-            const response = await fetch("http://localhost:8080/api/v1/personality/questions", {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            if (response.ok) {
-                const data = await response.json();
-                console.log("questionsList", data); // 데이터 확인용 콘솔 출력
-                setQuestionList(data);
-            } else console.error("\uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC624\uB294 \uB370 \uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4:", response.status);
-        } catch (error) {
-            console.error("\uB0B4\uBD80 \uBB38\uC81C\uB85C \uC9C8\uBB38 \uBAA9\uB85D\uC744 \uAC00\uC838\uC62C \uC218 \uC5C6\uC2B5\uB2C8\uB2E4:", error);
-        }
-    };
-    // questionList가 업데이트된 후 질문을 로드
-    (0, _react.useEffect)(()=>{
-        if (questionList.length > 0 && currentQuestionId <= TOTAL_QUESTIONS) loadQuestion();
-    }, [
-        questionList,
-        currentQuestionId
-    ]);
+        loadQuestionList();
+    }, []);
     const loadQuestion = ()=>{
         const questionData = questionList[currentQuestionId - 1];
         if (questionData) {
             setQuestion(questionData);
+            setTitle(questionData.question);
             setAnswerOptions([
                 {
                     text: questionData.answer1,
@@ -43184,1082 +43134,276 @@ const TestPage = ()=>{
             ]);
         }
     };
-    // 진행률 및 남은 시간 업데이트
-    (0, _react.useEffect)(()=>{
-        const newProgress = (currentQuestionId - 1) / TOTAL_QUESTIONS * 100;
-        setProgress(newProgress);
-        const elapsedTime = (currentQuestionId - 1) / TOTAL_QUESTIONS * TOTAL_TIME;
-        const remainingTime = TOTAL_TIME - elapsedTime;
-        if (remainingTime <= 5) setTimeLeft(`\u{C644}\u{B8CC}\u{AE4C}\u{C9C0} ${Math.max(remainingTime, 0)}\u{CD08} \u{B0A8}\u{C558}\u{C5B4}\u{C694}!`);
-        else setTimeLeft(`\u{C644}\u{B8CC}\u{AE4C}\u{C9C0} ${Math.round(remainingTime)}\u{CD08} \u{B0A8}\u{C558}\u{C5B4}\u{C694}!`);
-    }, [
-        currentQuestionId
-    ]);
-    // 답변 선택 시 처리 함수
-    const handleAnswerSelect = async (value)=>{
-        setMbti((prevMbti)=>{
-            const updatedMbti = [
-                ...prevMbti,
-                value
-            ];
-            if (currentQuestionId === TOTAL_QUESTIONS) {
-                const calculateMBTI = ()=>{
-                    const countOccurrences = (arr, target)=>arr.filter((item)=>item === target).length;
-                    const E_count = countOccurrences(updatedMbti, "E");
-                    const I_count = countOccurrences(updatedMbti, "I");
-                    const dominantEI = E_count > I_count ? "E" : "I";
-                    const T_count = countOccurrences(updatedMbti, "T");
-                    const F_count = countOccurrences(updatedMbti, "F");
-                    const dominantTF = T_count > F_count ? "T" : "F";
-                    const P_count = countOccurrences(updatedMbti, "P");
-                    const J_count = countOccurrences(updatedMbti, "J");
-                    const dominantPJ = P_count > J_count ? "P" : "J";
-                    const dominantSN = updatedMbti.includes("S") ? "S" : "N";
-                    return `${dominantEI}${dominantSN}${dominantTF}${dominantPJ}`;
-                };
-                const mbtiResult = calculateMBTI();
-                setTimeout(()=>{
-                    updateUser({
-                        ...userData,
-                        mbti: mbtiResult
-                    });
-                    navigate(`/result/${mbtiResult.toLowerCase()}`);
-                }, 0);
-                return updatedMbti;
-            }
-            return updatedMbti;
-        });
-        setAnswerList((prevAnswers)=>[
-                ...prevAnswers,
-                {
-                    questionId: currentQuestionId,
-                    selectedAnswer: value
-                }
-            ]);
-        setCurrentQuestionId((prevId)=>prevId + 1);
-    };
-    return(// <div>
-    //   <h2>{question.question}</h2>
-    //   {answerOptions.map((option, index) => (
-    //     <button key={index} onClick={() => handleAnswerSelect(option.value)}>
-    //       {option.text}
-    //     </button>
-    //   ))}
-    //   <p>진행률: {progress}%</p>
-    //   <p>{timeLeft}</p>
+    // return(
+    //   <div className="question-list">
+    //     {questionList.map((question) => (
+    //       <div key={question.id} className="question-item">
+    //         <h3>{question.question}</h3>
+    //         <div className="answer-buttons">
+    //           <button onClick={() => handleAnswer(question.id, question.answer1)}>
+    //             {question.answer1}
+    //           </button>
+    //           <button onClick={() => handleAnswer(question.id, question.answer2)}>
+    //             {question.answer2}
+    //           </button>
+    //         </div>
+    //       </div>
+    //     ))}
     // </div>
-    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+    // );
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "test-page",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "overlap-wrapper",
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 className: "overlap",
-                children: [
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "overlap-group",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "polygon",
-                                alt: "Polygon",
-                                src: "/img/polygon-3-4.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 197,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 199,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "div"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 201,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "img",
-                                alt: "Polygon",
-                                src: "/img/polygon-3-1.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 203,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "polygon-2",
-                                alt: "Polygon",
-                                src: "/img/polygon-2-3.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 205,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse-2"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 211,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse-3"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 213,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "polygon-3",
-                                alt: "Polygon",
-                                src: "/img/polygon-1-4.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 215,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse-4"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 221,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "ellipse-5"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 223,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                className: "polygon-4",
-                                alt: "Polygon",
-                                src: "/img/polygon-1-2.svg"
-                            }, void 0, false, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 225,
-                                columnNumber: 13
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                className: "frame",
-                                children: [
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "frame-2",
-                                        children: [
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                                className: "logo-white",
-                                                alt: "Logo white",
-                                                src: "/img/logo-white-1-2.svg"
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 233,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "1\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 242,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 241,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 249,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 248,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 253,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 252,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 247,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 240,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 239,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "2\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 262,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 261,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 269,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 268,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 273,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 272,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 267,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 260,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 259,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "3\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 282,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 281,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 289,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 288,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 293,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 292,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 287,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 280,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 279,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "4\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 302,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 301,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 309,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 308,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 313,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 312,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 307,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 300,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 299,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "5\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 322,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 321,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 329,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 328,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 333,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 332,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 327,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 320,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 319,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "6\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 342,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 341,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 349,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 348,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 353,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 352,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 347,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 340,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 339,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "7\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 362,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 361,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 369,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 368,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 373,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 372,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 367,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 360,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 359,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "8\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 382,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 381,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 389,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 388,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 393,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 392,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 387,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 380,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 379,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "div-wrapper",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "9\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 402,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 401,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 409,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 408,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 413,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 412,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 407,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 400,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 399,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "10\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 422,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 421,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 429,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 428,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 433,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 432,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 427,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 420,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 419,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "11\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 442,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 441,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 449,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 448,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 453,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 452,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 447,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 440,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 439,
-                                                columnNumber: 17
-                                            }, undefined),
-                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                className: "question",
-                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                    className: "frame-3",
-                                                    children: [
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "name-field",
-                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                className: "text-wrapper",
-                                                                children: "12\uBC88 \uC9C8\uBB38\uC774 \uB4E4\uC5B4\uAC08 \uCE78\uC774\uC5D0\uC694"
-                                                            }, void 0, false, {
-                                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                lineNumber: 462,
-                                                                columnNumber: 23
-                                                            }, undefined)
-                                                        }, void 0, false, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 461,
-                                                            columnNumber: 21
-                                                        }, undefined),
-                                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                            className: "frame-4",
-                                                            children: [
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "birthdate-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-2",
-                                                                        children: "\uC751"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 469,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 468,
-                                                                    columnNumber: 23
-                                                                }, undefined),
-                                                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                    className: "gender-field",
-                                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                                                        className: "text-wrapper-3",
-                                                                        children: "\uC544\uB2C8"
-                                                                    }, void 0, false, {
-                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                        lineNumber: 473,
-                                                                        columnNumber: 25
-                                                                    }, undefined)
-                                                                }, void 0, false, {
-                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                                    lineNumber: 472,
-                                                                    columnNumber: 23
-                                                                }, undefined)
-                                                            ]
-                                                        }, void 0, true, {
-                                                            fileName: "src/screens/TestPage/TestPage.jsx",
-                                                            lineNumber: 467,
-                                                            columnNumber: 21
-                                                        }, undefined)
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "src/screens/TestPage/TestPage.jsx",
-                                                    lineNumber: 460,
-                                                    columnNumber: 19
-                                                }, undefined)
-                                            }, void 0, false, {
-                                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                                lineNumber: 459,
-                                                columnNumber: 17
-                                            }, undefined)
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "src/screens/TestPage/TestPage.jsx",
-                                        lineNumber: 232,
-                                        columnNumber: 15
-                                    }, undefined),
-                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                        className: "save-button",
-                                        onClick: getQuestions,
-                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
-                                            className: "save-icon",
-                                            alt: "Save icon",
-                                            src: "/img/saveicon.svg"
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "overlap-group",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "polygon",
+                            alt: "Polygon",
+                            src: "/img/polygon-3-4.svg"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 83,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "ellipse"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 85,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "div"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 87,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "img",
+                            alt: "Polygon",
+                            src: "/img/polygon-3-1.svg"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 89,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "polygon-2",
+                            alt: "Polygon",
+                            src: "/img/polygon-2-3.svg"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 91,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "ellipse-2"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 97,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "ellipse-3"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 99,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "polygon-3",
+                            alt: "Polygon",
+                            src: "/img/polygon-1-4.svg"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 101,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "ellipse-4"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 107,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "ellipse-5"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 109,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                            className: "polygon-4",
+                            alt: "Polygon",
+                            src: "/img/polygon-1-2.svg"
+                        }, void 0, false, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 111,
+                            columnNumber: 13
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                            className: "frame",
+                            children: [
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "frame-2",
+                                    children: [
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                            className: "logo-white",
+                                            alt: "Logo white",
+                                            src: "/img/logo-white-1-2.svg"
                                         }, void 0, false, {
                                             fileName: "src/screens/TestPage/TestPage.jsx",
-                                            lineNumber: 481,
+                                            lineNumber: 119,
                                             columnNumber: 17
-                                        }, undefined)
+                                        }, undefined),
+                                        questionList.map((question)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                className: "question-item",
+                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                    className: "question",
+                                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                        className: "frame-3",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                className: "name-field",
+                                                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                    className: "text-wrapper",
+                                                                    children: question.question
+                                                                }, void 0, false, {
+                                                                    fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                    lineNumber: 129,
+                                                                    columnNumber: 27
+                                                                }, undefined)
+                                                            }, void 0, false, {
+                                                                fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                lineNumber: 128,
+                                                                columnNumber: 25
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                className: "frame-4",
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "birthdate-field",
+                                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                            onClick: ()=>handleAnswer(question.id, question.answer1),
+                                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                                className: "text-wrapper-2",
+                                                                                children: question.answer1
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                                lineNumber: 136,
+                                                                                columnNumber: 31
+                                                                            }, undefined)
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                            lineNumber: 135,
+                                                                            columnNumber: 29
+                                                                        }, undefined)
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                        lineNumber: 134,
+                                                                        columnNumber: 27
+                                                                    }, undefined),
+                                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                        className: "gender-field",
+                                                                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                                                            onClick: ()=>handleAnswer(question.id, question.answer2),
+                                                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                                                                className: "text-wrapper-2",
+                                                                                children: question.answer2
+                                                                            }, void 0, false, {
+                                                                                fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                                lineNumber: 141,
+                                                                                columnNumber: 31
+                                                                            }, undefined)
+                                                                        }, void 0, false, {
+                                                                            fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                            lineNumber: 140,
+                                                                            columnNumber: 27
+                                                                        }, undefined)
+                                                                    }, void 0, false, {
+                                                                        fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                        lineNumber: 139,
+                                                                        columnNumber: 27
+                                                                    }, undefined)
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "src/screens/TestPage/TestPage.jsx",
+                                                                lineNumber: 133,
+                                                                columnNumber: 25
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/screens/TestPage/TestPage.jsx",
+                                                        lineNumber: 127,
+                                                        columnNumber: 23
+                                                    }, undefined)
+                                                }, void 0, false, {
+                                                    fileName: "src/screens/TestPage/TestPage.jsx",
+                                                    lineNumber: 126,
+                                                    columnNumber: 21
+                                                }, undefined)
+                                            }, question.id, false, {
+                                                fileName: "src/screens/TestPage/TestPage.jsx",
+                                                lineNumber: 125,
+                                                columnNumber: 19
+                                            }, undefined))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "src/screens/TestPage/TestPage.jsx",
+                                    lineNumber: 118,
+                                    columnNumber: 15
+                                }, undefined),
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                                    className: "save-button",
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                                        className: "save-icon",
+                                        alt: "Save icon",
+                                        src: "/img/saveicon.svg"
                                     }, void 0, false, {
                                         fileName: "src/screens/TestPage/TestPage.jsx",
-                                        lineNumber: 480,
-                                        columnNumber: 15
+                                        lineNumber: 152,
+                                        columnNumber: 17
                                     }, undefined)
-                                ]
-                            }, void 0, true, {
-                                fileName: "src/screens/TestPage/TestPage.jsx",
-                                lineNumber: 231,
-                                columnNumber: 13
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/screens/TestPage/TestPage.jsx",
-                        lineNumber: 196,
-                        columnNumber: 11
-                    }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _goback1.Goback1), {
-                        className: "goback-1"
-                    }, void 0, false, {
-                        fileName: "src/screens/TestPage/TestPage.jsx",
-                        lineNumber: 489,
-                        columnNumber: 11
-                    }, undefined)
-                ]
-            }, void 0, true, {
+                                }, void 0, false, {
+                                    fileName: "src/screens/TestPage/TestPage.jsx",
+                                    lineNumber: 151,
+                                    columnNumber: 15
+                                }, undefined)
+                            ]
+                        }, void 0, true, {
+                            fileName: "src/screens/TestPage/TestPage.jsx",
+                            lineNumber: 117,
+                            columnNumber: 13
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/screens/TestPage/TestPage.jsx",
+                    lineNumber: 82,
+                    columnNumber: 11
+                }, undefined)
+            }, void 0, false, {
                 fileName: "src/screens/TestPage/TestPage.jsx",
-                lineNumber: 195,
+                lineNumber: 81,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/screens/TestPage/TestPage.jsx",
-            lineNumber: 194,
+            lineNumber: 80,
             columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/TestPage/TestPage.jsx",
-        lineNumber: 193,
+        lineNumber: 79,
         columnNumber: 5
-    }, undefined));
+    }, undefined);
 };
-_s(TestPage, "BCNklCSZXdCH0y90HELWjL9u38g=");
+_s(TestPage, "yqhH6JDHOVB6djuMSlIdCeiHsEE=");
 _c = TestPage;
 var _c;
 $RefreshReg$(_c, "TestPage");
@@ -44269,60 +43413,6 @@ $RefreshReg$(_c, "TestPage");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","../../icons/Goback1":"gnrDk","./style.css":"bOGdM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gnrDk":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Goback1", ()=>(0, _goback1.Goback1));
-var _goback1 = require("./Goback1");
-
-},{"./Goback1":"40Wnk","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"40Wnk":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$7857 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$7857.prelude(module);
-
-try {
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Goback1", ()=>Goback1);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const Goback1 = ({ className })=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
-        className: `goback-1 ${className}`,
-        fill: "none",
-        height: "43",
-        viewBox: "0 0 50 43",
-        width: "50",
-        xmlns: "http://www.w3.org/2000/svg",
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
-            className: "path",
-            d: "M42.596 28.7756C42.7963 29.1157 42.7243 29.5276 42.4165 29.8021C42.1087 30.0766 41.6327 30.1534 41.2302 29.9936L36.0232 27.9269C31.647 26.1899 26.8712 25.3952 22.1038 25.5821C22.0471 26.8988 21.9631 28.2147 21.8517 29.5294L21.7091 31.2117C21.6226 32.2323 20.2993 32.8029 19.2966 32.2519C14.9445 29.8603 11.1611 26.7787 8.14791 23.1714L7.18919 22.0236C6.92831 21.7113 6.92831 21.2906 7.18919 20.9783L8.14791 19.8306C11.1611 16.2232 14.9445 13.1416 19.2966 10.7501C20.2993 10.1991 21.6226 10.7696 21.7091 11.7902L21.8517 13.4725C21.9473 14.601 22.0228 15.7305 22.0781 16.8604H23.4178C30.8782 16.8604 37.7047 20.4682 41.0749 26.1922L42.596 28.7756Z",
-            fill: "#B66232"
-        }, void 0, false, {
-            fileName: "src/icons/Goback1/Goback1.jsx",
-            lineNumber: 18,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false, {
-        fileName: "src/icons/Goback1/Goback1.jsx",
-        lineNumber: 10,
-        columnNumber: 5
-    }, undefined);
-};
-_c = Goback1;
-var _c;
-$RefreshReg$(_c, "Goback1");
-
-  $parcel$ReactRefreshHelpers$7857.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOGdM":[function() {},{}]},["gjUm6","1xC6H","d8Dch"], "d8Dch", "parcelRequireb8e7")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./style.css":"bOGdM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bOGdM":[function() {},{}]},["gjUm6","1xC6H","d8Dch"], "d8Dch", "parcelRequireb8e7")
 
 //# sourceMappingURL=index.b4b6dfad.js.map

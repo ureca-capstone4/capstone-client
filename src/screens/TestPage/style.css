@@ -299,3 +299,18 @@
   top: 50px !important;
   width: 50px !important;
 }
+
+button {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+}
