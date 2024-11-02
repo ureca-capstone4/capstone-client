@@ -311,3 +311,7 @@
   white-space: nowrap;
   width: fit-content;
 }
+
+.draw .profile-picture-container:hover {
+  background-color: #CCCCCC
+}

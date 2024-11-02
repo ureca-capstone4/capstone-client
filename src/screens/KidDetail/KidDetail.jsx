@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { SolidInterfaceMenu1 } from "../../icons/SolidInterfaceMenu1";
 import { useNavigate } from "react-router-dom";
+import { useHandler } from '../../handler.js';
+import axios from "axios";
 import "./style.css";
+
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -13,12 +15,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import line2 from "../../../static/img/line-2.svg";
-import line4 from "../../../static/img/line-4.svg";
-import rectanglee from "../../../static/img/rectangle-2-copy.svg";
-import axios from "axios";
 
-// Register Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -29,31 +26,23 @@ ChartJS.register(
   Legend
 );
 
+import * as logo from '../../../static/img/logo_src.js';
+import * as shape from '../../../static/img/shape_src.js';
+
 export const KidDetail = () => {
   const navigate = useNavigate();
-
-  //응모페이지 리다이렉트
-  const handleDrawButtonClick = () => {
-    navigate("/draw");
-  };
-
-  const handleTextClick = () => {
-    navigate("/main_page"); // 메인 페이지로 리다이렉트
-  };
-
-  // "유캐포" 버튼 클릭 핸들러 추가
-  const handleYukaepoClick = () => {
-    navigate("/add_book"); // add_book 페이지로 리다이렉트
-  };
+  const {
+    handleHeaderIcon1,
+    handleHeaderIcon2,
+    handleHeaderIcon3,
+    handleProfileClick
+  } = useHandler();
 
   // KidDetail 컴포넌트 내에 추가
   const handleTestPageClick = () => {
     navigate("/test_page"); // test-page로 리다이렉트
   };
 
-  const handleProfileClick = () => {
-    navigate('/kid_detail');
-  };
   
   const handleDeletePersonalityClick = async () => {
     const kidId = localStorage.getItem("kidId");
@@ -173,25 +162,25 @@ export const KidDetail = () => {
           <div className="rectangle" />
           <div className="frame">
             <div className="frame-2">
-              <img className="logo-white" alt="Logo white" src="/img/logo-white-1.svg" />
+              <img className="logo-white" alt="Logo white" src={logo.idle_world_white} />
               <div className="frame-3">
-                <img className="yellow-bear" alt="Yellow bear" src="/img/yellow-bear.png" />
-                <img className="three-animals" alt="Three animals" src="/img/three-animals.png" />
+                <img className="yellow-bear" alt="Yellow bear" src={logo.character_left} />
+                <img className="three-animals" alt="Three animals" src={logo.character_right} />
               </div>
             </div>
             <div className="frame-4">
             <div className="frame-24">
-                  <div className="text-wrapper-10" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-10" onClick={handleHeaderIcon1} style={{ cursor: 'pointer' }}>
                     책 고를까?
                   </div>
                 </div>
                 <div className="frame-24">
-                  <div className="text-wrapper-10" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-10" onClick={handleHeaderIcon2} style={{ cursor: 'pointer' }}>
                     유캐포~
                   </div>
                 </div>
                 <div className="frame-24">
-                  <button className="text-wrapper-10" onClick={handleDrawButtonClick}>
+                  <button className="text-wrapper-10" onClick={handleHeaderIcon3}>
                     선물 응모해!
                   </button>
                 </div>
@@ -225,7 +214,7 @@ export const KidDetail = () => {
                 </div>
               </div>
               <div className="image-container">
-                <img className="imgggg" alt="Rectangle" src={rectanglee} />
+                <img className="imgggg" alt="Rectangle" src={shape.rectangle_mbti} />
                 <div className="graph-container">
                   <Line
                     data={getGraphData()}
@@ -273,10 +262,6 @@ export const KidDetail = () => {
               </div>
             </div>
           </div>
-          <img className="line" alt="Line" src={line2} />
-          <img className="line-2" alt="Line" src={line2} />
-          <img className="line-3" alt="Line" src={line2} />
-          <img className="line-4" alt="Line" src={line4} />
         </div>
       </div>
     </div>
