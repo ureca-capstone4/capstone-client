@@ -120,6 +120,16 @@
   width: 744px;
 }
 
+.test-page .ellipse-6 {
+  background-color: #eb831778;
+  border-radius: 372px / 365.5px;
+  height: 731px;
+  left: 740px;
+  position: absolute;
+  top: 3600px;
+  width: 730px;
+}
+
 .test-page .polygon-4 {
   height: 545px;
   left: 319px;
@@ -213,7 +223,7 @@
 
 .test-page .birthdate-field {
   align-items: center;
-  background-color: #f0eee3;
+  /* background-color: #f0eee3; */
   border-radius: 20px;
   display: flex;
   flex: 1;
@@ -239,8 +249,9 @@
 }
 
 .test-page .gender-field {
+  margin-left: -21px;
   align-items: center;
-  background-color: #f0eee3;
+  /* background-color: #f0eee3; */
   border-radius: 20px;
   display: flex;
   flex: 1;
@@ -279,16 +290,47 @@
   width: 100%;
 }
 
-.test-page .save-icon {
-  height: 46.06px;
-  position: relative;
-  width: 49.18px;
-}
-
-.test-page .goback-1 {
+.test-page .go-back {
   height: 43px !important;
   left: 94px !important;
   position: absolute !important;
   top: 50px !important;
   width: 50px !important;
+}
+
+button {
+  cursor: pointer;
+    background-color: #f0f0f0;
+    border: none;
+    /* width: 100%; */
+    /* height: 100%; */
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+button:hover {
+  background-color: #d8d6d6;
+}
+
+button.selected {
+  background-color: #eb8317; 
+  color: white; 
+  border-color: #eb8317;
+  transform: scale(1.05); 
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+button.save-button {
+  background-color: transparent;
+  height: 46.06px;
+  position: relative;
+  width: 49.18px;
+}
+
+.test-page .save-icon:hover {
+  background-color: transparent;
+  cursor: pointer;
+  transform: scale(1.3);
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
