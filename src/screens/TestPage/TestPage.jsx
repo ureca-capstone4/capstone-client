@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import "./style.css";
 
+import * as logo from '../../../static/img/logo_src.js';
+import * as icon from '../../../static/img/icon_src.js';
+import * as shape from '../../../static/img/shape_src.js';
+
 const TOTAL_QUESTIONS = 12;
 
 export const TestPage = () => {
@@ -10,6 +14,12 @@ export const TestPage = () => {
   const [mbtiResult,  setMbtiResult] = useState({});
   const [personalityResult,  setPersonalityResult] = useState([]);
   const [kidId, setKidId] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1); // 이전 페이지로 돌아가기
+  };
 
   useEffect(() => {
     const loadQuestionList = async () => {
@@ -116,52 +126,30 @@ export const TestPage = () => {
     navigate("/kid_detail");
   };
   
-
   return (
     <div className="test-page">
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="overlap-group">
-            <img className="polygon" alt="Polygon" src="/img/polygon-3-4.svg" />
-
-            <div className="ellipse" />
-
-            <div className="div" />
-
-            <img className="img" alt="Polygon" src="/img/polygon-3-1.svg" />
-
-            <img
-              className="polygon-2"
-              alt="Polygon"
-              src="/img/polygon-2-3.svg"
-            />
-
-            <div className="ellipse-2" />
-
-            <div className="ellipse-3" />
-
-            <img
-              className="polygon-3"
-              alt="Polygon"
-              src="/img/polygon-1-4.svg"
-            />
-
+            <img className="polygon-4" alt="Polygon1" src={shape.triangle_yellow_left} />
+            <img className="polygon-3" alt="Polygon4" src={shape.triangle_yellow_right_small}/>
+            <img className="polygon-3" alt="Polygon4" src={shape.triangle_yellow_right_small}/>
             <div className="ellipse-4" />
-
             <div className="ellipse-5" />
-
-            <img
-              className="polygon-4"
-              alt="Polygon"
-              src="/img/polygon-1-2.svg"
-            />
-
+            <img className="polygon-2" alt="Polygon3" src={shape.triangle_orange}/>
+            <div className="ellipse-2" />
+            <div className="ellipse-3" />
+            <img className="img" alt="Polygon2" src={shape.triangle_yellow_left} />
+            <div className="ellipse-6" />
+            <img className="polygon" alt="Polygon2" src={shape.triangle_yellow_right_big} />
+            <div className="ellipse" />
+            
             <div className="frame">
               <div className="frame-2">
                 <img
                   className="logo-white"
                   alt="Logo white"
-                  src="/img/logo-white-1-2.svg"
+                  src={logo.idle_world_white}
                 />
                 {questionList.map((question) => (
                   <div key={question.id} className="question-item">
@@ -197,12 +185,18 @@ export const TestPage = () => {
                 <img
                   className="save-icon"
                   alt="Save icon"
-                  src="/img/saveicon.svg"
+                  src={icon.save}
                 />
               </button>
             </div>
           </div>
-          {/* <Goback1 className="goback-1" /> */}
+          <img
+            className="go-back"
+            alt="Go back"
+            src={icon.go_back}
+            onClick={handleGoBack}
+            style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
       </div>

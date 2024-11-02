@@ -7,6 +7,7 @@ import { SignUpScreen } from "./screens/SignUpScreen";
 import { SelectProfile } from "./screens/SelectProfile";
 import { CreateProfile } from "./screens/CreateProfile";
 import { KidDetail } from "./screens/KidDetail";
+import { TestPage } from "./screens/TestPage";
 
 import { MainPage } from "./screens/MainPage";
 
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/create_profile",
     element: <CreateProfile />,
+  },
+  {
+    path: "/test_page",
+    element: <TestPage />,
   },
 
   {
