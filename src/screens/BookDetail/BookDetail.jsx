@@ -1,28 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useHandler } from '../../handler.js';
 import { Frame28 } from "../../icons/Frame28";
 import { Frame29 } from "../../icons/Frame29";
 import "./style.css";
 
+import * as logo from '../../../static/img/logo_src.js';
+import * as icon from '../../../static/img/icon_src.js';
+
 export const BookDetail = () => {
   const navigate = useNavigate();
-  
-  const handleDrawButtonClick = () => {
-    navigate("/draw");
-  };
-
-  const handleTextClick = () => {
-    navigate("/main_page"); // 메인 페이지로 리다이렉트
-  };
-
-  // "유캐포" 버튼 클릭 핸들러 추가
-  const handleYukaepoClick = () => {
-    navigate("/add_book"); // add_book 페이지로 리다이렉트
-  };
-
-  const handleProfileClick = () => {
-    navigate('/kid_detail');
-  };
+  const {
+    handleHeaderIcon1,
+    handleHeaderIcon2,
+    handleHeaderIcon3,
+    handleProfileClick
+  } = useHandler();
 
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
   const [kidId, setKidId] = useState("");
@@ -123,27 +116,27 @@ export const BookDetail = () => {
           <div className="rectangle-2" />
           <div className="frame-8">
             <div className="frame-9">
-              <img className="img" alt="로고" src="/img/logo-white-1.svg" />
+              <img className="img" alt="로고" src={logo.idle_world_white} />
               <div className="frame-10">
-                <img className="yellow-bear-2" alt="노란 곰" src="/img/yellow-bear.png" />
-                <img className="three-animals-2" alt="세 마리 동물" src="/img/three-animals.png" />
+                <img className="yellow-bear-2" alt="노란 곰" src={logo.character_left} />
+                <img className="three-animals-2" alt="세 마리 동물" src={logo.character_right} />
               </div>
             </div>
 
             <div className="frame-22">
               <div className="frame-23">
                 <div className="frame-24">
-                  <div className="text-wrapper-10" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-10" onClick={handleHeaderIcon1} style={{ cursor: 'pointer' }}>
                     책 고를까?
                   </div>
                 </div>
                 <div className="frame-24">
-                  <div className="text-wrapper-10" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-10" onClick={handleHeaderIcon2} style={{ cursor: 'pointer' }}>
                     유캐포~
                   </div>
                 </div>
                 <div className="frame-24">
-                  <button className="text-wrapper-10" onClick={handleDrawButtonClick}>
+                  <button className="text-wrapper-10" onClick={handleHeaderIcon3}>
                     선물 응모해!
                   </button>
                 </div>
@@ -157,13 +150,13 @@ export const BookDetail = () => {
 
         <div className="frame-14">
           <div className="frame-77">
-            <img className="yellow-box" alt="프레임" src="/img/rectangle-2.svg" />
+            <img className="yellow-box" alt="프레임" src={icon.book_cover} />
             <div className="frame-88"> 
               <button className="icon-button" onClick={handleLikeBook} style={{ background: 'none', border: 'none', padding: 0 }}>
-                <Frame28 className="icon-instance-node" /> {/* 클릭 시 좋아요 처리 */}
+                <Frame28 className="icon-instance-node" />
               </button>
               <button className="icon-button" onClick={handleDislikeBook} style={{ background: 'none', border: 'none', padding: 0 }}>
-                <Frame29 className="icon-instance-node" /> {/* 클릭 시 싫어요 처리 */}
+                <Frame29 className="icon-instance-node" />
               </button>
             </div>
           </div>

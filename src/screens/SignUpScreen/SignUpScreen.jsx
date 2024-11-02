@@ -1,7 +1,9 @@
 import React, { useState } from "react"; // useState 추가
 import { useNavigate } from "react-router-dom"; // useNavigate 추가
 import "./style.css";
-import axios from "axios"; // axios 추가
+
+import * as logo from '../../../static/img/logo_src.js';
+import * as icon from '../../../static/img/icon_src.js';
 
 export const SignUpScreen = () => {
   const [email, setEmail] = useState(""); // 이메일 상태 추가
@@ -52,12 +54,12 @@ export const SignUpScreen = () => {
               <img
                 className="img"
                 alt="Yellow bear"
-                src="/img/yellow-bear-1.png"
+                src={logo.character_left}
               />
               <img
                 className="three-animals-2"
                 alt="Three animals"
-                src="/img/three-animals-1.png"
+                src={logo.character_right}
               />
             </div>
 
@@ -66,7 +68,7 @@ export const SignUpScreen = () => {
                 <img
                   className="logo-black-2"
                   alt="Logo black"
-                  src="/img/logoblack-1.png"
+                  src={logo.idle_world_black}
                 />
 
                 <div className="sign-up-component">
@@ -112,9 +114,9 @@ export const SignUpScreen = () => {
           <img
             className="go-back"
             alt="Go back"
-            src="/img/goback.png"
-            onClick={handleGoBack} // 뒤로가기 클릭 이벤트 추가
-            style={{ cursor: 'pointer' }} // 포인터 커서 스타일 추가
+            src={icon.go_back}
+            onClick={handleGoBack}
+            style={{ cursor: 'pointer' }}
           />
         </div>
       </div>
