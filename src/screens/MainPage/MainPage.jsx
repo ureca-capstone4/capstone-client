@@ -54,6 +54,10 @@ export const MainPage = () => {
     navigate("/add_book"); // add_book 페이지로 리다이렉트
   };
 
+  const handleProfileClick = () => {
+    navigate('/kid_detail');
+  };
+
   return (
     <div className="main-page">
       <div className="div-3">
@@ -85,7 +89,7 @@ export const MainPage = () => {
                   </button>
                 </div>
               </div>
-              <div className="profile-picture-container">
+              <div className="profile-picture-container" onClick={handleProfileClick}>
                 <img
                   className="kid-profile"
                   alt="Kid Profile"
