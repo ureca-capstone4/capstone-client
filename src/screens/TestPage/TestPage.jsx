@@ -6,9 +6,10 @@ const TOTAL_QUESTIONS = 12;
 export const TestPage = () => {
   const [questionList, setQuestionList] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [mbtiResult,  setMbtiResult] = useState([]);
+  const [mbtiResult,  setMbtiResult] = useState({});
   const [personalityResult,  setPersonalityResult] = useState([]);
-  
+  const [kidId, setKidId] = useState("");
+
   useEffect(() => {
     const loadQuestionList = async () => {
       const token = localStorage.getItem("accessToken");
@@ -33,6 +34,13 @@ export const TestPage = () => {
       }
     };    
     loadQuestionList();
+  }, []);
+
+  useEffect(() => {
+    const kidId = localStorage.getItem("kidId");
+    if (kidId) {
+      setKidId(kidId);
+    }
   }, []);
 
   const handleAnswer = (questionId, answer, mbtiType, value) => {
@@ -64,18 +72,40 @@ export const TestPage = () => {
   
     const result = Object.entries(mbtiScores).map(([type, score]) => {
       return score >= 50 ? type[0] : type[1]; // 점수에 따라 MBTI 유형 결정
-    }).join('');mbtiScores
+    }).join('');
   
     setMbtiResult(result);
     setPersonalityResult(mbtiScores);
 
     console.log("MBTI 결과:", result); // mbtiResult 대신 result를 출력
 
-    // 여기에서 바로 POST로 API 
+    handleKidsPersonality();
+  };
 
+  const handleKidsPersonality = async () => {
+    try {
+      const token = localStorage.getItem("accessToken");
+      const response = await fetch(`http://localhost:8080/api/v1/kids/${kidId}/personalities`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": `Bearer ${token}`,
+        },
+      
+        body: JSON.stringify({
+          ei: personalityResult.EI,
+          sn: personalityResult.SN,
+          tf: personalityResult.TF,
+          jp: personalityResult.JP,
+          mbti: mbtiResult
+        }),
+      });
 
-
-
+      if (!response.ok) throw new Error("자녀 성향 업데이트 요청에 실패했습니다.");
+      console.log("성향을 업데이트 했습니다.");
+    } catch (error) {
+      console.error("자녀 성향 업데이트 중 오류 발생:", error);
+    }
   };
   
 
