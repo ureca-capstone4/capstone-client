@@ -1,0 +1,1 @@
+export { KidDetail } from "./KidDetail";
