@@ -20,6 +20,10 @@ export const BookDetail = () => {
     navigate("/add_book"); // add_book 페이지로 리다이렉트
   };
 
+  const handleProfileClick = () => {
+    navigate('/kid_detail');
+  };
+
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
   const [kidId, setKidId] = useState("");
   const [bookId, setBookId] = useState("");
@@ -144,7 +148,7 @@ export const BookDetail = () => {
                   </button>
                 </div>
               </div>
-              <div className="profile-picture-container">
+              <div className="profile-picture-container" onClick={handleProfileClick}>
                 <img className="kid-profile" alt="아이 프로필" src={kidProfileImageUrl} style={{ width: "100px", height: "100px" }} />
               </div>
             </div>

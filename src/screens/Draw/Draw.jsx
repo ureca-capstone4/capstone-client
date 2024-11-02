@@ -18,6 +18,10 @@ export const Draw = () => {
     navigate("/add_book");
   };
 
+  const handleProfileClick = () => {
+    navigate('/kid_detail');
+  };
+
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
 
   // kidProfileImageUrl을 localStorage에서 불러옴
@@ -76,7 +80,7 @@ export const Draw = () => {
 
               {/*<SolidInterfaceMenu1 className="solid-interface-menu-1-instance" />*/}
               {/* 프로필 사진 추가 */}
-              <div className="profile-picture-container">
+              <div className="profile-picture-container" onClick={handleProfileClick}>
                 <img
                   className="kid-profile"
                   alt="아이 프로필"

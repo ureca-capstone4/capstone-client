@@ -87,8 +87,8 @@ export const SelectProfile = () => {
           <div className="overlap-group">
             <img className="polygon" alt="Polygon" src="/img/polygon-1.svg" />
             <div className="ellipse" />
-            <div className="div" />
 
+            <div className="div" />
             <div className="profile-autolayer">
               {profiles.map((profile) => (
                 <div
