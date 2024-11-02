@@ -1,30 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SolidInterfaceMenu1 } from "../../icons/SolidInterfaceMenu1";
+import { useHandler } from '../../handler.js';
 import "./style.css";
+
+import * as logo from '../../../static/img/logo_src.js';
 
 export const Draw = () => {
   const navigate = useNavigate();
-  
-  const handleDrawButtonClick = () => {
-    navigate("/draw");
-  };
-
-  const handleTextClick = () => {
-    navigate("/main_page");
-  };
-
-  const handleYukaepoClick = () => {
-    navigate("/add_book");
-  };
-
-  const handleProfileClick = () => {
-    navigate('/kid_detail');
-  };
+  const {
+    handleHeaderIcon1,
+    handleHeaderIcon2,
+    handleHeaderIcon3,
+    handleProfileClick
+  } = useHandler();
 
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
 
-  // kidProfileImageUrl을 localStorage에서 불러옴
   useEffect(() => {
     const profileImage = localStorage.getItem("kidProfileImageUrl");
     if (profileImage) {
@@ -43,18 +34,18 @@ export const Draw = () => {
               <img
                 className="logo-white-2"
                 alt="Logo white"
-                src="/img/logo-white-1-2.svg"
+                src={logo.idle_world_white}
               />
               <div className="frame-12">
                 <img
                   className="yellow-bear-2"
                   alt="Yellow bear"
-                  src="/img/yellow-bear.png"
+                  src={logo.character_left}
                 />
                 <img
                   className="three-animals-2"
                   alt="Three animals"
-                  src="/img/three-animals.png"
+                  src={logo.character_right}
                 />
               </div>
             </div>
@@ -62,24 +53,22 @@ export const Draw = () => {
             <div className="frame-13">
               <div className="frame-14">
                 <div className="frame-24">
-                  <div className="text-wrapper-100" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-100" onClick={handleHeaderIcon1} style={{ cursor: 'pointer' }}>
                     책 고를까?
                   </div>
                 </div>
                 <div className="frame-24">
-                  <div className="text-wrapper-100" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-100" onClick={handleHeaderIcon2} style={{ cursor: 'pointer' }}>
                     유캐포~
                   </div>
                 </div>
                 <div className="frame-24">
-                  <button className="text-wrapper-100" onClick={handleDrawButtonClick}>
+                  <button className="text-wrapper-100" onClick={handleHeaderIcon3}>
                     선물 응모해!
                   </button>
                 </div>
               </div>
 
-              {/*<SolidInterfaceMenu1 className="solid-interface-menu-1-instance" />*/}
-              {/* 프로필 사진 추가 */}
               <div className="profile-picture-container" onClick={handleProfileClick}>
                 <img
                   className="kid-profile"

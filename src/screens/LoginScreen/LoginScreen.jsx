@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DivWrapper } from "../../components/DivWrapper";
 import { LoginButton } from "../../components/LoginButton";
+import * as logo from '../../../static/img/logo_src.js';
 import "./style.css";
 
 export const LoginScreen = () => {
@@ -42,13 +43,13 @@ export const LoginScreen = () => {
     <div className="login-screen">
       <div className="div-2">
         <div className="frame">
-          <img className="yellow-bear" alt="Yellow bear" src="/img/yellow-bear-1.png" />
-          <img className="three-animals" alt="Three animals" src="/img/three-animals-1.png" />
+          <img className="yellow-bear" alt="Yellow bear" src={logo.character_left} />
+          <img className="three-animals" alt="Three animals" src={logo.character_right} />
         </div>
 
         <div className="login-frame">
           <div className="login-frame-inside">
-            <img className="logo-black" alt="Logo black" src="/img/logoblack-1.png" />
+            <img className="logo-black" alt="Logo black" src={logo.idle_world_black} />
 
             <div className="login-component">
               <div className="email-password-frame">

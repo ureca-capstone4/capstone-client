@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import girlPic1 from '../../../static/img/girl-pink.png'; // 경로 수정
-import girlPic2 from '../../../static/img/girl-purple.png'; // 경로 수정
-import boyPic1 from '../../../static/img/boy-green.png'; // 경로 수정
-import boyPic2 from '../../../static/img/boy-blue.png'; // 경로 수정
 import "./style.css";
+
+import girlPic1 from '../../../static/img/profile/girl-pink.png'; // 경로 수정
+import girlPic2 from '../../../static/img/profile/girl-purple.png'; // 경로 수정
+import boyPic1 from '../../../static/img/profile/boy-green.png'; // 경로 수정
+import boyPic2 from '../../../static/img/profile/boy-blue.png'; // 경로 수정
+
+import * as logo from '../../../static/img/logo_src.js';
+import * as icon from '../../../static/img/icon_src.js';
+import * as profile from '../../../static/img/profile_src.js';
+import * as shape from '../../../static/img/shape_src.js';
 
 export const SelectProfile = () => {
   const navigate = useNavigate();
@@ -85,7 +91,7 @@ export const SelectProfile = () => {
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="overlap-group">
-            <img className="polygon" alt="Polygon" src="/img/polygon-1.svg" />
+            <img className="polygon" alt="Polygon" src={shape.triangle_yellow_left} />
             <div className="ellipse" />
 
             <div className="div" />
@@ -111,7 +117,7 @@ export const SelectProfile = () => {
                   <img
                     className="img"
                     alt="Create profile"
-                    src="/img/createprofilebutton.png"
+                    src={profile.create_profile}
                     onClick={handleCreateProfile}
                     style={{ cursor: "pointer" }}
                   />
@@ -123,13 +129,13 @@ export const SelectProfile = () => {
             <img
               className="logo-white"
               alt="Logo white"
-              src="/img/logowhite.svg"
+              src={logo.idle_world_white}
             />
           </div>
           <img
             className="go-back"
             alt="Go back"
-            src="/img/goback-1.svg"
+            src={icon.go_back}
             onClick={handleGoBack}
             style={{ cursor: "pointer" }}
           />

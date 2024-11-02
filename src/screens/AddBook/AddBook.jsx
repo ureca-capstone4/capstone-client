@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import { SolidInterfaceMenu1 } from "../../icons/SolidInterfaceMenu1";
 import { useNavigate } from "react-router-dom";
+import { useHandler } from '../../handler.js';
 import "./style.css";
+
+import * as logo from '../../../static/img/logo_src.js';
 
 export const AddBook = () => {
   const navigate = useNavigate();
-  
-  const handleDrawButtonClick = () => {
-    navigate("/draw");
-  };
-
-  const handleTextClick = () => {
-    navigate("/main_page"); // 메인 페이지로 리다이렉트
-  };
-
-  // "유캐포" 버튼 클릭 핸들러 추가
-  const handleYukaepoClick = () => {
-    navigate("/add_book"); // add_book 페이지로 리다이렉트
-  };
+  const {
+    handleHeaderIcon1,
+    handleHeaderIcon2,
+    handleHeaderIcon3,
+    handleProfileClick
+  } = useHandler();
 
   const [bookData, setBookData] = useState({
     title: "",
@@ -82,35 +78,35 @@ export const AddBook = () => {
               <img
                 className="logo-white"
                 alt="Logo white"
-                src="/img/logo-white-1-3.svg"
+                src={logo.idle_world_white}
               />
               <div className="frame-3">
                 <img
                   className="yellow-bear"
                   alt="Yellow bear"
-                  src="/img/yellow-bear.png"
+                  src={logo.character_left}
                 />
                 <img
                   className="three-animals"
                   alt="Three animals"
-                  src="/img/three-animals.png"
+                  src={logo.character_right}
                 />
               </div>
             </div>
             <div className="frame-4">
               <div className="frame-5">
                 <div className="frame-24">
-                  <div className="text-wrapper-10" onClick={handleTextClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-10" onClick={handleHeaderIcon1} style={{ cursor: 'pointer' }}>
                     책 고를까?
                   </div>
                 </div>
                 <div className="frame-24">
-                  <div className="text-wrapper-10" onClick={handleYukaepoClick} style={{ cursor: 'pointer' }}>
+                  <div className="text-wrapper-10" onClick={handleHeaderIcon2} style={{ cursor: 'pointer' }}>
                     유캐포~
                   </div>
                 </div>
                 <div className="frame-24">
-                  <button className="text-wrapper-10" onClick={handleDrawButtonClick}>
+                  <button className="text-wrapper-10" onClick={handleHeaderIcon3}>
                     선물 응모해!
                   </button>
                 </div>

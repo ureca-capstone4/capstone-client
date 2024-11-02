@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import kidPic from '../../../static/img/indecisive-kid-1.png'; // 경로 수정
 import "./style.css";
+
+import * as logo from '../../../static/img/logo_src.js';
+import * as icon from '../../../static/img/icon_src.js';
+import * as profile from '../../../static/img/profile_src.js';
+import * as shape from '../../../static/img/shape_src.js';
 
 export const CreateProfile = () => {
   const [name, setName] = useState("");
@@ -50,7 +54,7 @@ export const CreateProfile = () => {
       <div className="overlap-wrapper">
         <div className="overlap">
           <div className="overlap-group-4">
-            <img className="polygon" alt="Polygon" src="/img/polygon-1-2.svg" />
+            <img className="polygon" alt="Polygon" src={shape.triangle_yellow_left} />
 
             <div className="ellipse" />
             <div className="ellipse-2" />
@@ -60,14 +64,14 @@ export const CreateProfile = () => {
                 <img
                   className="logo-white-3"
                   alt="Logo white"
-                  src="/img/image.svg"
+                  src={logo.idle_world_white}
                 />
 
                 <div className="frame-29">
                   <img
                     className="boy-blue"
                     alt="Boy blue"
-                    src={kidPic}
+                    src={profile.indecisive_kid}
                   />
 
                   <div className="frame-30">
@@ -107,7 +111,7 @@ export const CreateProfile = () => {
                 <img
                   className="save-icon"
                   alt="Save icon"
-                  src="/img/saveicon.svg"
+                  src={icon.save}
                 />
               </button>
             </div>
@@ -116,7 +120,7 @@ export const CreateProfile = () => {
           <img
             className="go-back"
             alt="Go back"
-            src="/img/goback-1.svg"
+            src={icon.go_back}
             onClick={handleGoBack} // 클릭 이벤트 추가
             style={{ cursor: "pointer" }} // 클릭 가능 표시를 위해 커서 변경
           />

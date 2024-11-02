@@ -486,3 +486,7 @@
   max-width: 100%; /* 비율 유지 */
   padding: 3px 3px 0; /* 상단 3픽셀, 좌우 3픽셀, 하단 0픽셀 */
 }
+
+.kid-detail .profile-picture-container:hover {
+  background-color: #CCCCCC
+}
