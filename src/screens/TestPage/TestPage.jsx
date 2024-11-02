@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from "react-router-dom";
 import "./style.css";
 
 const TOTAL_QUESTIONS = 12;
@@ -80,7 +81,10 @@ export const TestPage = () => {
     console.log("MBTI 결과:", result); // mbtiResult 대신 result를 출력
 
     handleKidsPersonality();
+    handleSaveClickNavigate();
+
   };
+
 
   const handleKidsPersonality = async () => {
     try {
@@ -106,6 +110,10 @@ export const TestPage = () => {
     } catch (error) {
       console.error("자녀 성향 업데이트 중 오류 발생:", error);
     }
+  };
+
+  const handleSaveClickNavigate = () => { 
+    navigate("/kid_detail");
   };
   
 

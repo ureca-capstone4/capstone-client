@@ -287,9 +287,9 @@
 }
 
 .test-page .save-icon:hover {
-  background-color: #d4a017; /* 호버 시 변경할 색상 */
+  background-color: #d4a017;
   cursor: pointer;
-  transform: scale(1.1); /* 약간 확대 */
+  transform: scale(1.1);
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
@@ -312,16 +312,15 @@ button {
     font-size: 16px;
 }
 
-/* 버튼 호버 스타일 */
 button:hover {
   background-color: #f0f5b8;
 }
 
 
 button.selected {
-  background-color: #4CAF50; 
+  background-color: #eb8317; 
   color: white; 
-  border-color: #45a049;
+  border-color: #eb8317;
   transform: scale(1.05); 
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
