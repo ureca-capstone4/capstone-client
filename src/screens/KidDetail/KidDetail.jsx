@@ -43,7 +43,6 @@ export const KidDetail = () => {
     navigate("/test_page"); // test-page로 리다이렉트
   };
 
-  
   const handleDeletePersonalityClick = async () => {
     const kidId = localStorage.getItem("kidId");
   
@@ -53,7 +52,6 @@ export const KidDetail = () => {
           `http://localhost:8080/api/v1/kids/${kidId}/personalities`
         );
         console.log("삭제 성공:", response.data); // 삭제 성공 응답 확인
-        // 성공적으로 삭제된 후 필요한 동작 추가 (예: 상태 업데이트, 알림 표시 등)
       } catch (error) {
         console.error("MBTI 내역 삭제 중 오류 발생:", error);
         if (error.response) {
@@ -71,7 +69,6 @@ export const KidDetail = () => {
   const [loading, setLoading] = useState(true); // 로딩 상태 변수 추가
 
   useEffect(() => {
-    // Retrieve profile image, name, and kidId from local storage
     const profileImage = localStorage.getItem("kidProfileImageUrl");
     const name = localStorage.getItem("kidName");
     const kidId = localStorage.getItem("kidId");
@@ -117,16 +114,6 @@ export const KidDetail = () => {
       };
     }
   
-    const now = new Date();
-    const fiveMonthsAgo = new Date();
-    fiveMonthsAgo.setMonth(now.getMonth() - 5);
-  
-    const recentData = personalityHistory.filter((data) => {
-      const createdAt = new Date(data.createdAt);
-      return createdAt >= fiveMonthsAgo && createdAt <= now;
-    });
-  
-    // 각 달에 대한 색상 정의 (불투명)
     const monthColors = [
       "#f79393", 
       "#ff7b00", 
@@ -135,12 +122,14 @@ export const KidDetail = () => {
       "#2eaafc",
     ];
   
-    // MBTI 요소에 대한 데이터 초기화
+    // 최근 5개 데이터 가져오기
+    const recentData = personalityHistory.slice(-5);
+  
     const datasets = recentData.map((data, index) => ({
       label: new Date(data.createdAt).toLocaleDateString("ko-KR", { month: "long" }),
       data: [data.ei, data.sn, data.tf, data.jp],
-      borderColor: monthColors[index % monthColors.length], // 색상 설정
-      backgroundColor: monthColors[index % monthColors.length], // 색상 설정
+      borderColor: monthColors[index % monthColors.length],
+      backgroundColor: monthColors[index % monthColors.length],
       fill: false,
     }));
   
@@ -221,20 +210,20 @@ export const KidDetail = () => {
                     options={{
                       responsive: true,
                       plugins: {
-                        legend: { display: false }, // 범례를 숨깁니다.
-                        title: { display: false }, // 제목을 숨깁니다.
+                        legend: { display: false },
+                        title: { display: false },
                       },
                       scales: {
                         y: {
                           min: 0,
                           max: 100,
                           title: {
-                            display: false, // y축 제목 숨김
+                            display: false,
                           },
                         },
                         x: {
                           title: {
-                            display: false, // x축 제목 숨김
+                            display: false,
                           },
                         },
                       },
@@ -244,23 +233,15 @@ export const KidDetail = () => {
               </div>
             </div>
             <div className="ellipse" />
-            <div className="frame-12">
-              <div className="frame-13">
-                <div className="text-wrapper-5">{new Date(personalityHistory[personalityHistory.length - 1].createdAt).getMonth() + 1}월</div>
+              <div className="frame-12">
+                {personalityHistory.slice(-5).map((history, index) => (
+                  <div className={`frame-${13 + index}`} key={index}>
+                    <div className="text-wrapper-5">
+                      {new Date(history.createdAt).getMonth() + 1}월
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="frame-14">
-                <div className="text-wrapper-5">{new Date(personalityHistory[personalityHistory.length - 2].createdAt).getMonth() + 1}월</div>
-              </div>
-              <div className="frame-15">
-                <div className="text-wrapper-5">{new Date(personalityHistory[personalityHistory.length - 3].createdAt).getMonth() + 1}월</div>
-              </div>
-              <div className="frame-16">
-                <div className="text-wrapper-5">{new Date(personalityHistory[personalityHistory.length - 4].createdAt).getMonth() + 1}월</div>
-              </div>
-              <div className="frame-17">
-                <div className="text-wrapper-5">{new Date(personalityHistory[personalityHistory.length - 5].createdAt).getMonth() + 1}월</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
