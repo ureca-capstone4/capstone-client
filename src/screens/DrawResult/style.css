@@ -1,0 +1,165 @@
+.draw-result {
+    background-color: #fff5cf;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 3000px;
+    width: 100%;
+  }
+  
+  .draw-result .div-2 {
+    background-color: #fff5cf;
+    height: 832px;
+    position: relative;
+    width: 1280px;
+  }
+  
+  .draw-result .overlap-group-2 {
+    height: 93px;
+    left: 0;
+    position: absolute;
+    top: -3px;
+    width: 1280px;
+  }
+  
+  .draw-result .rectangle-3 {
+    background-color: #f3c623;
+    height: 90px;
+    left: 0;
+    position: absolute;
+    top: 3px;
+    width: 1280px;
+  }
+  
+  .draw-result .frame-10 {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    left: 22px;
+    position: absolute;
+    top: 0;
+    width: 1242px;
+  }
+  
+  .draw-result .frame-11 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 61px;
+    position: relative;
+  }
+  
+  .draw-result .logo-white-2 {
+    height: 63px;
+    position: relative;
+    width: 132px;
+  }
+  
+  .draw-result .frame-12 {
+    align-items: flex-end;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 2px;
+    position: relative;
+  }
+  
+  .draw-result .yellow-bear-2 {
+    height: 90px;
+    object-fit: cover;
+    position: relative;
+    width: 134px;
+  }
+  
+  .draw-result .three-animals-2 {
+    height: 74px;
+    object-fit: cover;
+    position: relative;
+    width: 101px;
+  }
+  
+  .draw-result .frame-13 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 51px;
+    position: relative;
+  }
+  
+  .draw-result .frame-14 {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 35px;
+    position: relative;
+  }
+  
+  .draw-result .frame-24 {
+    align-items: center;
+    background-color: #f4f6ff;
+    border-radius: 30px;
+    display: flex;
+    gap: 10px;
+    height: 45px;
+    justify-content: center;
+    padding: 5px 2px;
+    position: relative;
+    width: 120px;
+  }
+  
+  .draw-result .frame-24:hover {
+    background-color: #CCCCCC
+  }
+  
+  .draw-result .text-wrapper-100 {
+    color: #572e16;
+    font-family: "LaundryGothic-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+    background-color: transparent; /* 배경색 투명 */
+    border: none; /* 경계선 제거 */
+  }
+
+  .draw-result .profile-picture-container:hover {
+    background-color: #CCCCCC
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 0px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+  
+.result-item {
+    font-family: "LaundryGothic-Regular", Helvetica;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.submission-results h3 {
+    font-family: "LaundryGothic-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 150px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px;
+    background-color: #f4f6ff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

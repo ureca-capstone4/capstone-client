@@ -15,6 +15,7 @@ import { BookDetail } from "./screens/BookDetail";
 import { AddBook } from "./screens/AddBook";
 
 import { Draw } from "./screens/Draw";
+import { DrawResult } from "./screens/DrawResult";
 
 const router = createBrowserRouter([
   {
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
     path: "/draw",
     element: <Draw />,
   },
+  {
+    path: "/draw_result",
+    element: <DrawResult />,
+  }
 ]);
 
 export const App = () => {

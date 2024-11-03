@@ -5,7 +5,7 @@ import { useHandler } from '../../handler.js';
 import "./style.css";
 import * as logo from '../../../static/img/logo_src.js';
 
-export const Draw = () => {
+export const DrawResult = () => {
   const navigate = useNavigate();
   const {
     handleHeaderIcon1,
@@ -15,8 +15,8 @@ export const Draw = () => {
   } = useHandler();
 
   const [kidProfileImageUrl, setKidProfileUrl] = useState("");
-  const [name, setName] = useState("");
-  const [phoneNum, setPhoneNum] = useState("");
+  const [submissionResults, setSubmissionResults] = useState([]);
+  const [drawDate, setDrawDate] = useState("");
 
   useEffect(() => {
     const profileImage = localStorage.getItem("kidProfileImageUrl");
@@ -24,27 +24,61 @@ export const Draw = () => {
       setKidProfileUrl(profileImage);
     }
   }, []);
+  
+  // Function to mask phone number
+  const maskPhoneNumber = (phoneNum) => {
+    return phoneNum.replace(/(\d{3})-\d{4}-(\d{4})/, '$1-****-$2');
+  };
 
-  const handleSubmit = async () => {
+  // Function to format date from timestamp
+  const formatDate = (timestamp) => {
+    const date = new Date(timestamp);
+    const options = { month: 'long', day: 'numeric' }; // 예: 'November 3'
+    return date.toLocaleDateString('ko-KR', options); // 한국어 형식
+  };
+
+  const fetchResults = async () => {
     try {
-      const response = await axios.post('http://localhost:8080', {
-        name,
-        phoneNum
+      const accessToken = localStorage.getItem("accessToken");
+      console.log("Access Token:", accessToken);
+  
+      const response = await axios.get("http://localhost:8080/api/v1/submissions/results", {
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        },
       });
-      console.log("응답:", response.data); // Use this to handle the response
-      alert("응모가 성공적으로 제출되었습니다!");
+  
+      console.log("API Response Data:", response.data);
+  
+      if (Array.isArray(response.data.submissions)) {
+        const formattedResults = response.data.submissions.map(result => ({
+          id: result.id,
+          timeStamp: result.timeStamp,
+          userId: result.userId,
+          name: result.name,
+          phoneNum: maskPhoneNumber(result.phoneNum),
+        }));
+        
+        // Set the draw date using the timestamp of the first submission
+        if (formattedResults.length > 0) {
+          setDrawDate(formatDate(formattedResults[0].timeStamp));
+        }
+
+        setSubmissionResults(formattedResults);
+      } else {
+        console.error("Expected an array but got:", response.data.submissions);
+      }
     } catch (error) {
-      console.error("응모 중 오류 발생:", error);
-      alert("응모에 실패했습니다. 다시 시도해주세요.");
+      console.error("Error fetching submission results", error);
     }
   };
 
-  const handleViewResults = () => {
-    navigate("/draw_result");
-  };
+  useEffect(() => {
+    fetchResults();
+  }, []);
 
   return (
-    <div className="draw">
+    <div className="draw-result">
       <div className="div-2">
         <div className="overlap-group-2">
           <div className="rectangle-3" />
@@ -99,40 +133,16 @@ export const Draw = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="frame-16">
-          <div className="frame-17">
-            <div className="login-section-wrapper">
-              <div className="login-section">
-                <div className="frame-18">
-                  <div className="email-field">
-                    <input
-                      className="text-wrapper-8"
-                      placeholder="이름"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div className="password-field">
-                    <input
-                      className="text-wrapper-9"
-                      placeholder="핸드폰 번호"
-                      value={phoneNum}
-                      onChange={(e) => setPhoneNum(e.target.value)}
-                    />
-                  </div>
+          <div className="submission-results">
+            <h3>{drawDate} 선착순 응모 당첨자</h3> {/* 포맷된 날짜 사용 */}
+            <div className="results-grid">
+              {submissionResults.slice(0, 100).map((result, index) => (
+                <div className="result-item" key={index}>
+                  {result.name} ({result.phoneNum})
                 </div>
-
-                <div className="login-button" onClick={handleSubmit}>
-                  <div className="text-wrapper-10">응모하기</div>
-                </div>
-              </div>
+              ))}
             </div>
-          </div>
-
-          <div className="view-2" onClick={handleViewResults} style={{ cursor: 'pointer' }}>
-            <div className="text-wrapper-11">어제 응모 결과 보기</div>
           </div>
         </div>
       </div>
