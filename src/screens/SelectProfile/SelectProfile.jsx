@@ -18,16 +18,13 @@ export const SelectProfile = () => {
   const [profiles, setProfiles] = useState([]);
 
   // 사용할 프로필 이미지 배열
-  const profileImages = [
-    girlPic1,
-    girlPic2,
-    boyPic1,
-    boyPic2
-  ];
+  const girlProfileImages = [girlPic1, girlPic2];
+  const boyProfileImages = [boyPic1, boyPic2];
 
-  // 랜덤으로 프로필 이미지를 선택하는 함수
-  const getRandomProfileImage = () => {
-    return profileImages[Math.floor(Math.random() * profileImages.length)];
+  // 성별에 따른 랜덤 프로필 이미지를 선택하는 함수
+  const getProfileImageByGender = (gender) => {
+    const images = gender === 'girl' ? girlProfileImages : boyProfileImages;
+    return images[Math.floor(Math.random() * images.length)];
   };
 
   // 로그인 화면으로 이동하는 함수
@@ -60,6 +57,8 @@ export const SelectProfile = () => {
 
         // 응답이 성공적인지 확인하고, 데이터가 배열인지 체크
         const { kidsProfiles } = response.data; // kidsProfiles 추출
+        console.log("Received kidsProfiles:", kidsProfiles); // 응답 데이터 로그 추가
+        
         if (Array.isArray(kidsProfiles)) {
           setProfiles(kidsProfiles); // kidsProfiles 배열을 상태에 설정
         } else {
@@ -74,13 +73,13 @@ export const SelectProfile = () => {
   }, []);
 
   // 프로필 선택 핸들러
-  const handleSelectProfile = (id, name) => {
-    // 랜덤 프로필 이미지 선택
-    const profileImageUrl = getRandomProfileImage();
+  const handleSelectProfile = (id, name, gender) => {
+    // 성별에 따른 랜덤 프로필 이미지 선택
+    const profileImageUrl = getProfileImageByGender(gender);
 
     // 선택한 프로필 정보들을 localStorage에 저장
     localStorage.setItem("kidId", id);
-    localStorage.setItem("kidProfileImageUrl", profileImageUrl);
+    localStorage.setItem("kidProfileImageUrl", profileImageUrl); // 여기서 해당 프로필 이미지로 저장
     localStorage.setItem("kidName", name);
 
     navigate("/main_page"); // 메인 페이지로 이동
@@ -100,12 +99,12 @@ export const SelectProfile = () => {
                 <div
                   className="profile-button"
                   key={profile.id}
-                  onClick={() => handleSelectProfile(profile.id, profile.name)}
+                  onClick={() => handleSelectProfile(profile.id, profile.name, profile.gender)}
                 >
                   <img
                     className="boy-blue"
                     alt={profile.name}
-                    src={getRandomProfileImage()} // 랜덤 이미지 사용
+                    src={getProfileImageByGender(profile.gender)} // 성별에 따라 랜덤 이미지 사용
                   />
                   <div className="text-wrapper">{profile.name}</div>
                 </div>
