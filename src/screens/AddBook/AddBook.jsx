@@ -28,20 +28,66 @@ export const AddBook = () => {
   const [editableBookId, setEditableBookId] = useState(null);
 
   const handleSubmit = async () => {
-    setLoading(true);
+    setLoading(true); // 요청 시작 시 로딩 상태 true로 설정
     try {
       const response = await fetch("http://localhost:8080/api/v1/books/admin", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...bookData, recommendAge: parseInt(bookData.recommendAge, 10) }),
+        body: JSON.stringify({
+          title: bookData.title,
+          story: bookData.story,
+          summary: bookData.summary,
+          author: bookData.author,
+          publisher: bookData.publisher,
+          recommendedAge: parseInt(bookData.recommendedAge, 10),
+          bookImageUrl: bookData.bookImageUrl,
+        }),
       });
-
+  
       const data = await response.json();
+  
       if (response.ok) {
-        alert(`"${data.title}" 이(가) 성공적으로 저장되었습니다.`);
-        resetForm();
+        const formatGraph = (value, total = 100) => {
+          const position = Math.round((value / total) * 10);
+          const graph = '='.repeat(10);
+          
+          const formattedGraph = graph.substring(0, position) + '*' + graph.substring(position + 1);
+          
+          return formattedGraph; // 최종 그래프 문자열 반환
+        };
+  
+        const eiValue = data.ei; 
+        const snValue = data.sn; 
+        const tfValue = data.tf; 
+        const jpValue = data.jp; 
+  
+        // 팝업 메시지 구성
+        const popupMessage = `
+          "${data.title}" 이(가) 성공적으로 저장되었습니다.
+
+
+          I ${formatGraph(eiValue)} E
+          N ${formatGraph(snValue)} S
+          F ${formatGraph(tfValue)} T
+          P ${formatGraph(jpValue)} J
+          
+          AI에 기반하여
+          해당 도서는 ${data.mbti}로 분석되었습니다.
+        `;
+  
+        alert(popupMessage); 
+
+        setBookData({
+          title: "",
+          author: "",
+          publisher: "",
+          story: "",
+          summary: "",
+          recommendedAge: "",
+          bookImageUrl: "https://www.nlcy.go.kr/multiLanguageStory/2010/Nlcy_016_001/Nlcy_016_001.png"
+        });
       } else {
         alert("책 등록에 실패했습니다.");
       }
@@ -49,7 +95,7 @@ export const AddBook = () => {
       console.error("Error:", error);
       alert("서버 요청에 실패했습니다.");
     } finally {
-      setLoading(false);
+      setLoading(false); // 요청 완료 후 로딩 상태 false로 설정
     }
   };
 
