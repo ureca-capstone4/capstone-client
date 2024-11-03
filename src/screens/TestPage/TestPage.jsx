@@ -11,7 +11,7 @@ const TOTAL_QUESTIONS = 12;
 export const TestPage = () => {
   const [questionList, setQuestionList] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [mbtiResult,  setMbtiResult] = useState({});
+  const [mbtiResult,  setMbtiResult] = useState("");
   const [personalityResult,  setPersonalityResult] = useState([]);
   const [kidId, setKidId] = useState("");
 
@@ -70,31 +70,33 @@ export const TestPage = () => {
     }
   };
   
-  const calculateMBTIResult = (answers) => {
-    const mbtiScores = {"EI": 50, "SN": 50, "TF": 50, "JP": 50};
-  
-    Object.values(answers).forEach(({answer, mbtiType, value}) => {
+  useEffect(() => {
+    console.log("MBTI리절트가 업데이트되었습니다:", mbtiResult);
+    if (mbtiResult) {
+        handleKidsPersonality(); // mbtiResult가 업데이트되면 API 호출
+        handleSaveClickNavigate();
+    }
+}, [mbtiResult]);
+
+const calculateMBTIResult = (answers) => {
+  const mbtiScores = {"EI": 50, "SN": 50, "TF": 50, "JP": 50};
+
+  Object.values(answers).forEach(({answer, mbtiType, value}) => {
       if (answer === "네") {
-        mbtiScores[mbtiType] += value; // "네"일 경우 value를 더함
+          mbtiScores[mbtiType] += value; // "네"일 경우 value를 더함
       } else {
-        mbtiScores[mbtiType] -= value; // "아니오"일 경우 value를 뺌
+          mbtiScores[mbtiType] -= value; // "아니오"일 경우 value를 뺌
       }
-    });
-  
-    const result = Object.entries(mbtiScores).map(([type, score]) => {
+  });
+
+  const result = Object.entries(mbtiScores).map(([type, score]) => {
       return score >= 50 ? type[0] : type[1]; // 점수에 따라 MBTI 유형 결정
-    }).join('');
-  
-    setMbtiResult(result);
-    setPersonalityResult(mbtiScores);
+  }).join('');
 
-    console.log("MBTI 결과:", result); // mbtiResult 대신 result를 출력
-
-    handleKidsPersonality();
-    handleSaveClickNavigate();
-
-  };
-
+  setMbtiResult(result); // 상태 업데이트
+  setPersonalityResult(mbtiScores);
+  console.log("그냥 리절트:", result); // mbtiResult 대신 result를 출력
+};
 
   const handleKidsPersonality = async () => {
     try {

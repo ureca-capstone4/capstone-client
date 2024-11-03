@@ -90,12 +90,22 @@ export const AddBook = () => {
   const saveEdit = async (bookId) => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ ...books.find(b => b.bookId === bookId), recommendAge: parseInt(bookData.recommendAge, 10) }),
+      const bookToUpdate = books.find(b => b.bookId === bookId);
+  
+  const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: bookToUpdate.title,
+      summary : bookData.summary,
+      story : bookData.story,
+      author: bookToUpdate.author,
+      publisher: bookToUpdate.publisher,
+      recommendedAge: bookToUpdate.recommendAge, // recommendedAge를 정수로 변환
+      bookImageUrl: bookToUpdate.bookImageUrl // 필요시 다른 필드를 추가
+    }),
       });
 
       if (response.ok) {
@@ -220,15 +230,16 @@ export const AddBook = () => {
                   <div key={field}>
                     {editableBookId === book.bookId ? (
                       <input
-                        type={field === 'recommendedAge' ? 'number' : 'text'}
-                        value={book[field]}
-                        onChange={(e) => {
-                          const updatedBooks = books.map((b) =>
-                            b.bookId === book.bookId ? { ...b, [field]: e.target.value } : b
-                          );
-                          setBooks(updatedBooks);
-                        }}
-                      />
+                      type={field === 'recommendedAge' ? 'number' : 'text'}
+                      value={book[field]}
+                      onChange={(e) => {
+                        const value = field === 'recommendedAge' ? parseInt(e.target.value, 10) : e.target.value;
+                        const updatedBooks = books.map((b) =>
+                          b.bookId === book.bookId ? { ...b, [field]: value } : b
+                        );
+                        setBooks(updatedBooks);
+                      }}
+                    />
                     ) : (
                       <span onClick={() => enableEdit(book)}>{book[field]}</span>
                     )}
