@@ -42,13 +42,6 @@ export const useHandler = () => {
         navigate("/create_profile");
     };
 
-    const handleSelectProfile = (id, name) => {
-        const profileImageUrl = getRandomProfileImage();
-        localStorage.setItem("kidId", id);
-        localStorage.setItem("kidProfileImageUrl", profileImageUrl);
-        localStorage.setItem("kidName", name);
-        navigate("/main_page");
-    };
 
     return {
         handleHeaderIcon1,
@@ -57,7 +50,6 @@ export const useHandler = () => {
         handleProfileClick,
         handleGoBack,
         handleCreateProfile,
-        handleSelectProfile,
         getRandomProfileImage,
     };
 };
