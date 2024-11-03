@@ -8,7 +8,7 @@
 
 .add-book .div {
   background-color: #fff5cf;
-  height: 832px;
+  height: 6000px;
   overflow: hidden;
   position: relative;
   width: 1280px;
@@ -131,7 +131,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 752px;
+  height: 6000px;
   left: 97px;
   padding: 50px 25px;
   position: absolute;
@@ -308,4 +308,95 @@
   width: fit-content;
   background-color: transparent; /* 배경색 투명 */
   border: none; /* 경계선 제거 */
+}
+
+/* getAll Update Delete section */
+.books-management-title {
+  font-size: 40px; /* Slightly smaller to blend with other elements */
+  font-weight: 600;
+  margin: 15px 0; /* Adjusted for consistent spacing */
+  text-align: center;
+  color: #333; /* Assuming you’re using a dark gray color scheme */
+  background-color: #f5f5f5; /* Light background to add subtle separation */
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+.books-table {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f4f6ff;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  font-family: "LaundryGothic-Regular", Helvetica;
+}
+
+.table-header, .book-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 1fr 1fr;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.table-header {
+  font-weight: bold;
+  color: #333;
+}
+
+.book-row {
+  background-color: #f9f9f9;
+}
+
+.book-row span, .book-row input {
+  font-size: 16px;
+  color: #555;
+}
+
+.book-row input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.book-row input[type="text"] {
+  width: 90%;
+}
+
+.book-row input[type="number"] {
+  width: 70px;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.book-row button {
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #f3c623;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.book-row button:hover {
+  background-color: #d1a512;
+}
+
+.buttons-container button:last-child {
+  background-color: #e74c3c;
+}
+
+.buttons-container button:last-child:hover {
+  background-color: #c0392b;
 }
