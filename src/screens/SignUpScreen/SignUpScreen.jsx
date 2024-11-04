@@ -14,7 +14,7 @@ export const SignUpScreen = () => {
 
   const handleSignUp = async () => {
     try {
-      const response = await fetch(`https://${REACT_APP_BACKEND_IP}/api/v1/auth/signup`, {
+      const response = await fetch(`https://${process.env.REACT_APP_BACKEND_IP}/api/v1/auth/signup`, {
         method: "POST",
         headers:{
           "Content-Type": "application/json",
