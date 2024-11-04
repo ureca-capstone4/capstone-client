@@ -49,7 +49,7 @@ export const SelectProfile = () => {
       console.log("Access Token:", accessToken); // 토큰 출력 로그 추가
       
       try {
-        const response = await axios.get("http://localhost:8080/api/v1/kids", {
+        const response = await axios.get(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/kids`, {
           headers: {
             authorization: `Bearer ${accessToken}`,
           },

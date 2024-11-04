@@ -12,7 +12,7 @@ export const LoginScreen = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+      const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

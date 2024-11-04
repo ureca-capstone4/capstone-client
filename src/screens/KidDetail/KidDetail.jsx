@@ -49,7 +49,7 @@ export const KidDetail = () => {
     if (kidId) {
       try {
         const response = await axios.put(
-          `http://localhost:8080/api/v1/kids/${kidId}/personalities`
+          `http://${process.env.REACT_APP_BACKEND_IP}/api/v1/kids/${kidId}/personalities`
         );
         console.log("삭제 성공:", response.data); // 삭제 성공 응답 확인
       } catch (error) {
@@ -80,7 +80,7 @@ export const KidDetail = () => {
       if (kidId) {
         try {
           const response = await axios.get(
-            `http://localhost:8080/api/v1/kids/${kidId}/personalityHistories`
+            `http://${process.env.REACT_APP_BACKEND_IP}/api/v1/kids/${kidId}/personalityHistories`
           );
           console.log("API 응답:", response.data); // 응답 확인
           if (response.data && response.data.histories) {

@@ -52,7 +52,7 @@ export const BookDetail = () => {
   useEffect(() => {
     const fetchBookDetail = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/v1/books?bookId=${bookId}&kidId=${kidId}`);
+        const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books?bookId=${bookId}&kidId=${kidId}`);
         if (!response.ok) throw new Error("책 상세정보를 가져오는 데 실패했습니다.");
 
         const data = await response.json();
@@ -75,7 +75,7 @@ export const BookDetail = () => {
   const handleLikeBook = async () => {
     try {
       const reqBody = { kidId: Number(kidId) }; // 요청 본문 생성
-      const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}/like`, {
+      const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/${bookId}/like`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export const BookDetail = () => {
   const handleDislikeBook = async () => {
     try {
       const reqBody = { kidId: Number(kidId) }; // 요청 본문 생성
-      const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}/dislike`, {
+      const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/${bookId}/dislike`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

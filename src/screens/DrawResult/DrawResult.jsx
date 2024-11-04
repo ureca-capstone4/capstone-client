@@ -42,7 +42,7 @@ export const DrawResult = () => {
       const accessToken = localStorage.getItem("accessToken");
       console.log("Access Token:", accessToken);
   
-      const response = await axios.get("http://localhost:8080/api/v1/submissions/results", {
+      const response = await axios.get(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/submissions/results`, {
         headers: {
           authorization: `Bearer ${accessToken}`,
         },

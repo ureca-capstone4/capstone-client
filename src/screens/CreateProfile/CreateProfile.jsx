@@ -21,7 +21,7 @@ export const CreateProfile = () => {
     const token = localStorage.getItem("accessToken");
 
     try{
-      const response = await fetch("http://localhost:8080/api/v1/kids", {
+      const response = await fetch("http://${process.env.REACT_APP_BACKEND_IP}/api/v1/kids", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

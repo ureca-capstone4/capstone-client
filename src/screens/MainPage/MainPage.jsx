@@ -29,7 +29,7 @@ export const MainPage = () => {
   useEffect(() => {
     const fetchRecommendedBooks = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/v1/books/recommendations?kidId=${kidId}`);
+        const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/recommendations?kidId=${kidId}`);
         if (!response.ok) throw new Error("Network response was not ok");
 
         const data = await response.json();

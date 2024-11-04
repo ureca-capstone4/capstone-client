@@ -26,7 +26,7 @@ export const TestPage = () => {
       const token = localStorage.getItem("accessToken");
 
       try {
-        const response = await fetch(`http://localhost:8080/api/v1/personality/questions`, {
+        const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/personality/questions`, {
           method: 'GET',
           headers: {
             authorization: `Bearer ${token}`,
@@ -101,7 +101,7 @@ const calculateMBTIResult = (answers) => {
   const handleKidsPersonality = async () => {
     try {
       const token = localStorage.getItem("accessToken");
-      const response = await fetch(`http://localhost:8080/api/v1/kids/${kidId}/personalities`, {
+      const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/kids/${kidId}/personalities`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

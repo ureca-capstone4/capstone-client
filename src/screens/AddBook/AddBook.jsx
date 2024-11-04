@@ -30,7 +30,7 @@ export const AddBook = () => {
   const handleSubmit = async () => {
     setLoading(true); // 요청 시작 시 로딩 상태 true로 설정
     try {
-      const response = await fetch("http://localhost:8080/api/v1/books/admin", {
+      const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/admin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -102,7 +102,7 @@ export const AddBook = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/v1/books/all");
+        const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/all`);
         const data = await response.json();
         console.log(data); // 응답 데이터 확인
         setBooks(data.map(book => ({
@@ -138,7 +138,7 @@ export const AddBook = () => {
     try {
       const bookToUpdate = books.find(b => b.bookId === bookId);
   
-  const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}`, {
+  const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/${bookId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -174,7 +174,7 @@ export const AddBook = () => {
     if (confirmDelete) {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:8080/api/v1/books/${bookId}`, { method: "DELETE" });
+        const response = await fetch(`http://${process.env.REACT_APP_BACKEND_IP}/api/v1/books/${bookId}`, { method: "DELETE" });
 
         if (response.ok) {
           alert("책이 성공적으로 삭제되었습니다.");

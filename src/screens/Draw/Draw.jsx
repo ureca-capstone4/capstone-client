@@ -27,7 +27,7 @@ export const Draw = () => {
 
   const handleSubmit = async () => {
     try {
-      const response = await axios.post('http://localhost:8080', {
+      const response = await axios.post('http://${process.env.REACT_APP_BACKEND_IP}', {
         name,
         phoneNum
       });
